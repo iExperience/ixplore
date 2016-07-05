@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, WKNavigationDelegate {
     
     var webView: WKWebView?
 
@@ -28,11 +28,15 @@ class NewsViewController: UIViewController {
         super.loadView()
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.webView = WKWebView()
+        self.webView?.navigationDelegate = self
         self.webView?.frame = CGRectMake(0, 60, (appDelegate.window?.frame.width)!, (appDelegate.window?.frame.height)! - 60)
         self.webView?.contentMode = UIViewContentMode.ScaleAspectFit
         let url = NSURL(string:"http://ixp.co.za/notice-board")
         let req = NSURLRequest(URL:url!)
         self.webView!.loadRequest(req)
+    }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.view.addSubview(self.webView!)
     }
 

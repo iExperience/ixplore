@@ -26,15 +26,25 @@
                         <action selector="menuButtonTapped:" destination="-1" eventType="touchUpInside" id="g65-vW-sN5"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iXlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mwz-Ce-JzJ">
+                    <rect key="frame" x="175" y="175" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="UG1-Rf-Ave"/>
+                        <constraint firstAttribute="height" constant="250" id="jga-L3-i2b"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WIi-QK-jfD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="AeV-VA-53m"/>
+                <constraint firstItem="mwz-Ce-JzJ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="DSB-w5-6kW"/>
                 <constraint firstItem="WIi-QK-jfD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="J6T-12-VDh"/>
+                <constraint firstItem="mwz-Ce-JzJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QA6-hk-9ly"/>
             </constraints>
         </view>
     </objects>
     <resources>
         <image name="hamburger.png" width="512" height="512"/>
+        <image name="iXlogo.png" width="294" height="294"/>
     </resources>
 </document>

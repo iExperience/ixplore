@@ -20,12 +20,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        
-//        let tvc = TestViewController(nibName: "TestViewController", bundle: nil)
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.rootViewController = lvc
+        
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
+            graphRequest.startWithCompletionHandler({
+                (connection, result, error: NSError!) -> Void in
+                if error == nil {
+                    
+                    let imageView = UIImageView()
+                    imageView.imageFromUrl("http://graph.facebook.com/\(result["id"] as! String)/picture?width=720&height=720")
+                    
+                    UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
+                }
+                
+            })
+            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
+            let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
+            self.mainNavigationController = UINavigationController(rootViewController: mvc)
+            self.mainNavigationController?.pushViewController(cvc, animated: false)
+            self.mainNavigationController?.navigationBarHidden = true
+            self.window?.rootViewController = self.mainNavigationController
+        }
+        
+        else {
+        
+            let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            
+            self.window?.rootViewController = lvc
+            
+        }
+        
         self.window?.makeKeyAndVisible()
         
         return true
@@ -56,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+    }
+    
+    func navigateToLogin() {
+        let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        self.window?.rootViewController = lvc
+        self.mainNavigationController?.popViewControllerAnimated(false)
     }
 
 }

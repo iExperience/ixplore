@@ -1,5 +1,5 @@
 //
-//  UIColorExtension.swift
+//  Extensions.swift
 //  ThriftBid
 //
 //  Created by Brian Ge on 6/23/16.
@@ -21,4 +21,20 @@ extension UIColor {
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
+}
+
+extension UIImageView {
+    
+    public func imageFromUrl(urlString: String) {
+        if let url = NSURL(string: urlString) {
+            let request = NSURLRequest(URL: url)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
+                (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+                if let imageData = data as NSData? {
+                    self.image = UIImage(data: imageData)
+                }
+            }
+        }
+    }
+    
 }

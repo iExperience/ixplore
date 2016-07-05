@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class CalendarViewController: UIViewController {//, WKNavigationDelegate {
+class CalendarViewController: UIViewController , WKNavigationDelegate {
     
     var webView: WKWebView?
     
@@ -39,7 +39,7 @@ class CalendarViewController: UIViewController {//, WKNavigationDelegate {
 //        self.webView = WKWebView(frame: CGRectMake(0, 60, (appDelegate.window?.frame.width)!, (appDelegate.window?.frame.height)! - 60), configuration: wkWebConfig)
 //        self.webView?.contentScaleFactor = 1
         self.webView = WKWebView()
-//        self.webView?.navigationDelegate = self
+        self.webView?.navigationDelegate = self
         self.webView?.frame = CGRectMake(0, 60, (appDelegate.window?.frame.width)!, (appDelegate.window?.frame.height)! - 60)
 //        self.webView?.contentMode = UIViewContentMode.ScaleAspectFit
         let url = NSURL(string:"https://teamup.com/ks1b61e773b115d98d?view=w")
@@ -50,11 +50,12 @@ class CalendarViewController: UIViewController {//, WKNavigationDelegate {
 //            print("hey")
 //        }
 
-        self.view.addSubview(self.webView!)
+//        self.view.addSubview(self.webView!)
     }
     
-//    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-//        print("hey")
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+        print("hey")
+        self.view.addSubview(self.webView!)
 //        let contentSize = self.webView?.scrollView.contentSize
 //        let viewSize = self.webView?.bounds.size
 //        print(contentSize?.width)
@@ -64,7 +65,7 @@ class CalendarViewController: UIViewController {//, WKNavigationDelegate {
 //        self.webView!.scrollView.minimumZoomScale = rw
 //        self.webView!.scrollView.maximumZoomScale = rw
 //        self.webView!.scrollView.zoomScale = rw
-//    }
+    }
 
     @IBAction func menuButtonTapped(sender: UIButton) {
         self.navigationController?.popViewControllerAnimated(true)

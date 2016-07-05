@@ -7,13 +7,32 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MenuViewController: UIViewController {
 
+    @IBOutlet weak var pictureImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var supportButton: UIButton!
+    @IBOutlet weak var newsletterButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.nameLabel.text = (UserController.sharedInstance.user?.firstName)! + " " + (UserController.sharedInstance.user?.lastName)!
+        self.calendarButton.layer.cornerRadius = 62.5
+        self.calendarButton.backgroundColor = UIColor(netHex: 0xf9007a)
+        self.supportButton.layer.cornerRadius = 62.5
+        self.supportButton.backgroundColor = UIColor(netHex: 0xf9007a)
+        self.newsletterButton.layer.cornerRadius = 62.5
+        self.newsletterButton.backgroundColor = UIColor(netHex: 0xf9007a)
+        self.logoutButton.layer.cornerRadius = 62.5
+        self.logoutButton.backgroundColor = UIColor(netHex: 0xf9007a)
+        pictureImageView.clipsToBounds = true
+        pictureImageView.image = UserController.sharedInstance.user?.image.image
+        pictureImageView.layer.cornerRadius = 75
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,4 +55,10 @@ class MenuViewController: UIViewController {
         self.navigationController?.pushViewController(svc, animated: true)
     }
 
+    @IBAction func logoutButtonTapped(sender: UIButton) {
+        FBSDKLoginManager().logOut()
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.navigateToLogin()
+    }
+    
 }

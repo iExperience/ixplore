@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundImageView" destination="rZN-zp-J9D" id="j90-JZ-MRH"/>
+                <outlet property="overlayView" destination="ycr-Nf-5N0" id="SzT-z5-vCb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +16,48 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="rZN-zp-J9D">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycr-Nf-5N0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iXplore" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ko-aB-t58">
+                    <rect key="frame" x="179" y="100" width="241" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="-30" y="113" width="241" height="34"/>
+                    </variation>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ycr-Nf-5N0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Da-XU-bp1"/>
+                <constraint firstItem="rZN-zp-J9D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EiB-uG-hnq"/>
+                <constraint firstItem="0ko-aB-t58" firstAttribute="centerX" secondItem="rZN-zp-J9D" secondAttribute="centerX" id="FnO-wS-DhJ"/>
+                <constraint firstAttribute="trailing" secondItem="ycr-Nf-5N0" secondAttribute="trailing" id="Lf5-SN-Evg"/>
+                <constraint firstItem="rZN-zp-J9D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZRe-Jg-7Qv"/>
+                <constraint firstItem="ycr-Nf-5N0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zo0-HH-cfd"/>
+                <constraint firstItem="0ko-aB-t58" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="kKt-qI-8bk"/>
+                <constraint firstAttribute="bottom" secondItem="rZN-zp-J9D" secondAttribute="bottom" id="wDP-9H-5wD"/>
+                <constraint firstAttribute="bottom" secondItem="ycr-Nf-5N0" secondAttribute="bottom" id="wne-LY-kEo"/>
+                <constraint firstAttribute="trailing" secondItem="rZN-zp-J9D" secondAttribute="trailing" id="zYq-hg-K2b"/>
+            </constraints>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="0ko-aB-t58"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="FnO-wS-DhJ"/>
+                </mask>
+            </variation>
         </view>
     </objects>
+    <resources>
+        <image name="home.jpg" width="1582" height="1067"/>
+    </resources>
 </document>
