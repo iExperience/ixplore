@@ -6,6 +6,10 @@ PODS:
   - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.7.0)
+  - Devise (1.1.0):
+    - ngrvalidator (~> 1.1.0)
+    - UICKeyChainStore (~> 1.1)
+    - XLForm (~> 2.1)
   - FBSDKCoreKit (4.12.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.12.0):
@@ -13,10 +17,14 @@ PODS:
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
   - Intercom (2.3.21)
+  - ngrvalidator (1.1.0)
   - SwiftyJSON (2.3.2)
+  - UICKeyChainStore (1.1.1)
+  - XLForm (2.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - Devise
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -35,12 +43,20 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Devise: 6f505eeada5fd219edea561d7c8ba13698d8388b
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   Intercom: c05a2e008be2e5064d9045e0e7b919ca267da303
+  ngrvalidator: cc3ca5536c63b973613f5d588446d46a46451d67
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  UICKeyChainStore: 891bcd2fe687c92db8e648cba035c4e662ffa43e
+  XLForm: 799e61ef230f519914e722bf032b19a597223c19
 
+<<<<<<< HEAD
 PODFILE CHECKSUM: 881f7c8cbc999ee0c448bd8ee6313d54085c4a3c
+=======
+PODFILE CHECKSUM: d0de67a0e24fb704b33028b451b6eeb284e84aba
+>>>>>>> a87c3e1371cd1c8dc3f4a828d3bdd92a47d14fe3
 
 COCOAPODS: 1.0.1

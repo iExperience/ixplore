@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EB9591FEAC12584059F737F /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 677F13DBBD4D75C73FE23222 /* Pods_iXplore.framework */; };
+		A180EE57E336D7BA29124793 /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */; };
 		D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148DDB11D2BDE1500234996 /* Extensions.swift */; };
 		D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C4A821D2C0BD700C641F3 /* UserController.swift */; };
 		D15C4A851D2C189000C641F3 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D15C4A841D2C189000C641F3 /* home.jpg */; };
@@ -50,9 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CD8BAB3AFEF5CB032CE4DB5 /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
-		677F13DBBD4D75C73FE23222 /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		68CABD4796BA0D75DD3D4F3B /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
+		0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
+		276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		D148DDB11D2BDE1500234996 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D15C4A821D2C0BD700C641F3 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		D15C4A841D2C189000C641F3 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		D1E954EB1D2AB368007A4120 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
+		E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,19 +101,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EB9591FEAC12584059F737F /* Pods_iXplore.framework in Frameworks */,
+				A180EE57E336D7BA29124793 /* Pods_iXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		741A859B94DA387932983065 /* Frameworks */ = {
+		2AEADF1942A52ABF52BE638F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				677F13DBBD4D75C73FE23222 /* Pods_iXplore.framework */,
+				276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */,
+				0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D148DDAC1D2BBD6700234996 /* Main */ = {
@@ -190,8 +191,8 @@
 			children = (
 				D1E954B91D2A85B1007A4120 /* iXplore */,
 				D1E954B81D2A85B1007A4120 /* Products */,
-				EFDD382B25D195D7FA62C576 /* Pods */,
-				741A859B94DA387932983065 /* Frameworks */,
+				2AEADF1942A52ABF52BE638F /* Pods */,
+				D7033ACC846C0AC197B31A04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,13 +222,12 @@
 			path = iXplore;
 			sourceTree = "<group>";
 		};
-		EFDD382B25D195D7FA62C576 /* Pods */ = {
+		D7033ACC846C0AC197B31A04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2CD8BAB3AFEF5CB032CE4DB5 /* Pods-iXplore.debug.xcconfig */,
-				68CABD4796BA0D75DD3D4F3B /* Pods-iXplore.release.xcconfig */,
+				E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +427,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -449,6 +450,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -473,6 +475,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -485,20 +488,73 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
 		D1E954CA1D2A85B1007A4120 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2CD8BAB3AFEF5CB032CE4DB5 /* Pods-iXplore.debug.xcconfig */;
+			baseConfigurationReference = 276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iXplore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"icucore\"",
+					"-l\"xml2\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Devise\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Intercom\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"NGRValidator\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UICKeyChainStore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"XLForm\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -506,12 +562,63 @@
 		};
 		D1E954CB1D2A85B1007A4120 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68CABD4796BA0D75DD3D4F3B /* Pods-iXplore.release.xcconfig */;
+			baseConfigurationReference = 0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iXplore/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"icucore\"",
+					"-l\"xml2\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Devise\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Intercom\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"NGRValidator\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UICKeyChainStore\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"XLForm\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

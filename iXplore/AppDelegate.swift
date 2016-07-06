@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         if FBSDKAccessToken.currentAccessToken() != nil {
+            print(FBSDKAccessToken.currentAccessToken())
             let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
             graphRequest.startWithCompletionHandler({
                 (connection, result, error: NSError!) -> Void in
