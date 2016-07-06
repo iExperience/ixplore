@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A180EE57E336D7BA29124793 /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */; };
 		D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148DDB11D2BDE1500234996 /* Extensions.swift */; };
 		D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C4A821D2C0BD700C641F3 /* UserController.swift */; };
 		D15C4A851D2C189000C641F3 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D15C4A841D2C189000C641F3 /* home.jpg */; };
@@ -47,11 +46,13 @@
 		D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954EB1D2AB368007A4120 /* WebService.swift */; };
 		D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */; };
 		D1E954F01D2ABF9E007A4120 /* SupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */; };
+		E53FEAE8A09845D73C777DFA /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4BFE0E5E3446E452D7335B /* Pods_iXplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
-		276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
+		3E4BFE0E5E3446E452D7335B /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		525432B5BFC8F31AC7ECEE0B /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
+		9E2E738D9847DA55B6831A0C /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		D148DDB11D2BDE1500234996 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D15C4A821D2C0BD700C641F3 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		D15C4A841D2C189000C641F3 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		D1E954EB1D2AB368007A4120 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
-		E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,18 +101,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A180EE57E336D7BA29124793 /* Pods_iXplore.framework in Frameworks */,
+				E53FEAE8A09845D73C777DFA /* Pods_iXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AEADF1942A52ABF52BE638F /* Pods */ = {
+		25BE5850C50E51ECB613D94E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */,
-				0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */,
+				3E4BFE0E5E3446E452D7335B /* Pods_iXplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		519AFE23855A1B1286452BB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E2E738D9847DA55B6831A0C /* Pods-iXplore.debug.xcconfig */,
+				525432B5BFC8F31AC7ECEE0B /* Pods-iXplore.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -191,8 +199,8 @@
 			children = (
 				D1E954B91D2A85B1007A4120 /* iXplore */,
 				D1E954B81D2A85B1007A4120 /* Products */,
-				2AEADF1942A52ABF52BE638F /* Pods */,
-				D7033ACC846C0AC197B31A04 /* Frameworks */,
+				519AFE23855A1B1286452BB3 /* Pods */,
+				25BE5850C50E51ECB613D94E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -220,14 +228,6 @@
 				D1E954C61D2A85B1007A4120 /* Info.plist */,
 			);
 			path = iXplore;
-			sourceTree = "<group>";
-		};
-		D7033ACC846C0AC197B31A04 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E7D96EF48EC9966B6D17A595 /* Pods_iXplore.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,7 +498,7 @@
 		};
 		D1E954CA1D2A85B1007A4120 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 276B4797475469999921B84A /* Pods-iXplore.debug.xcconfig */;
+			baseConfigurationReference = 9E2E738D9847DA55B6831A0C /* Pods-iXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
@@ -562,7 +562,7 @@
 		};
 		D1E954CB1D2A85B1007A4120 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E7055B67FEE401742160B6C /* Pods-iXplore.release.xcconfig */;
+			baseConfigurationReference = 525432B5BFC8F31AC7ECEE0B /* Pods-iXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ENABLE_BITCODE = NO;
