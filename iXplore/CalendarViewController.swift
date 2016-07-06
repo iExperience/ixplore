@@ -54,7 +54,7 @@ class CalendarViewController: UIViewController , WKNavigationDelegate {
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        print("hey")
+        print("hello")
         self.view.addSubview(self.webView!)
 //        let contentSize = self.webView?.scrollView.contentSize
 //        let viewSize = self.webView?.bounds.size
@@ -68,6 +68,7 @@ class CalendarViewController: UIViewController , WKNavigationDelegate {
     }
 
     @IBAction func menuButtonTapped(sender: UIButton) {
+        print("tap")
         self.navigationController?.popViewControllerAnimated(true)
     }
     

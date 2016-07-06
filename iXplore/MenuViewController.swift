@@ -21,7 +21,9 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.nameLabel.text = (UserController.sharedInstance.user?.firstName)! + " " + (UserController.sharedInstance.user?.lastName)!
+        if let user = UserController.sharedInstance.user {
+            self.nameLabel.text = user.firstName + " " + user.lastName
+        }
         self.calendarButton.layer.cornerRadius = 62.5
         self.calendarButton.backgroundColor = UIColor(netHex: 0xf9007a)
         self.supportButton.layer.cornerRadius = 62.5
@@ -33,7 +35,23 @@ class MenuViewController: UIViewController {
         pictureImageView.clipsToBounds = true
         pictureImageView.image = UserController.sharedInstance.user?.image.image
         pictureImageView.layer.cornerRadius = 75
+        while pictureImageView.image == nil {
+            self.refreshImage()
+        }
     }
+    
+    func refreshImage() {
+        pictureImageView.clipsToBounds = true
+        pictureImageView.image = UserController.sharedInstance.user?.image.image
+        pictureImageView.layer.cornerRadius = 75
+    }
+    
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(true)
+//        pictureImageView.clipsToBounds = true
+//        pictureImageView.image = UserController.sharedInstance.user?.image.image
+//        pictureImageView.layer.cornerRadius = 75
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
