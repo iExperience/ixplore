@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecognizerDelegate {
+class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
     var webView: WKWebView?
 
@@ -31,7 +31,6 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
         self.webView = WKWebView()
         self.webView?.navigationDelegate = self
         self.webView?.frame = CGRectMake(0, 60, (appDelegate.window?.frame.width)!, (appDelegate.window?.frame.height)! - 60)
-        self.webView?.contentMode = UIViewContentMode.ScaleAspectFit
         let url = NSURL(string:"http://ixp.co.za/notice-board")
         let req = NSURLRequest(URL:url!)
         self.webView!.loadRequest(req)
@@ -40,11 +39,11 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.view.addSubview(self.webView!)
-        print("load")
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let zoomedScreen = CGRectMake(0, 0, (appDelegate.window?.frame.width)! - 100, (appDelegate.window?.frame.height)! - 60)
-        self.webView!.scrollView.zoomToRect(zoomedScreen, animated: true)
-        
+        //print(webView.scrollView.contentSize)
+//        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        print(webView.scrollView.contentSize)
+//        let zoomedScreen = CGRectMake(60,60,webView.scrollView.frame.width * 1.8, webView.scrollView.frame.height)
+//        self.webView!.scrollView.zoomToRect(zoomedScreen, animated: true)
     }
 
     @IBAction func menuButtonTapped(sender: UIButton) {
