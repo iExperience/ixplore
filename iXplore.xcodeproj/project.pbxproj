@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B6FDD22444445B9E064D40F /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5D9392390E34E3594FF81DC /* Pods_iXplore.framework */; };
+		D102D55A1D2D695900D1F27E /* CustomCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D102D5581D2D695900D1F27E /* CustomCalendarViewController.swift */; };
+		D102D55B1D2D695900D1F27E /* CustomCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D102D5591D2D695900D1F27E /* CustomCalendarViewController.xib */; };
 		D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148DDB11D2BDE1500234996 /* Extensions.swift */; };
 		D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C4A821D2C0BD700C641F3 /* UserController.swift */; };
 		D15C4A851D2C189000C641F3 /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D15C4A841D2C189000C641F3 /* home.jpg */; };
@@ -47,11 +48,15 @@
 		D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954EB1D2AB368007A4120 /* WebService.swift */; };
 		D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */; };
 		D1E954F01D2ABF9E007A4120 /* SupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */; };
+		DDDD1ACF7F1CFD5F270C3917 /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E886F920CF8E0348BC000F /* Pods_iXplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01DB8E3E8EACD8699B6705C5 /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
-		BAAAE1D09655E8942BBCC556 /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
+		43B4098851C11351C2D3666C /* Pods-iXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.debug.xcconfig"; sourceTree = "<group>"; };
+		68E886F920CF8E0348BC000F /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		730F42C83118BB56462763C4 /* Pods-iXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-iXplore/Pods-iXplore.release.xcconfig"; sourceTree = "<group>"; };
+		D102D5581D2D695900D1F27E /* CustomCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendarViewController.swift; sourceTree = "<group>"; };
+		D102D5591D2D695900D1F27E /* CustomCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalendarViewController.xib; sourceTree = "<group>"; };
 		D148DDB11D2BDE1500234996 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D15C4A821D2C0BD700C641F3 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		D15C4A841D2C189000C641F3 /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
@@ -93,7 +98,6 @@
 		D1E954EB1D2AB368007A4120 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
-		E5D9392390E34E3594FF81DC /* Pods_iXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,21 +105,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B6FDD22444445B9E064D40F /* Pods_iXplore.framework in Frameworks */,
+				DDDD1ACF7F1CFD5F270C3917 /* Pods_iXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7D923880D0BD466C91F1212C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E5D9392390E34E3594FF81DC /* Pods_iXplore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D148DDAC1D2BBD6700234996 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +186,8 @@
 			children = (
 				D1E954B91D2A85B1007A4120 /* iXplore */,
 				D1E954B81D2A85B1007A4120 /* Products */,
-				F0F9701EDDFD82BF0A26C24D /* Pods */,
-				7D923880D0BD466C91F1212C /* Frameworks */,
+				F3D9A44F24C9898A9E7C3FC0 /* Pods */,
+				F47421699105474BF48B7E39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */,
+				D102D5581D2D695900D1F27E /* CustomCalendarViewController.swift */,
+				D102D5591D2D695900D1F27E /* CustomCalendarViewController.xib */,
 				D1ADD4D31D2CF4780064D387 /* Fonts */,
 				D148DDB01D2BBDAB00234996 /* Images */,
 				D148DDAD1D2BBD8300234996 /* Models */,
@@ -221,13 +219,21 @@
 			path = iXplore;
 			sourceTree = "<group>";
 		};
-		F0F9701EDDFD82BF0A26C24D /* Pods */ = {
+		F3D9A44F24C9898A9E7C3FC0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BAAAE1D09655E8942BBCC556 /* Pods-iXplore.debug.xcconfig */,
-				01DB8E3E8EACD8699B6705C5 /* Pods-iXplore.release.xcconfig */,
+				43B4098851C11351C2D3666C /* Pods-iXplore.debug.xcconfig */,
+				730F42C83118BB56462763C4 /* Pods-iXplore.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F47421699105474BF48B7E39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68E886F920CF8E0348BC000F /* Pods_iXplore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +319,7 @@
 				D1ADD4F11D2CF4870064D387 /* Lato-Medium.ttf in Resources */,
 				D1ADD4F01D2CF4870064D387 /* Lato-LightItalic.ttf in Resources */,
 				D1ADD4EE1D2CF4870064D387 /* Lato-Italic.ttf in Resources */,
+				D102D55B1D2D695900D1F27E /* CustomCalendarViewController.xib in Resources */,
 				D1E954CF1D2A887E007A4120 /* LoginViewController.xib in Resources */,
 				D1ADD4F71D2CF4870064D387 /* Lato-ThinItalic.ttf in Resources */,
 				D1ADD4E91D2CF4870064D387 /* Lato-BoldItalic.ttf in Resources */,
@@ -393,6 +400,7 @@
 				D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */,
 				D1E954E21D2AA605007A4120 /* NewsViewController.swift in Sources */,
 				D1E954E61D2AB2E9007A4120 /* TestViewController.swift in Sources */,
+				D102D55A1D2D695900D1F27E /* CustomCalendarViewController.swift in Sources */,
 				D1E954DE1D2AA522007A4120 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +511,7 @@
 		};
 		D1E954CA1D2A85B1007A4120 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAAAE1D09655E8942BBCC556 /* Pods-iXplore.debug.xcconfig */;
+			baseConfigurationReference = 43B4098851C11351C2D3666C /* Pods-iXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -565,16 +573,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D1E954CB1D2A85B1007A4120 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01DB8E3E8EACD8699B6705C5 /* Pods-iXplore.release.xcconfig */;
+			baseConfigurationReference = 730F42C83118BB56462763C4 /* Pods-iXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: iXperience (Pty) Ltd (KC6ABGRXCW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: iXperience (Pty) Ltd (KC6ABGRXCW)";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iXplore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -631,7 +640,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a57705aa-26d3-4cbf-a0d2-bcc165fadd2f";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

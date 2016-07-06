@@ -39,7 +39,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Devise:
-    :commit: 9ee5794f5c8fdcaf54341e475db24086ce7e1eb8
+    :commit: 85134b8262a84c3b09a569d0405e6b70344308ef
     :git: https://github.com/iExperience/devise-ios.git
   SwiftyJSON:
     :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
