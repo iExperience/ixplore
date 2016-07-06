@@ -12,6 +12,6 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Intercom'
-pod 'Devise'
+pod 'Devise', :git => 'https://github.com/iExperience/devise-ios.git'
 
 end

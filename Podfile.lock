@@ -6,10 +6,10 @@ PODS:
   - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.7.0)
-  - Devise (1.1.0):
-    - ngrvalidator (~> 1.1.0)
+  - Devise (1.1.1):
+    - ngrvalidator (~> 1.2.0)
     - UICKeyChainStore (~> 1.1)
-    - XLForm (~> 2.1)
+    - XLForm (~> 3.0)
   - FBSDKCoreKit (4.13.1):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.13.1):
@@ -17,14 +17,14 @@ PODS:
   - FBSDKShareKit (4.13.1):
     - FBSDKCoreKit
   - Intercom (2.3.21)
-  - ngrvalidator (1.1.0)
+  - ngrvalidator (1.2.1)
   - SwiftyJSON (2.3.2)
   - UICKeyChainStore (1.1.1)
-  - XLForm (2.2.0)
+  - XLForm (3.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
-  - Devise
+  - Devise (from `https://github.com/iExperience/devise-ios.git`)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -32,10 +32,15 @@ DEPENDENCIES:
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
+  Devise:
+    :git: https://github.com/iExperience/devise-ios.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  Devise:
+    :commit: 9ee5794f5c8fdcaf54341e475db24086ce7e1eb8
+    :git: https://github.com/iExperience/devise-ios.git
   SwiftyJSON:
     :commit: 73670b94292b8d8496c398a973f56ac67789ba9f
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -43,16 +48,16 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
-  Devise: 6f505eeada5fd219edea561d7c8ba13698d8388b
+  Devise: bb2305e111d8f475a74a71669d0123a6bbd54bff
   FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
   FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
   FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
   Intercom: c05a2e008be2e5064d9045e0e7b919ca267da303
-  ngrvalidator: cc3ca5536c63b973613f5d588446d46a46451d67
+  ngrvalidator: ce34f275e1a9cddc78415f8b61abdb85134082bb
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UICKeyChainStore: 891bcd2fe687c92db8e648cba035c4e662ffa43e
-  XLForm: 799e61ef230f519914e722bf032b19a597223c19
+  XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: d0de67a0e24fb704b33028b451b6eeb284e84aba
+PODFILE CHECKSUM: 694faef3f929fdcb50f911ec8b11e8ae0cac74e7
 
 COCOAPODS: 1.0.1
