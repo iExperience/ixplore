@@ -12,5 +12,6 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Intercom'
+pod 'Devise'
 
 end
