@@ -265,7 +265,12 @@
 				TargetAttributes = {
 					D1E954B61D2A85B1007A4120 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = K4NUNQ5VCK;
+						DevelopmentTeam = KC6ABGRXCW;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -501,7 +506,9 @@
 			baseConfigurationReference = BAAAE1D09655E8942BBCC556 /* Pods-iXplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iXplore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -555,8 +562,9 @@
 					"-framework",
 					"\"XLForm\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXplore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -565,7 +573,9 @@
 			baseConfigurationReference = 01DB8E3E8EACD8699B6705C5 /* Pods-iXplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ENABLE_BITCODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = iXplore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -619,8 +629,9 @@
 					"-framework",
 					"\"XLForm\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXplore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
