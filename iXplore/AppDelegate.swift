@@ -46,12 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
             })
-            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
-            let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
-            self.mainNavigationController = UINavigationController(rootViewController: mvc)
-            self.mainNavigationController?.pushViewController(cvc, animated: false)
-            self.mainNavigationController?.navigationBarHidden = true
-            self.window?.rootViewController = self.mainNavigationController
+//            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
+//            let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
+//            self.mainNavigationController = UINavigationController(rootViewController: mvc)
+//            self.mainNavigationController?.pushViewController(cvc, animated: false)
+//            self.mainNavigationController?.navigationBarHidden = true
+//            self.window?.rootViewController = self.mainNavigationController
+            
+            let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+            self.window?.rootViewController = ccvc
         }
         
         else {
