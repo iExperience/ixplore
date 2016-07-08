@@ -25,7 +25,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
     var previousWeekView: CustomWeekView!
     
     // for day view
-    let blockHeight: CGFloat = 40
+    let blockHeight: CGFloat = 60
     let titleHeight: CGFloat = 15
     let titleWidth: CGFloat = 40
     let titleLeadingWhiteSpace: CGFloat = 0

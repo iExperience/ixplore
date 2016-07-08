@@ -11,7 +11,11 @@ import UIKit
 
 class CustomDayView : UIScrollView {
     
+    // the date being shown
     var date: NSDate!
+    var events: [Event] = []
+    
+    // passed in. needed to set scroll view content size
     var titleHeight: CGFloat!
     var titleWidth: CGFloat!
     var blockHeight: CGFloat!
@@ -19,7 +23,13 @@ class CustomDayView : UIScrollView {
     var lineLeadingWhiteSpace: CGFloat!
     var lineTrailingWhiteSpace: CGFloat!
     
+    // layout things that dont affect content size
+    var eventInitialIndent: CGFloat!
+    let eventLeadingWhiteSpace: CGFloat = 5
+    
     func loadView() {
+        
+        eventInitialIndent = titleLeadingWhiteSpace + lineLeadingWhiteSpace + titleWidth + eventLeadingWhiteSpace
         
         var titleY = titleHeight! / 2
         var lineY = titleHeight!
