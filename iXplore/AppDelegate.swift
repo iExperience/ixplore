@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         if FBSDKAccessToken.currentAccessToken() != nil {
-            print(FBSDKAccessToken.currentAccessToken())
             let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
             graphRequest.startWithCompletionHandler({
                 (connection, result, error: NSError!) -> Void in
@@ -46,15 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
             })
-//            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
-//            let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
-//            self.mainNavigationController = UINavigationController(rootViewController: mvc)
-//            self.mainNavigationController?.pushViewController(cvc, animated: false)
-//            self.mainNavigationController?.navigationBarHidden = true
-//            self.window?.rootViewController = self.mainNavigationController
-            
+            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
             let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
-            self.window?.rootViewController = ccvc
+            self.mainNavigationController = UINavigationController(rootViewController: mvc)
+            self.mainNavigationController?.pushViewController(ccvc, animated: false)
+            self.mainNavigationController?.navigationBarHidden = true
+            self.window?.rootViewController = self.mainNavigationController
         }
         
         else {
@@ -127,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        print("Failed to register:", error)
+//        print("Failed to register:", error)
     }
 
 }

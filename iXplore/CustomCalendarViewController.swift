@@ -8,13 +8,15 @@
 
 import UIKit
 
-class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
+class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, CustomEventViewDelegate {
 
     var currentDate : NSDate!
+    var dateLabel: UILabel!
     var weekStartDate : NSDate!
     var previousWeekStartDate : NSDate!
     var nextWeekStartDate : NSDate!
     var calendar : NSCalendar!
+    var selectedDate: NSDate!
     
     // for week view
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -37,6 +39,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
     let headerHeight: CGFloat = 60
     let weekViewBottomBufferHeight: CGFloat = 30
     let footerHeight: CGFloat = 50
+    let dateLabelHeight: CGFloat = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,32 +63,32 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
         let borderView = UIView(frame: CGRectMake(0, headerHeight + weekViewBottomBufferHeight + buttonSize, appDelegate.window!.frame.width, 1))
         borderView.backgroundColor = UIColor.lightGrayColor()
         self.view.addSubview(borderView)
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        super.viewWillAppear(animated)
         
         currentDate = NSDate()
+        self.selectedDate = currentDate
         
         self.weekStartDate = self.getWeekStartDate(currentDate)
         self.previousWeekStartDate = self.getPreviousWeekStartDate()
         self.nextWeekStartDate = self.getNextWeekStartDate()
         
         self.setupWeekView()
-        self.setupNextWeekView()
-        self.setupPreviousWeekView()
+        //        self.setupNextWeekView()
+        //        self.setupPreviousWeekView()
         
-        for (button,date) in self.weekView.dates {
-            if date == currentDate {
-                button.backgroundColor = UIColor.redColor()
-                button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            }
-        }
+        //        for (button,date) in self.weekView.dates {
+        //            if date == currentDate {
+        //                button.backgroundColor = UIColor.redColor()
+        //                button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        //            }
+        //        }
         
         self.setupDayView(currentDate)
         
+        dateLabel = UILabel(frame: CGRectMake(0, headerHeight + buttonSize + ((weekViewBottomBufferHeight - dateLabelHeight) / 2), appDelegate.window!.frame.width, dateLabelHeight))
+        dateLabel.textAlignment = .Center
+        self.setupDateLabel()
+        self.view.addSubview(dateLabel)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,16 +96,40 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func menuButtonTapped(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func dateSelected(selectedDate: NSDate) {
-        self.setupDayView(selectedDate)
+        self.selectedDate = selectedDate
+        self.setupDayView(self.selectedDate)
+    }
+    
+    func eventViewTapped(eventView: CustomEventView) {
+        let evc = EventViewController(nibName: "EventViewController", bundle: nil)
+        evc.event = eventView.event
+        self.navigationController?.pushViewController(evc, animated: true)
+    }
+    
+    func setupDateLabel() {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateFormat = "EEEE, MMMM dd, yyyy"
+        dateLabel.text = dateFormatter.stringFromDate(selectedDate)
+        dateLabel.font = UIFont(name: "Lato-Medium", size: 18)
+        dateLabel.textColor = UIColor.grayColor()
+    }
+    
+    func getDayOfWeek(date: NSDate) -> Int {
+        return ((calendar?.component(.Weekday, fromDate: date))! - 1)
     }
     
     func getWeekStartDate(date: NSDate) -> NSDate {
         
-        let dateInt = calendar?.component(.Weekday, fromDate: currentDate)
+        let dateInt = self.getDayOfWeek(currentDate) + 1
         
         let componentSubtract = NSDateComponents()
-        componentSubtract.day = 1 - dateInt!
+        componentSubtract.day = 1 - dateInt
         
         return (calendar?.dateByAddingComponents(componentSubtract, toDate: date, options: .SearchBackwards))!
         
@@ -134,6 +161,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
         weekView.currentDate = currentDate
         weekView.buttonSize = buttonSize
         weekView.whiteSpace = whiteSpace
+        weekView.selectedDateTag = getDayOfWeek(selectedDate)
         weekView.populateDates()
         
         self.view.addSubview(weekView)
@@ -164,6 +192,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
     
     func loadPreviousWeek() {
         
+        self.view.userInteractionEnabled = false
         UIView.animateWithDuration(0.6, animations: {
             self.weekView.alpha = 0
             }, completion: {(true) in
@@ -174,8 +203,12 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
                 self.setupWeekView()
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
+                self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
+                self.setupDayView(self.selectedDate)
                 UIView.animateWithDuration(0.6, animations: {
                     self.weekView.alpha = 1
+                    }, completion: {(true) in
+                        self.view.userInteractionEnabled = true
                 })
         })
         
@@ -183,6 +216,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
     
     func loadNextWeek() {
         
+        self.view.userInteractionEnabled = false
         UIView.animateWithDuration(0.6, animations: {
             self.weekView.alpha = 0
             }, completion: {(true) in
@@ -193,9 +227,13 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
                 self.setupWeekView()
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
+                self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
+                self.setupDayView(self.selectedDate)
                 UIView.animateWithDuration(0.6, animations: {
                     self.weekView.alpha = 1
-                    })
+                    }, completion: {(true) in
+                        self.view.userInteractionEnabled = true
+                })
         })
         
     }
@@ -203,15 +241,21 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
     func setupDayView(date: NSDate) {
         
         if let _ = dayView {
+            self.view.userInteractionEnabled = false
             UIView.animateWithDuration(0.3, animations: {
                 self.dayView!.alpha = 0
+                self.dateLabel.alpha = 0
                 }, completion: {(true) in
                     self.dayView!.removeFromSuperview()
                     self.setupDayViewHelp(date)
                     self.dayView!.alpha = 0
                     self.view.addSubview(self.dayView!)
+                    self.setupDateLabel()
                     UIView.animateWithDuration(0.3, animations: {
                         self.dayView!.alpha = 1
+                        self.dateLabel.alpha = 1
+                        }, completion: {(true) in
+                            self.view.userInteractionEnabled = true
                     })
             })
         }
@@ -234,30 +278,90 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate {
         self.dayView!.date = date
         self.dayView!.contentSize = CGSize(width: self.dayView!.frame.width, height: (24 * self.blockHeight) + (2 * self.titleHeight))
         self.dayView!.loadView()
+        self.loadEvents()
+    }
+    
+    func loadEvents() {
         
+//        let event1 = Event(title: "hey", startDateString: "2016-07-08T09:30:00+00:00", endDateString: "2016-07-08T10:30:00+00:00")
+//                let event2 = Event(title: "hey", startDateString: "2016-07-08T09:50:00+00:00", endDateString: "2016-07-08T10:50:00+00:00")
+//                let event3 = Event(title: "hey", startDateString: "2016-07-08T10:05:00+00:00", endDateString: "2016-07-08T10:55:00+00:00")
+//                self.eventListComplete([event1, event2, event3])
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.stringFromDate(self.dayView!.date)
+        
+        let webService = WebService()
+        
+        let request = webService.createMutableAnonRequest(NSURL(string: "https://api.teamup.com/ks1b61e773b115d98d/events?tz=UTC&startDate=\(dateString)&endDate=\(dateString)"), method: "GET", parameters: nil, headers: ["Teamup-Token": "cda8c60dd507aa16f22f19e900799b732356ef63d825c0bee56fd98abee67f97"])
+        
+        webService.executeRequest(request, presentingViewController: nil, requestCompletionFunction: {(responseCode, json) in
+            
+            if responseCode / 100 == 2 {
+                
+                var events: [Event] = []
+                var allDayEvents: [(String, [String])] = []
+                
+                for (_,event) in json["events"] {
+                    var ids: [String] = []
+                    for (_,id) in event["subcalendar_ids"] {
+                        ids.append(id.stringValue)
+                    }
+                    if event["all_day"] {
+                        allDayEvents.append((event["title"].stringValue, ids))
+                    }
+                    else {
+                        events.append(Event(title: event["title"].stringValue, description: event["notes"].stringValue, who: event["who"].stringValue, location: event["location"].stringValue, startDateString: event["start_dt"].stringValue, endDateString: event["end_dt"].stringValue, subIds: ids))
+                    }
+                }
+                
+                self.eventListComplete(events, loadedAllDayEvents: allDayEvents)
+            }
+            else {
+                print("Didn't Work")
+            }
+            
+        })
+        
+    }
+    
+    func eventListComplete(loadedEvents: [Event], loadedAllDayEvents: [(String, [String])]) {
+        for newEvent in loadedEvents {
+            let newEventView = CustomEventView()
+            newEventView.delegate = self
+            newEventView.event = newEvent
+            newEventView.indent = dayView!.indentAmount
+            for eventView in dayView!.eventViews {
+                if eventView.event.endDate.compare(newEvent.startDate) == .OrderedDescending {
+                    if withinHalfHour(eventView.event.startDate, compareDate: newEvent.startDate) {
+                        if eventView.positionInConflicts == newEventView.positionInConflicts {
+                            eventView.numberOfConflicts += 1
+                            newEventView.positionInConflicts += 1
+                        }
+                        newEventView.numberOfConflicts = eventView.numberOfConflicts
+                        newEventView.indent = eventView.indent
+                    }
+                    else {
+                        newEventView.indent = eventView.indent + dayView!.indentAmount
+                    }
+                }
+            }
+            dayView!.eventViews.append(newEventView)
+        }
+        dayView!.allDayEvents = loadedAllDayEvents
+        dayView!.displayEvents()
+    }
+    
+    func withinHalfHour(fromDate: NSDate, compareDate: NSDate) -> Bool {
+        let halfHourComponent = NSDateComponents()
+        halfHourComponent.minute = 30
+        let halfHourDate = calendar?.dateByAddingComponents(halfHourComponent, toDate: fromDate, options: .MatchStrictly)
+        if halfHourDate?.compare(compareDate) == .OrderedDescending {
+            return true
+        }
+        return false
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

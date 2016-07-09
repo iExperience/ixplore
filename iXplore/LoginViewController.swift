@@ -45,9 +45,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
             graphRequest.startWithCompletionHandler({
                 (connection, result, error: NSError!) -> Void in
-                print(result)
-                print(result["id"])
-                print(result["picture"]!!["data"]!!["url"])
+//                print(result)
+//                print(result["id"])
+//                print(result["picture"]!!["data"]!!["url"])
                 if error == nil {
                     
                     let imageView = UIImageView()

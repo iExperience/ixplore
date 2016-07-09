@@ -59,8 +59,8 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func calendarButtonTapped(sender: UIButton) {
-        let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
-        self.navigationController?.pushViewController(cvc, animated: true)
+        let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+        self.navigationController?.pushViewController(ccvc, animated: true)
     }
 
     @IBAction func newsletterButtonTapped(sender: UIButton) {

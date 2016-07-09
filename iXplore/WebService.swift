@@ -39,11 +39,10 @@ class WebService {
     }
 
     
-    func createMutableAnonRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?) -> Request  {
-        
+    func createMutableAnonRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?, headers: Dictionary<String, String>?) -> Request  {
         
         // build request
-        let request = Alamofire.request(.POST, url, parameters: parameters, encoding: .URL)
+        let request = Alamofire.request(Method(rawValue:method)!, url, parameters: parameters, encoding: .JSON, headers: headers)
         
         return request
     }
@@ -70,7 +69,7 @@ class WebService {
             
             //the web service is now done. Remove the loading overlay
             presentingViewController?.removeLoadingOverlay()
-            print(returnedData.result.value)
+//            print(returnedData.result.value)
             
             //Handle the response from the web service
             let success = returnedData.result.isSuccess

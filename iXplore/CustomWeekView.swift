@@ -12,9 +12,10 @@ import UIKit
 class CustomWeekView : UIView {
     
     var delegate: CustomWeekViewDelegate?
-    var startDate : NSDate!
-    var dates : [(UIButton,NSDate)] = []
-    var currentDate : NSDate!
+    var selectedDateTag: Int!
+    var startDate: NSDate!
+    var dates: [(UIButton,NSDate)] = []
+    var currentDate: NSDate!
     var buttonSize: CGFloat!
     var whiteSpace: CGFloat!
     
@@ -50,6 +51,9 @@ class CustomWeekView : UIView {
             xCor += self.whiteSpace! + self.buttonSize!
         }
         
+        let (selectedButton, selectedDate) = dates[selectedDateTag]
+        self.setSelectedButtonColor(selectedButton, date: selectedDate)
+        
     }
     
     func dateButtonTapped(sender: UIButton) {
@@ -58,16 +62,11 @@ class CustomWeekView : UIView {
             self.setButtonColor(button, date: date)
         }
         
-        let (_,selectedDate) = dates[sender.tag]
-        self.delegate?.dateSelected(selectedDate)
-        if selectedDate == currentDate {
-            sender.backgroundColor = UIColor.redColor()
-            sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        }
-        else {
-            sender.backgroundColor = UIColor.grayColor()
-            sender.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        }
+        let (tappedButton,tappedDate) = dates[sender.tag]
+        self.delegate?.dateSelected(tappedDate)
+        self.setSelectedButtonColor(sender, date: tappedDate)
+        
+        self.selectedDateTag = tappedButton.tag
         
     }
     
@@ -79,6 +78,17 @@ class CustomWeekView : UIView {
         else {
             button.backgroundColor = UIColor.whiteColor()
             button.setTitleColor(UIColor.grayColor(), forState: .Normal)
+        }
+    }
+    
+    func setSelectedButtonColor(button: UIButton, date: NSDate) {
+        if date == currentDate {
+            button.backgroundColor = UIColor.redColor()
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        }
+        else {
+            button.backgroundColor = UIColor.grayColor()
+            button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
     }
     
