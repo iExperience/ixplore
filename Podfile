@@ -13,5 +13,6 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'Intercom'
 pod 'Devise', :git => 'https://github.com/iExperience/devise-ios.git'
+pod 'SlideMenuControllerSwift'
 
 end

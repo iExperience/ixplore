@@ -3,17 +3,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
-                <outlet property="calendarButton" destination="vB8-Yz-y3I" id="tj1-8R-hmD"/>
-                <outlet property="logoutButton" destination="PSj-1D-Qvy" id="Mnu-hu-UaZ"/>
                 <outlet property="nameLabel" destination="7Wr-nE-6sG" id="69G-zk-y7e"/>
-                <outlet property="newsletterButton" destination="H4W-h0-4VM" id="vYg-be-DuK"/>
                 <outlet property="pictureImageView" destination="rrC-Wg-mX3" id="IV2-Ye-4nx"/>
-                <outlet property="supportButton" destination="bRT-Ay-PRE" id="QZc-cB-Smo"/>
+                <outlet property="tableView" destination="wVO-PK-DZ7" id="WFE-07-peQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,32 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vB8-Yz-y3I">
-                    <rect key="frame" x="50" y="286" width="125" height="125"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="125" id="9Xt-Uw-ZOV"/>
-                        <constraint firstAttribute="width" secondItem="vB8-Yz-y3I" secondAttribute="height" multiplier="1:1" id="kfm-Ab-yEW"/>
-                    </constraints>
-                    <state key="normal" title="Calendar">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="calendarButtonTapped:" destination="-1" eventType="touchUpInside" id="fla-Wb-049"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4W-h0-4VM">
-                    <rect key="frame" x="425" y="361" width="125" height="125"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="H4W-h0-4VM" secondAttribute="height" multiplier="1:1" id="L5O-rB-7Bl"/>
-                        <constraint firstAttribute="width" constant="125" id="Reh-Jj-ev5"/>
-                    </constraints>
-                    <state key="normal" title="iX Daily">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="newsletterButtonTapped:" destination="-1" eventType="touchUpInside" id="9cO-ix-hqm"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rrC-Wg-mX3">
                     <rect key="frame" x="225" y="50" width="150" height="150"/>
                     <constraints>
@@ -55,51 +30,35 @@
                         <constraint firstAttribute="height" constant="150" id="UkM-cb-SsK"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wr-nE-6sG">
-                    <rect key="frame" x="278" y="215" width="45" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wr-nE-6sG">
+                    <rect key="frame" x="277" y="215" width="47" height="22"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRT-Ay-PRE">
-                    <rect key="frame" x="50" y="436" width="125" height="125"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wVO-PK-DZ7">
+                    <rect key="frame" x="0.0" y="267" width="600" height="333"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoZ-jQ-2Dp">
+                    <rect key="frame" x="0.0" y="266" width="600" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="125" id="UG5-1q-EjM"/>
-                        <constraint firstAttribute="width" secondItem="bRT-Ay-PRE" secondAttribute="height" multiplier="1:1" id="yi2-ih-9Jy"/>
+                        <constraint firstAttribute="height" constant="1" id="qBR-Jo-txM"/>
                     </constraints>
-                    <state key="normal" title="Support">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="supportButtonTapped:" destination="-1" eventType="touchUpInside" id="N8j-Tk-JQx"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSj-1D-Qvy">
-                    <rect key="frame" x="425" y="511" width="125" height="125"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="125" id="hR6-7U-puc"/>
-                    </constraints>
-                    <state key="normal" title="Logout">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="logoutButtonTapped:" destination="-1" eventType="touchUpInside" id="BPr-Db-xbR"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="PSj-1D-Qvy" firstAttribute="width" secondItem="PSj-1D-Qvy" secondAttribute="height" multiplier="1:1" id="7WQ-6k-Hvm"/>
-                <constraint firstItem="bRT-Ay-PRE" firstAttribute="top" secondItem="H4W-h0-4VM" secondAttribute="bottom" constant="-50" id="DqP-Hw-HvV"/>
-                <constraint firstItem="bRT-Ay-PRE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="G1I-iR-GiR"/>
-                <constraint firstAttribute="trailing" secondItem="PSj-1D-Qvy" secondAttribute="trailing" constant="50" id="Kzg-bI-L2k"/>
-                <constraint firstItem="H4W-h0-4VM" firstAttribute="top" secondItem="vB8-Yz-y3I" secondAttribute="bottom" constant="-50" id="MH5-FO-aYJ"/>
-                <constraint firstItem="vB8-Yz-y3I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="MOC-H6-vvG"/>
-                <constraint firstAttribute="trailing" secondItem="H4W-h0-4VM" secondAttribute="trailing" constant="50" id="hLM-iN-Krg"/>
-                <constraint firstItem="PSj-1D-Qvy" firstAttribute="top" secondItem="bRT-Ay-PRE" secondAttribute="bottom" constant="-50" id="hyj-nQ-9TC"/>
-                <constraint firstItem="vB8-Yz-y3I" firstAttribute="top" secondItem="7Wr-nE-6sG" secondAttribute="bottom" constant="50" id="j1f-q8-PNV"/>
+                <constraint firstAttribute="bottom" secondItem="wVO-PK-DZ7" secondAttribute="bottom" id="INH-nC-ADw"/>
+                <constraint firstItem="wVO-PK-DZ7" firstAttribute="top" secondItem="7Wr-nE-6sG" secondAttribute="bottom" constant="30" id="O79-Pk-Axe"/>
+                <constraint firstItem="DoZ-jQ-2Dp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rm2-3E-yD3"/>
+                <constraint firstAttribute="trailing" secondItem="wVO-PK-DZ7" secondAttribute="trailing" id="XKd-qO-teD"/>
+                <constraint firstItem="wVO-PK-DZ7" firstAttribute="top" secondItem="DoZ-jQ-2Dp" secondAttribute="bottom" id="p6L-35-92f"/>
                 <constraint firstItem="7Wr-nE-6sG" firstAttribute="top" secondItem="rrC-Wg-mX3" secondAttribute="bottom" constant="15" id="rao-KQ-fNF"/>
+                <constraint firstItem="wVO-PK-DZ7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rbs-jX-1kE"/>
                 <constraint firstItem="rrC-Wg-mX3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t9H-Ij-8x9"/>
+                <constraint firstAttribute="trailing" secondItem="DoZ-jQ-2Dp" secondAttribute="trailing" id="wxo-Ru-BW4"/>
                 <constraint firstItem="rrC-Wg-mX3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="zBY-fO-LHL"/>
                 <constraint firstItem="7Wr-nE-6sG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zaY-Gx-yJh"/>
             </constraints>

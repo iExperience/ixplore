@@ -9,74 +9,80 @@
 import UIKit
 import FBSDKLoginKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var pictureImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var calendarButton: UIButton!
-    @IBOutlet weak var supportButton: UIButton!
-    @IBOutlet weak var newsletterButton: UIButton!
-    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupTableView()
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.sizeToFit()
+    }
+    
+    func setImage() {
+        pictureImageView.clipsToBounds = true
+        pictureImageView.image = UserController.sharedInstance.user?.image.image
+        pictureImageView.layer.cornerRadius = 75
+    }
+    
+    func setupName() {
         if let user = UserController.sharedInstance.user {
-            self.nameLabel.text = user.firstName + " " + user.lastName
-        }
-        self.calendarButton.layer.cornerRadius = 62.5
-        self.calendarButton.backgroundColor = UIColor(netHex: 0xf9007a)
-        self.supportButton.layer.cornerRadius = 62.5
-        self.supportButton.backgroundColor = UIColor(netHex: 0xf9007a)
-        self.newsletterButton.layer.cornerRadius = 62.5
-        self.newsletterButton.backgroundColor = UIColor(netHex: 0xf9007a)
-        self.logoutButton.layer.cornerRadius = 62.5
-        self.logoutButton.backgroundColor = UIColor(netHex: 0xf9007a)
-        pictureImageView.clipsToBounds = true
-        pictureImageView.image = UserController.sharedInstance.user?.image.image
-        pictureImageView.layer.cornerRadius = 75
-        while pictureImageView.image == nil {
-            self.refreshImage()
+            self.nameLabel.text = "Welcome, \(user.firstName)!"
         }
     }
-    
-    func refreshImage() {
-        pictureImageView.clipsToBounds = true
-        pictureImageView.image = UserController.sharedInstance.user?.image.image
-        pictureImageView.layer.cornerRadius = 75
-    }
-    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(true)
-//        pictureImageView.clipsToBounds = true
-//        pictureImageView.image = UserController.sharedInstance.user?.image.image
-//        pictureImageView.layer.cornerRadius = 75
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func calendarButtonTapped(sender: UIButton) {
-        let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
-        self.navigationController?.pushViewController(ccvc, animated: true)
-    }
-
-    @IBAction func newsletterButtonTapped(sender: UIButton) {
-        let nvc = NewsViewController(nibName: "NewsViewController", bundle: nil)
-        self.navigationController?.pushViewController(nvc, animated: true)
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
     
-    @IBAction func supportButtonTapped(sender: UIButton) {
-        let svc = SupportViewController(nibName: "SupportViewController", bundle: nil)
-        self.navigationController?.pushViewController(svc, animated: true)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .Default, reuseIdentifier: "menuOption")
+        switch indexPath.row {
+        case 0: cell.textLabel?.text = "Calendar"
+        case 1: cell.textLabel?.text = "iXDaily"
+        case 2: cell.textLabel?.text = "Support"
+        case 3: cell.textLabel?.text = "Logout"
+        default: break
+        }
+        cell.accessoryType = .DisclosureIndicator
+        cell.textLabel?.font = UIFont(name: "Lato-Regular", size: 18)
+        cell.textLabel?.textColor = UIColor(netHex: 0x2E3137)
+        
+        return cell
     }
-
-    @IBAction func logoutButtonTapped(sender: UIButton) {
-        FBSDKLoginManager().logOut()
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.navigateToLogin()
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if let smc = self.slideMenuController() {
+            switch indexPath.row {
+            case 0: smc.changeMainViewController(appDelegate.mainNavigationController!, close: true)
+            case 1: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
+            case 2: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
+            case 3:FBSDKLoginManager().logOut()
+            appDelegate.navigateToLogin()
+            default: break
+            }
+        }
     }
     
 }

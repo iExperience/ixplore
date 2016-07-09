@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,35 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         if FBSDKAccessToken.currentAccessToken() != nil {
-            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
-            graphRequest.startWithCompletionHandler({
-                (connection, result, error: NSError!) -> Void in
-                if error == nil {
-                    
-                    let imageView = UIImageView()
-                    imageView.imageFromUrl("http://graph.facebook.com/\(result["id"] as! String)/picture?width=720&height=720")
-                    
-                    UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
-                }
-                
-            })
-            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
-            let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
-            self.mainNavigationController = UINavigationController(rootViewController: mvc)
-            self.mainNavigationController?.pushViewController(ccvc, animated: false)
-            self.mainNavigationController?.navigationBarHidden = true
-            self.window?.rootViewController = self.mainNavigationController
+            
+            self.loginUser()
+            
         }
-        
         else {
         
             let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            
             self.window?.rootViewController = lvc
-            
+            self.window?.makeKeyAndVisible()
         }
-        
-        self.window?.makeKeyAndVisible()
         
         return true
     }
@@ -124,6 +106,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
 //        print("Failed to register:", error)
+    }
+    
+    func loginUser() {
+        
+        let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+        self.mainNavigationController = UINavigationController(rootViewController: ccvc)
+        self.mainNavigationController?.navigationBarHidden = true
+        SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 2 / 3
+        SlideMenuOptions.contentViewScale = 1
+        SlideMenuOptions.hideStatusBar = false
+        let smc = SlideMenuController(mainViewController: self.mainNavigationController!, leftMenuViewController: mvc)
+        
+        self.window?.rootViewController = smc
+        self.window?.makeKeyAndVisible()
+        self.loadFacebookInfo(mvc)
+        
+    }
+    
+    func loadFacebookInfo(menu: MenuViewController) {
+        self.window?.rootViewController?.addLoadingOverlay()
+        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
+        graphRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+                
+                let imageView = UIImageView()
+                imageView.imageFromUrl("http://graph.facebook.com/\(result["id"] as! String)/picture?width=720&height=720", completion: menu.setImage)
+                
+                UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
+                menu.setupName()
+                
+                self.window?.rootViewController?.removeLoadingOverlay()
+            }
+            else {
+                self.window?.rootViewController?.removeLoadingOverlay()
+                let alert = UIAlertController(title: "Error", message: "Network connection failed. Please try again.", preferredStyle: .Alert)
+                let alertAction = UIAlertAction(title: "Try Again", style: .Cancel, handler: {(alert) in self.loadFacebookInfo(menu)})
+                alert.addAction(alertAction)
+                self.window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        })
     }
 
 }

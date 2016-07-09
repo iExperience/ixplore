@@ -10,31 +10,16 @@ import UIKit
 
 class TestViewController: UIViewController {
 
+    @IBOutlet var textView: UITextView!
+    @IBOutlet var constraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let id: String = "577a7f470981ddedda000036"
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
-        let description = "hello i'm brian"
-        
-        let category = "hey"
-        
-        let body: String = "Description: \(description).\nCategory: \(category).\nSubmitted by: student."
-        
-        let user: Dictionary<String, String> = ["type": "user", "id": id]
-        
-        let params: Dictionary<String, AnyObject> = ["from": user, "body": body]
-        
-        let server = WebService()
-//        let request = server.createMutableRequest(NSURL(string:  "https://api.intercom.io/users/\(id)"), method: "GET", parameters: nil)
-        let request = server.createMutableRequest(NSURL(string: "https://api.intercom.io/messages"), method: "POST", parameters: params)
-        
-        server.executeRequest(request, presentingViewController:self, requestCompletionFunction: {(responseCode, json) in
-            
-            print(json)
-            
-        })
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
         
     }
 
@@ -53,5 +38,44 @@ class TestViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func keyboardWillShow(notif: NSNotification) {
+        self.keyboardVisible(notif)
+    }
+    
+    func keyboardWillHide(notif: NSNotification) {
+        self.keyboardHidden(notif)
+    }
+    
+    func dismiss() {
+        self.view.endEditing(true)
+    }
+    
+    func keyboardVisible(notif: NSNotification) {
+        if let userInfo = notif.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                self.textView.layoutIfNeeded()
+                UIView.animateWithDuration(1, animations: {
+                    self.constraint.constant += keyboardHeight
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    func keyboardHidden(notif: NSNotification) {
+        if let userInfo = notif.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                self.textView.layoutIfNeeded()
+                UIView.animateWithDuration(1, animations: {
+                    self.constraint.constant = 100
+                    self.textView.layoutIfNeeded()
+                })
+            }
+        }
+    }
+    
+    
+    
 
 }

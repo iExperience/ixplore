@@ -42,36 +42,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         //print(FBSDKAccessToken.currentAccessToken().userID)
         if (FBSDKAccessToken.currentAccessToken() != nil) {
-            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
-            graphRequest.startWithCompletionHandler({
-                (connection, result, error: NSError!) -> Void in
-//                print(result)
-//                print(result["id"])
-//                print(result["picture"]!!["data"]!!["url"])
-                if error == nil {
-                    
-                    let imageView = UIImageView()
-                    imageView.imageFromUrl("http://graph.facebook.com/\(result["id"] as! String)/picture?width=720&height=720")
-                    
-                    UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
-                }
-                print(UserController.sharedInstance.user)
-                
-            })
-            let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
-            let cvc = CalendarViewController(nibName: "CalendarViewController", bundle: nil)
             let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.mainNavigationController = UINavigationController(rootViewController: mvc)
-            appDelegate.mainNavigationController?.pushViewController(cvc, animated: false)
-            appDelegate.mainNavigationController?.navigationBarHidden = true
-            appDelegate.window?.rootViewController = appDelegate.mainNavigationController
-
+            appDelegate.loginUser()
+        }
+        else {
+            let alert = UIAlertController(title: "Login Failed!", message: "Please try again.", preferredStyle: .Alert)
+            let alertAction = UIAlertAction(title: "Close", style: .Default, handler: nil)
+            alert.addAction(alertAction)
+            self.presentViewController(alert, animated: true, completion: {(alert) in self.loginButtonDidLogOut(self.fbloginButton)})
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         FBSDKLoginManager().logOut()
-        
         return
     }
 

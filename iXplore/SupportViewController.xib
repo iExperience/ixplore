@@ -7,6 +7,10 @@
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -14,8 +18,11 @@
             <connections>
                 <outlet property="borderView" destination="vyl-Ac-Bhe" id="S4y-Or-aLB"/>
                 <outlet property="buttonBottomConstraint" destination="1bb-x3-puc" id="Tm3-bH-3my"/>
+                <outlet property="descriptionBottomConstraint" destination="SVu-Jy-rRa" id="96a-PD-qRz"/>
                 <outlet property="descriptionField" destination="b5k-M1-DPA" id="Z1l-dW-XXl"/>
+                <outlet property="descriptionLeadingConstraint" destination="7ZI-BK-Zyp" id="y16-bm-hv0"/>
                 <outlet property="descriptionTopConstraint" destination="fWM-Qb-3rV" id="uGx-Ty-t4H"/>
+                <outlet property="descriptionTrailingConstraint" destination="gnh-vq-Ba4" id="cWP-0s-edb"/>
                 <outlet property="firstLabel" destination="8cc-Q5-XeJ" id="SHd-DV-rgF"/>
                 <outlet property="headerView" destination="Qn5-z0-w6e" id="2yu-PU-uaJ"/>
                 <outlet property="secondLabel" destination="2xw-W6-edO" id="uFA-8E-ti8"/>
@@ -35,6 +42,7 @@
                         <constraint firstAttribute="width" constant="100" id="O0R-Oj-1fy"/>
                         <constraint firstAttribute="height" constant="40" id="d1S-8Q-HgP"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                     <state key="normal" title="Get Support">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -43,20 +51,20 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b5k-M1-DPA">
-                    <rect key="frame" x="50" y="243" width="500" height="272"/>
+                    <rect key="frame" x="50" y="285" width="500" height="230"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="I need help with:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-Q5-XeJ">
-                    <rect key="frame" x="237" y="90" width="126" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="234.5" y="90" width="131" height="22"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My issue is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xw-W6-edO">
-                    <rect key="frame" x="255" y="214" width="89" height="21"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My issue is:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xw-W6-edO">
+                    <rect key="frame" x="254" y="255" width="91" height="22"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -75,8 +83,8 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can we support you?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k7-oU-j6G">
-                            <rect key="frame" x="184" y="35" width="233" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <rect key="frame" x="187" y="35" width="227.5" height="24"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
                             <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -91,10 +99,10 @@
                     </constraints>
                 </view>
                 <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-8V-XeJ">
-                    <rect key="frame" x="50" y="119" width="500" height="80"/>
+                    <rect key="frame" x="50" y="120" width="500" height="120"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="fPe-8U-WtO"/>
+                        <constraint firstAttribute="height" constant="120" id="fPe-8U-WtO"/>
                     </constraints>
                 </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyl-Ac-Bhe" userLabel="BorderView">

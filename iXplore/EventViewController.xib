@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionLabel" destination="hLH-GQ-4dg" id="LXu-Ux-4tv"/>
+                <outlet property="descriptionTextView" destination="JiP-Wo-4ht" id="RsB-2D-ONA"/>
                 <outlet property="locationLabel" destination="HD0-Nr-DLQ" id="iZ9-OR-2km"/>
                 <outlet property="timeLabel" destination="6g6-WR-zTE" id="30c-28-zkr"/>
                 <outlet property="titleLabel" destination="f3k-EY-KGH" id="fyO-0w-zA8"/>
@@ -33,7 +33,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cv-Te-fa0">
                     <rect key="frame" x="230" y="25" width="139.5" height="29"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCS-wY-jEA">
@@ -50,52 +50,52 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3k-EY-KGH">
                     <rect key="frame" x="20" y="85" width="560" height="24"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLH-GQ-4dg">
-                    <rect key="frame" x="20" y="259" width="560" height="19.5"/>
-                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g6-WR-zTE">
                     <rect key="frame" x="20" y="139" width="560" height="20"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD0-Nr-DLQ">
                     <rect key="frame" x="20" y="179" width="560" height="20"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58E-pR-Kc0">
                     <rect key="frame" x="20" y="219" width="560" height="20"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-Wo-4ht">
+                    <rect key="frame" x="20" y="259" width="560" height="35.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HD0-Nr-DLQ" firstAttribute="top" secondItem="6g6-WR-zTE" secondAttribute="bottom" constant="20" id="0np-ey-pKc"/>
                 <constraint firstItem="6g6-WR-zTE" firstAttribute="trailing" secondItem="f3k-EY-KGH" secondAttribute="trailing" id="2YY-7s-k74"/>
-                <constraint firstItem="hLH-GQ-4dg" firstAttribute="leading" secondItem="58E-pR-Kc0" secondAttribute="leading" id="45q-Ua-axa"/>
                 <constraint firstItem="6Cv-Te-fa0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6qd-KN-5WA"/>
+                <constraint firstItem="JiP-Wo-4ht" firstAttribute="top" secondItem="58E-pR-Kc0" secondAttribute="bottom" constant="20" id="8F2-P1-g1M"/>
+                <constraint firstItem="JiP-Wo-4ht" firstAttribute="leading" secondItem="58E-pR-Kc0" secondAttribute="leading" id="Bol-DX-92R"/>
                 <constraint firstItem="f3k-EY-KGH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="FKb-yv-Xwz"/>
                 <constraint firstItem="6Cv-Te-fa0" firstAttribute="centerY" secondItem="qCS-wY-jEA" secondAttribute="centerY" id="Lra-nr-Bdh"/>
                 <constraint firstItem="6g6-WR-zTE" firstAttribute="leading" secondItem="f3k-EY-KGH" secondAttribute="leading" id="RUO-1C-hGf"/>
                 <constraint firstItem="HD0-Nr-DLQ" firstAttribute="leading" secondItem="6g6-WR-zTE" secondAttribute="leading" id="TKD-Wk-aE6"/>
-                <constraint firstItem="hLH-GQ-4dg" firstAttribute="trailing" secondItem="58E-pR-Kc0" secondAttribute="trailing" id="VwA-eQ-Q6w"/>
                 <constraint firstItem="6g6-WR-zTE" firstAttribute="top" secondItem="f3k-EY-KGH" secondAttribute="bottom" constant="30" id="W1a-TB-iAY"/>
                 <constraint firstItem="58E-pR-Kc0" firstAttribute="top" secondItem="HD0-Nr-DLQ" secondAttribute="bottom" constant="20" id="XLl-FM-YqZ"/>
                 <constraint firstItem="qCS-wY-jEA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="Y11-WU-5eG"/>
+                <constraint firstItem="JiP-Wo-4ht" firstAttribute="trailing" secondItem="58E-pR-Kc0" secondAttribute="trailing" id="ZLA-vY-bfy"/>
                 <constraint firstItem="HD0-Nr-DLQ" firstAttribute="trailing" secondItem="6g6-WR-zTE" secondAttribute="trailing" id="lgQ-1z-w5V"/>
                 <constraint firstAttribute="trailing" secondItem="f3k-EY-KGH" secondAttribute="trailing" constant="20" id="q14-am-JdU"/>
                 <constraint firstItem="58E-pR-Kc0" firstAttribute="leading" secondItem="HD0-Nr-DLQ" secondAttribute="leading" id="u0R-rX-hLc"/>
-                <constraint firstItem="hLH-GQ-4dg" firstAttribute="top" secondItem="58E-pR-Kc0" secondAttribute="bottom" constant="20" id="vBp-Ep-zAV"/>
                 <constraint firstItem="qCS-wY-jEA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wWE-6g-jea"/>
                 <constraint firstItem="f3k-EY-KGH" firstAttribute="top" secondItem="qCS-wY-jEA" secondAttribute="bottom" constant="30" id="xBB-Wg-ndC"/>
                 <constraint firstItem="58E-pR-Kc0" firstAttribute="trailing" secondItem="HD0-Nr-DLQ" secondAttribute="trailing" id="yVW-Um-vjN"/>

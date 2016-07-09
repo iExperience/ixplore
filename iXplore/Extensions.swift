@@ -9,6 +9,55 @@
 import Foundation
 import UIKit
 
+public let LOADING_OVERLAY_VIEW_TAG = 987432
+
+extension UIViewController  {
+    
+    
+    //MARK: Loading screen actions
+    func addLoadingOverlay()   {
+        
+        self.makeViewDropKeyboard()
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.userInteractionEnabled = false
+        
+        //add an overlay screen
+        let overlayImage = UIImageView(frame: (appDelegate.window?.frame)!)
+        overlayImage.backgroundColor = UIColor.blackColor()
+        overlayImage.alpha = 0.5
+        overlayImage.tag = LOADING_OVERLAY_VIEW_TAG
+        
+        let loadingSpinner = UIActivityIndicatorView(frame: overlayImage.frame)
+        loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        loadingSpinner.startAnimating()
+        overlayImage.addSubview(loadingSpinner)
+        
+        
+        return appDelegate.window!.addSubview(overlayImage)
+    }
+    
+    func removeLoadingOverlay()  {
+        
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        for view in appDelegate.window!.subviews  {
+            if (view.tag == LOADING_OVERLAY_VIEW_TAG)   {
+                view.removeFromSuperview()
+            }
+        }
+        appDelegate.window?.userInteractionEnabled = true
+        
+        
+    }
+    
+    func makeViewDropKeyboard()   {
+        //print("makeViewDropTapped")
+        self.view.endEditing(true);
+        self.resignFirstResponder()
+    }
+    
+}
+
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -25,13 +74,14 @@ extension UIColor {
 
 extension UIImageView {
     
-    public func imageFromUrl(urlString: String) {
+    public func imageFromUrl(urlString: String, completion: ()->()) {
         if let url = NSURL(string: urlString) {
             let request = NSURLRequest(URL: url)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
                 (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if let imageData = data as NSData? {
                     self.image = UIImage(data: imageData)
+                    completion()
                 }
             }
         }

@@ -47,7 +47,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
     }
 
     @IBAction func menuButtonTapped(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.slideMenuController()?.openLeft()
     }
 
 }

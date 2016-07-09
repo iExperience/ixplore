@@ -20,13 +20,19 @@ class CustomEventView: UIView {
     var positionInConflicts: Int = 0
     
     func loadView() {
+        
+        self.clipsToBounds = true
         backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.1)
         layer.cornerRadius = 8
         titleLabel = UILabel(frame: CGRectMake(5, 5, self.frame.width, 20))
         titleLabel.text = event.title
-        titleLabel.font = UIFont(name: "Lato-Black", size: 15)
+        titleLabel.font = UIFont(name: "Lato-Regular", size: 15)
         titleLabel.textColor = UIColor.purpleColor()
         self.addSubview(titleLabel)
+        
+        let borderView = UIView(frame: CGRectMake(0, 0, 1, self.frame.height))
+        borderView.backgroundColor = UIColor.purpleColor()
+        self.addSubview(borderView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.addGestureRecognizer(tapGestureRecognizer)

@@ -97,9 +97,15 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+//        self.navigationController?.popViewControllerAnimated(true)
+        
+        self.slideMenuController()?.openLeft()
     }
     
+    @IBAction func todayButtonTapped(sender: UIButton) {
+        self.selectedDate = currentDate
+        self.loadCurrentWeek()
+    }
     func dateSelected(selectedDate: NSDate) {
         self.selectedDate = selectedDate
         self.setupDayView(self.selectedDate)
@@ -228,6 +234,29 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
                 self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
+                self.setupDayView(self.selectedDate)
+                UIView.animateWithDuration(0.6, animations: {
+                    self.weekView.alpha = 1
+                    }, completion: {(true) in
+                        self.view.userInteractionEnabled = true
+                })
+        })
+        
+    }
+    
+    func loadCurrentWeek() {
+        
+        self.view.userInteractionEnabled = false
+        UIView.animateWithDuration(0.6, animations: {
+            self.weekView.alpha = 0
+            }, completion: {(true) in
+                self.weekView.removeFromSuperview()
+                self.weekStartDate = self.getWeekStartDate(self.selectedDate)
+                self.nextWeekStartDate = self.getNextWeekStartDate()
+                self.previousWeekStartDate = self.getPreviousWeekStartDate()
+                self.setupWeekView()
+                self.weekView.alpha = 0
+                self.view.addSubview(self.weekView)
                 self.setupDayView(self.selectedDate)
                 UIView.animateWithDuration(0.6, animations: {
                     self.weekView.alpha = 1

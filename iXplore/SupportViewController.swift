@@ -23,7 +23,14 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var borderView: UIView!
     
     @IBOutlet var descriptionTopConstraint: NSLayoutConstraint!
+    @IBOutlet var descriptionBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var descriptionLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet var descriptionTrailingConstraint: NSLayoutConstraint!
+    
     @IBOutlet var buttonBottomConstraint: NSLayoutConstraint!
+    
+    var originalFrame: CGRect?
+    var originalY: CGFloat?
     
     var topConstraint: NSLayoutConstraint?
     
@@ -33,8 +40,8 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardVisible(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardVisible(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardHidden(_:)), name: UIKeyboardDidHideNotification, object: nil)
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismiss)))
         
@@ -58,7 +65,7 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.slideMenuController()?.openLeft()
     }
     
     @IBAction func submitButtonTapped(sender: UIButton) {
@@ -109,9 +116,9 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let pickerLabel = UILabel(frame: CGRectMake(0, 0, supportPicker.frame.width, 20))
         pickerLabel.textAlignment = .Center
         pickerLabel.backgroundColor = UIColor.clearColor()
-        pickerLabel.font = UIFont(name: "Helvetica Neue", size: 15)
+        pickerLabel.font = UIFont(name: "Lato-Regular", size: 16)
         pickerLabel.text = pickerData[row][0]
-        pickerLabel.textColor = UIColor(red: 68, green: 68, blue: 68)
+        pickerLabel.textColor = UIColor(netHex: 0x2E3137)
         return pickerLabel
     }
     
@@ -151,45 +158,107 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 //        })
 //    }
 
+//    func keyboardVisible(notif: NSNotification) {
+//        
+//        self.descriptionField.layoutIfNeeded()
+//        if let userInfo = notif.userInfo {
+//            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+//                self.view.layoutIfNeeded()
+//                UIView.animateWithDuration(1, animations: {
+//                    self.firstLabel.hidden = true
+//                    self.supportPicker.hidden = true
+//                    self.secondLabel.hidden = true
+//                    self.borderView.hidden = true
+//                    self.headerView.hidden = true
+//                    self.descriptionTopConstraint.active = false
+//                    print(self.descriptionTopConstraint.secondItem)
+//                    self.topConstraint?.active = false
+//                    self.topConstraint = NSLayoutConstraint(item: self.descriptionField, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 40)
+//                    self.topConstraint!.active = true
+//                    self.view.addConstraint(self.topConstraint!)
+//                    self.buttonBottomConstraint.constant = keyboardHeight + 30
+//                    self.descriptionField.setNeedsUpdateConstraints()
+//                    self.view.updateConstraints()
+//                    self.descriptionField.layoutIfNeeded()
+//                    self.submitButton.layoutIfNeeded()
+//                })
+//                
+//            }
+//        }
+//
+//        
+//    }
+    
     func keyboardVisible(notif: NSNotification) {
         
         if let userInfo = notif.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                self.firstLabel.hidden = true
-                self.supportPicker.hidden = true
-                self.secondLabel.hidden = true
-                self.borderView.hidden = true
-                self.headerView.hidden = true
-                UIView.animateWithDuration(1, animations: {
-                    self.descriptionTopConstraint.active = false
-                    self.topConstraint?.active = false
-                    self.topConstraint = NSLayoutConstraint(item: self.descriptionField, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1, constant: 40)
-                    self.topConstraint!.active = true
-                    self.view.addConstraint(self.topConstraint!)
-                    self.buttonBottomConstraint.constant = keyboardHeight + 30
+                self.originalFrame = descriptionField.frame
+                self.originalY = self.submitButton.frame.origin.y
+                UIView.animateWithDuration(0.3, animations: {
+                    self.firstLabel.alpha = 0
+                    self.supportPicker.alpha = 0
+                    self.secondLabel.alpha = 0
+                    self.borderView.alpha = 0
+                    self.headerView.alpha = 0
+                    self.descriptionField.center.y = self.descriptionField.center.y - 70
+                    self.descriptionField.frame = CGRectMake(50, 40, self.descriptionField.frame.width, self.view.frame.height - keyboardHeight - 125)
+                    self.submitButton.frame.origin.y -= keyboardHeight
+                }, completion: {(true) in
+                    self.firstLabel.hidden = true
+                    self.supportPicker.hidden = true
+                    self.secondLabel.hidden = true
+                    self.borderView.hidden = true
+                    self.headerView.hidden = true
+
                 })
-                
             }
         }
-
         
     }
     
+//    func keyboardHidden(notif: NSNotification) {
+//        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.view.frame.origin = CGPoint(x: 0, y: 0)
+//            self.topConstraint?.active = false
+//            self.descriptionTopConstraint.active = true
+//            self.buttonBottomConstraint.constant = 30
+//        })
+//        
+//        self.firstLabel.hidden = false
+//        self.supportPicker.hidden = false
+//        self.secondLabel.hidden = false
+//        self.borderView.hidden = false
+//        self.headerView.hidden = false
+//    }
+
     func keyboardHidden(notif: NSNotification) {
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.view.frame.origin = CGPoint(x: 0, y: 0)
-            self.topConstraint?.active = false
-            self.descriptionTopConstraint.active = true
-            self.buttonBottomConstraint.constant = 30
-        })
         
         self.firstLabel.hidden = false
         self.supportPicker.hidden = false
         self.secondLabel.hidden = false
         self.borderView.hidden = false
         self.headerView.hidden = false
+        UIView.animateWithDuration(0.3, animations: {
+            self.firstLabel.alpha = 1
+            self.supportPicker.alpha = 1
+            self.secondLabel.alpha = 1
+            self.borderView.alpha = 1
+            self.headerView.alpha = 1
+            self.descriptionField.frame = self.originalFrame!
+            self.submitButton.frame.origin.y = self.originalY!
+            })
+        
     }
+    
+//    func keyboardWillShow(notif: NSNotification) {
+//        self.keyboardVisible(notif)
+//    }
+//    
+//    func keyboardWillHide(notif: NSNotification) {
+//        self.keyboardHidden(notif)
+//    }
     
     func dismiss() {
         self.view.endEditing(true)

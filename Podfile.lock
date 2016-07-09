@@ -18,6 +18,7 @@ PODS:
     - FBSDKCoreKit
   - Intercom (2.3.21)
   - ngrvalidator (1.2.1)
+  - SlideMenuControllerSwift (2.2.0)
   - SwiftyJSON (2.3.2)
   - UICKeyChainStore (1.1.1)
   - XLForm (3.2.0)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Intercom
+  - SlideMenuControllerSwift
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -54,10 +56,11 @@ SPEC CHECKSUMS:
   FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
   Intercom: c05a2e008be2e5064d9045e0e7b919ca267da303
   ngrvalidator: ce34f275e1a9cddc78415f8b61abdb85134082bb
+  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UICKeyChainStore: 891bcd2fe687c92db8e648cba035c4e662ffa43e
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 694faef3f929fdcb50f911ec8b11e8ae0cac74e7
+PODFILE CHECKSUM: 2cb39f9b215c69369c7e4dbc1f2224aa7a3a1498
 
 COCOAPODS: 1.0.1
