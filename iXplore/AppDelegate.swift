@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
 //        for family: String in UIFont.familyNames()
 //        {
 //            print("\(family)")
@@ -33,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        // checks if user has logged-on on this device previously
         if FBSDKAccessToken.currentAccessToken() != nil {
             
             self.loginUser()
@@ -75,24 +77,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
+    // when logout menu button is pressed, go to login screen
     func navigateToLogin() {
         let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
         self.window?.rootViewController = lvc
         self.mainNavigationController?.popViewControllerAnimated(false)
     }
     
+    // allows for psuh notifications
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
             forTypes: [.Badge, .Sound, .Alert], categories: nil)
         application.registerUserNotificationSettings(notificationSettings)
     }
     
+    // checks if you went into your phone settings and changed the push notification settings
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         if notificationSettings.types != .None {
             application.registerForRemoteNotifications()
         }
     }
     
+    // gets your device token for APNs API server call
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
@@ -126,22 +132,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func loadFacebookInfo(menu: MenuViewController) {
+        
+        // adds loading overlay to prevent app access before all facebook information has been downloaded
         self.window?.rootViewController?.addLoadingOverlay()
+        
+        // get user's fb name, email, and profile picture
         let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email, first_name, last_name, picture.type(large)"])
+        
         graphRequest.startWithCompletionHandler({
             (connection, result, error: NSError!) -> Void in
             if error == nil {
                 
+                // pulls facebook profile picture using url
+                // sets user's profile picture to the menu image
                 let imageView = UIImageView()
                 imageView.imageFromUrl("http://graph.facebook.com/\(result["id"] as! String)/picture?width=720&height=720", completion: menu.setImage)
                 
+                // sets menu's welcome title to user's name
                 UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
                 menu.setupName()
                 
+                // remove the overlay, allow access to app
                 self.window?.rootViewController?.removeLoadingOverlay()
             }
             else {
+                
+                // remove the overlay
                 self.window?.rootViewController?.removeLoadingOverlay()
+                
+                // create error alert message that recursively calls the function
+                // no current access to app w/out internet access so no need for 'cancel' functionality
                 let alert = UIAlertController(title: "Error", message: "Network connection failed. Please try again.", preferredStyle: .Alert)
                 let alertAction = UIAlertAction(title: "Try Again", style: .Cancel, handler: {(alert) in self.loadFacebookInfo(menu)})
                 alert.addAction(alertAction)
@@ -152,4 +172,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
 

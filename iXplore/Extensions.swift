@@ -13,8 +13,7 @@ public let LOADING_OVERLAY_VIEW_TAG = 987432
 
 extension UIViewController  {
     
-    
-    //MARK: Loading screen actions
+    // MARK: Loading screen actions
     func addLoadingOverlay()   {
         
         self.makeViewDropKeyboard()
@@ -58,7 +57,10 @@ extension UIViewController  {
     
 }
 
+// extneded ways to initialize UIColor
 extension UIColor {
+    
+    // rgb specification
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -67,6 +69,7 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
+    // hex specification, netHex as hexidecimal int
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
@@ -74,6 +77,7 @@ extension UIColor {
 
 extension UIImageView {
     
+    // get image from URL
     public func imageFromUrl(urlString: String, completion: ()->()) {
         if let url = NSURL(string: urlString) {
             let request = NSURLRequest(URL: url)
@@ -88,3 +92,12 @@ extension UIImageView {
     }
     
 }
+
+
+
+
+
+
+
+
+

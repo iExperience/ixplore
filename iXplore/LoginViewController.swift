@@ -20,7 +20,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // darkens the background image so that the white text pops more
         self.overlayView.alpha = 0.15
+        
+        // layout facebook login button
         fbloginButton = FBSDKLoginButton()
         fbloginButton.center = self.view.center
         fbloginButton.delegate = self
@@ -59,3 +63,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+

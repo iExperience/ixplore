@@ -18,6 +18,9 @@ struct User {
 
 class UserController {
     
+    var user: User?
+    
+    // creates a shared instance
     class var sharedInstance: UserController {
         struct Static {
             static var instance:UserController?
@@ -29,7 +32,5 @@ class UserController {
         }
         return Static.instance!
     }
-    
-    var user: User?
     
 }
