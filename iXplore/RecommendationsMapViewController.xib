@@ -3,10 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendationsMapViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
+                <outlet property="menuButton" destination="2R8-EO-aUr" id="qHW-l4-KCg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +16,27 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R8-EO-aUr">
+                    <rect key="frame" x="8" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="iit-M6-Wf9"/>
+                        <constraint firstAttribute="width" secondItem="2R8-EO-aUr" secondAttribute="height" multiplier="1:1" id="yWL-XG-o6M"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="hamburger.png"/>
+                    <connections>
+                        <action selector="menuButtonTapped:" destination="-1" eventType="touchUpInside" id="Jg0-bO-jQV"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="2R8-EO-aUr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="gna-ja-MRZ"/>
+                <constraint firstItem="2R8-EO-aUr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="us9-ca-diT"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="hamburger.png" width="800" height="800"/>
+    </resources>
 </document>

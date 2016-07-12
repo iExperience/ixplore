@@ -11,52 +11,56 @@ import GoogleMaps
 import CoreLocation
 
 class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate {
-
+    
+    // menu button layout outlets
+    @IBOutlet weak var menuButton: UIButton!
+    
+    // to get user location
     let locationManager = CLLocationManager()
     
-    let camera = GMSCameraPosition.cameraWithLatitude(-33.907181, longitude: 18.418592, zoom: 12)
+    // position the map over workshop 17
+    var camera: GMSCameraPosition?
     var mapView: GMSMapView?
-    
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        mapView = GMSMapView.mapWithFrame(CGRectZero, camera: camera)
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        // Setup Google Maps
-
         // Show user location
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         
-        // The myLocation attribute of the mapView may be null
-//        if let mylocation = mapView!.myLocation {
-//            print("User's location: \(mylocation)")
-//        }
-//        else {
-//            print("User's location is unknown")
-//        }
+        // Setup Google Maps
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if locationManager.location != nil {
+            
+            camera = GMSCameraPosition.cameraWithLatitude((locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!, zoom: 14)
+        }
+        else {
+            
+            camera = GMSCameraPosition.cameraWithLatitude(-33.907181, longitude: 18.418592, zoom: 3)
+        }
+        let mapFrame = CGRectMake(0, 0, appDelegate.window!.frame.width, appDelegate.window!.frame.height)
+        mapView = GMSMapView.mapWithFrame(mapFrame, camera: camera!)
         
+        // test marker
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
         
-        self.view = mapView
+        self.view.addSubview(mapView!)
         
+        self.view.bringSubviewToFront(menuButton)
+        
+    }
+    
+    @IBAction func menuButtonTapped(sender: UIButton) {
+    
+        self.slideMenuController()?.openLeft()
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,8 +81,6 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        
         
         if let location = locations.first {
             
