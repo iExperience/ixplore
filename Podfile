@@ -15,5 +15,6 @@ pod 'Intercom'
 pod 'Devise', :git => 'https://github.com/iExperience/devise-ios.git'
 pod 'SlideMenuControllerSwift'
 pod 'Google/Analytics'
+pod 'GoogleMaps'
 
 end
