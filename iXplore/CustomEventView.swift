@@ -11,7 +11,7 @@ import UIKit
 
 class CustomEventView: UIView {
     
-    var delegate: CustomEventViewDelegate?
+    var eventDelegate: CustomEventViewDelegate?
     
     var titleLabel: UILabel!
     var event: Event!
@@ -41,7 +41,7 @@ class CustomEventView: UIView {
     
     func tapped() {
         print(event.title)
-        self.delegate!.eventViewTapped(self)
+        self.eventDelegate!.eventViewTapped(self)
     }
     
 }
@@ -49,3 +49,25 @@ class CustomEventView: UIView {
 protocol CustomEventViewDelegate {
     func eventViewTapped(eventView: CustomEventView)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
