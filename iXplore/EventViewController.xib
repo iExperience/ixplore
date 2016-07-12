@@ -103,6 +103,6 @@
         </view>
     </objects>
     <resources>
-        <image name="backarrow.png" width="64" height="64"/>
+        <image name="backarrow.png" width="80" height="80"/>
     </resources>
 </document>

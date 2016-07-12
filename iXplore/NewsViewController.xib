@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsViewController" customModule="iXplore" customModuleProvider="target">
@@ -16,10 +17,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xiy-vc-eQ0">
-                    <rect key="frame" x="8" y="25" width="30" height="30"/>
+                    <rect key="frame" x="8" y="15" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="QSJ-CW-iIF"/>
-                        <constraint firstAttribute="width" constant="30" id="T09-DI-Jlk"/>
+                        <constraint firstAttribute="height" constant="50" id="QSJ-CW-iIF"/>
+                        <constraint firstAttribute="width" secondItem="xiy-vc-eQ0" secondAttribute="height" multiplier="1:1" id="sNq-ge-omC"/>
                     </constraints>
                     <state key="normal" image="hamburger.png"/>
                     <connections>
@@ -39,12 +40,12 @@
                 <constraint firstItem="8O6-Sb-a9I" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="8Xy-Y8-xiE"/>
                 <constraint firstItem="8O6-Sb-a9I" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Api-JC-Uth"/>
                 <constraint firstItem="xiy-vc-eQ0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="gjv-KD-5eA"/>
-                <constraint firstItem="xiy-vc-eQ0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="ye3-Kf-Ic0"/>
+                <constraint firstItem="xiy-vc-eQ0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="ye3-Kf-Ic0"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="hamburger.png" width="512" height="512"/>
+        <image name="hamburger.png" width="800" height="800"/>
         <image name="iXlogo.png" width="294" height="294"/>
     </resources>
 </document>

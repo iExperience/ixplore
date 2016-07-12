@@ -36,7 +36,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     var dayView: CustomDayView?
     
     // other layout helpers
-    let headerHeight: CGFloat = 60
+    let headerHeight: CGFloat = 70
     let weekViewBottomBufferHeight: CGFloat = 30
     let footerHeight: CGFloat = 50
     let dateLabelHeight: CGFloat = 20
@@ -94,6 +94,15 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "Calendar")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {
@@ -199,7 +208,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     func loadPreviousWeek() {
         
         self.view.userInteractionEnabled = false
-        UIView.animateWithDuration(0.6, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.weekView.alpha = 0
             }, completion: {(true) in
                 self.weekView.removeFromSuperview()
@@ -211,7 +220,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.view.addSubview(self.weekView)
                 self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
                 self.setupDayView(self.selectedDate)
-                UIView.animateWithDuration(0.6, animations: {
+                UIView.animateWithDuration(0.2, animations: {
                     self.weekView.alpha = 1
                     }, completion: {(true) in
                         self.view.userInteractionEnabled = true
@@ -223,7 +232,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     func loadNextWeek() {
         
         self.view.userInteractionEnabled = false
-        UIView.animateWithDuration(0.6, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.weekView.alpha = 0
             }, completion: {(true) in
                 self.weekView.removeFromSuperview()
@@ -235,7 +244,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.view.addSubview(self.weekView)
                 self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
                 self.setupDayView(self.selectedDate)
-                UIView.animateWithDuration(0.6, animations: {
+                UIView.animateWithDuration(0.2, animations: {
                     self.weekView.alpha = 1
                     }, completion: {(true) in
                         self.view.userInteractionEnabled = true
@@ -247,7 +256,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     func loadCurrentWeek() {
         
         self.view.userInteractionEnabled = false
-        UIView.animateWithDuration(0.6, animations: {
+        UIView.animateWithDuration(0.2, animations: {
             self.weekView.alpha = 0
             }, completion: {(true) in
                 self.weekView.removeFromSuperview()
@@ -258,7 +267,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
                 self.setupDayView(self.selectedDate)
-                UIView.animateWithDuration(0.6, animations: {
+                UIView.animateWithDuration(0.2, animations: {
                     self.weekView.alpha = 1
                     }, completion: {(true) in
                         self.view.userInteractionEnabled = true
@@ -271,7 +280,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
         if let _ = dayView {
             self.view.userInteractionEnabled = false
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.dayView!.alpha = 0
                 self.dateLabel.alpha = 0
                 }, completion: {(true) in
@@ -280,7 +289,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                     self.dayView!.alpha = 0
                     self.view.addSubview(self.dayView!)
                     self.setupDateLabel()
-                    UIView.animateWithDuration(0.3, animations: {
+                    UIView.animateWithDuration(0.2, animations: {
                         self.dayView!.alpha = 1
                         self.dateLabel.alpha = 1
                         }, completion: {(true) in

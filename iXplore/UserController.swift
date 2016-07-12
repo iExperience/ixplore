@@ -20,7 +20,7 @@ class UserController {
     
     var user: User?
     
-    // creates a shared instance
+    // Creates a shared instance
     class var sharedInstance: UserController {
         struct Static {
             static var instance:UserController?

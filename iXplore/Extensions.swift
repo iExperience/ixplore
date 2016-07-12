@@ -4,7 +4,11 @@
 //
 //  Created by Brian Ge on 6/23/16.
 //  Copyright © 2016 Brian Ge. All rights reserved.
-//
+
+// thisIsCamelCase
+// this_is_snake_case
+// this-is-kebab-case
+// THIS_IS_SCREAMING_SNAKE_CASE
 
 import Foundation
 import UIKit
@@ -60,7 +64,7 @@ extension UIViewController  {
 // extneded ways to initialize UIColor
 extension UIColor {
     
-    // rgb specification
+    // RGB specification
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -69,7 +73,7 @@ extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
-    // hex specification, netHex as hexidecimal int
+    // Hex specification, netHex as hexidecimal int
     convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
@@ -77,7 +81,7 @@ extension UIColor {
 
 extension UIImageView {
     
-    // get image from URL
+    // Get image from URL
     public func imageFromUrl(urlString: String, completion: ()->()) {
         if let url = NSURL(string: urlString) {
             let request = NSURLRequest(URL: url)

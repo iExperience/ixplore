@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
@@ -57,7 +58,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="I need help with:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cc-Q5-XeJ">
-                    <rect key="frame" x="234.5" y="90" width="131" height="22"/>
+                    <rect key="frame" x="234" y="90" width="131" height="22"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                     <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -72,10 +73,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="75"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zT7-NL-IRh">
-                            <rect key="frame" x="8" y="25" width="30" height="30"/>
+                            <rect key="frame" x="8" y="15" width="50" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="30" id="DGg-7s-gKG"/>
-                                <constraint firstAttribute="width" constant="30" id="tct-Xb-kOX"/>
+                                <constraint firstAttribute="width" secondItem="zT7-NL-IRh" secondAttribute="height" multiplier="1:1" id="0cQ-4T-D8e"/>
+                                <constraint firstAttribute="height" constant="50" id="DGg-7s-gKG"/>
                             </constraints>
                             <state key="normal" image="hamburger.png"/>
                             <connections>
@@ -92,7 +93,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="2di-nT-Trd"/>
-                        <constraint firstItem="zT7-NL-IRh" firstAttribute="top" secondItem="Qn5-z0-w6e" secondAttribute="top" constant="25" id="3O3-tF-73C"/>
+                        <constraint firstItem="zT7-NL-IRh" firstAttribute="top" secondItem="Qn5-z0-w6e" secondAttribute="top" constant="15" id="3O3-tF-73C"/>
                         <constraint firstItem="4k7-oU-j6G" firstAttribute="top" secondItem="Qn5-z0-w6e" secondAttribute="top" constant="35" id="94Q-46-6wn"/>
                         <constraint firstItem="zT7-NL-IRh" firstAttribute="leading" secondItem="Qn5-z0-w6e" secondAttribute="leading" constant="8" id="caw-mm-Rhm"/>
                         <constraint firstItem="4k7-oU-j6G" firstAttribute="centerX" secondItem="Qn5-z0-w6e" secondAttribute="centerX" id="oP5-gb-bV6"/>
@@ -138,6 +139,6 @@
         </view>
     </objects>
     <resources>
-        <image name="hamburger.png" width="512" height="512"/>
+        <image name="hamburger.png" width="800" height="800"/>
     </resources>
 </document>

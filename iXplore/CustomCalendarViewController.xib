@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lato-Regular.ttf">
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KaB-nE-3bF">
-                    <rect key="frame" x="8" y="25" width="30" height="30"/>
+                    <rect key="frame" x="8" y="15" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="30" id="lnI-0h-7ff"/>
-                        <constraint firstAttribute="height" constant="30" id="mbO-EX-ZaX"/>
+                        <constraint firstAttribute="width" secondItem="KaB-nE-3bF" secondAttribute="height" multiplier="1:1" id="7Qb-Ea-g7Y"/>
+                        <constraint firstAttribute="height" constant="50" id="mbO-EX-ZaX"/>
                     </constraints>
                     <state key="normal" title="Button" image="hamburger.png"/>
                     <connections>
@@ -56,7 +57,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KaB-nE-3bF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="0tq-8W-aTz"/>
+                <constraint firstItem="KaB-nE-3bF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="0tq-8W-aTz"/>
                 <constraint firstAttribute="trailing" secondItem="SkC-ec-Wsf" secondAttribute="trailing" id="1JJ-Ri-Kvs"/>
                 <constraint firstItem="yXt-lB-Ekw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1Wa-u5-nQB"/>
                 <constraint firstAttribute="bottom" secondItem="SkC-ec-Wsf" secondAttribute="bottom" constant="49" id="3KR-AI-dZg"/>
@@ -72,6 +73,6 @@
         </view>
     </objects>
     <resources>
-        <image name="hamburger.png" width="512" height="512"/>
+        <image name="hamburger.png" width="800" height="800"/>
     </resources>
 </document>

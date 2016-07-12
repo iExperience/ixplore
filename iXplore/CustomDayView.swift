@@ -54,11 +54,11 @@ class CustomDayView : UIScrollView {
             lineY += blockHeight
         }
         
-        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+//        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+//        
+//        let dateComponents = calendar?.components([.Month, .Day, .Year, .Hour, .Minute, .Weekday], fromDate: date)
         
-        let dateComponents = calendar?.components([.Month, .Day, .Year, .Hour, .Minute, .Weekday], fromDate: date)
-        
-        UIView.animateWithDuration(0.8, animations: {
+        UIView.animateWithDuration(0.6, animations: {
             self.contentOffset = CGPointMake(0, 9 * self.blockHeight)
         })
         

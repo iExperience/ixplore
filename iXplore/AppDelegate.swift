@@ -28,8 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
+        // Google Analytics
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        
+        // Push notifications
         self.registerForPushNotifications(application)
         
+        // Facebook
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -151,6 +164,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // sets menu's welcome title to user's name
                 UserController.sharedInstance.user = User(id: result["id"] as! String, image: imageView, firstName: result["first_name"] as! String, lastName: result["last_name"] as! String)
                 menu.setupName()
+                GAI.sharedInstance().defaultTracker.set(kGAIUserId, value: "\(result["first_name"] as! String) \(result["last_name"] as! String)")
+                let builder = GAIDictionaryBuilder.createEventWithCategory("User_Id", action: "Sign in", label: "\(result["first_name"] as! String) \(result["last_name"] as! String)", value: nil)
+                GAI.sharedInstance().defaultTracker.send(builder.build() as [NSObject: AnyObject])
                 
                 // remove the overlay, allow access to app
                 self.window?.rootViewController?.removeLoadingOverlay()

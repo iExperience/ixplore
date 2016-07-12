@@ -19,6 +19,7 @@
 		D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D17F80A01D2FA0690088DE96 /* backarrow.png */; };
 		D17F80A31D2FA0750088DE96 /* nextarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D17F80A21D2FA0750088DE96 /* nextarrow.png */; };
 		D17F80A51D2FB7930088DE96 /* CustomEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17F80A41D2FB7930088DE96 /* CustomEventView.swift */; };
+		D19D28EB1D342DD700C7D06C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */; };
 		D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4D41D2CF4870064D387 /* Lato-Black.ttf */; };
 		D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4D51D2CF4870064D387 /* Lato-BlackItalic.ttf */; };
 		D1ADD4E81D2CF4870064D387 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4D61D2CF4870064D387 /* Lato-Bold.ttf */; };
@@ -75,6 +76,7 @@
 		D17F80A01D2FA0690088DE96 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
 		D17F80A21D2FA0750088DE96 /* nextarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextarrow.png; sourceTree = "<group>"; };
 		D17F80A41D2FB7930088DE96 /* CustomEventView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEventView.swift; sourceTree = "<group>"; };
+		D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1ADD4D41D2CF4870064D387 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		D1ADD4D51D2CF4870064D387 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		D1ADD4D61D2CF4870064D387 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		D1E954B91D2A85B1007A4120 /* iXplore */ = {
 			isa = PBXGroup;
 			children = (
+				D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */,
 				D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */,
 				D1ADD4D31D2CF4780064D387 /* Fonts */,
 				D148DDB01D2BBDAB00234996 /* Images */,
@@ -364,6 +367,7 @@
 				D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */,
 				D15C4A871D2C24AC00C641F3 /* iXlogo.png in Resources */,
 				D1ADD4F41D2CF4870064D387 /* Lato-Semibold.ttf in Resources */,
+				D19D28EB1D342DD700C7D06C /* GoogleService-Info.plist in Resources */,
 				D1E954E71D2AB2E9007A4120 /* TestViewController.xib in Resources */,
 				D1ADD4F21D2CF4870064D387 /* Lato-MediumItalic.ttf in Resources */,
 				D1ADD4EB1D2CF4870064D387 /* Lato-HairlineItalic.ttf in Resources */,
@@ -613,6 +617,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "iXplore-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -681,6 +686,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.iXperience.iXploreapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a57705aa-26d3-4cbf-a0d2-bcc165fadd2f";
+				SWIFT_OBJC_BRIDGING_HEADER = "iXplore-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

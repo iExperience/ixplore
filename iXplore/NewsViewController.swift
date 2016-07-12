@@ -25,6 +25,16 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: "iXDaily")
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+    }
+    
     override func loadView() {
         super.loadView()
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

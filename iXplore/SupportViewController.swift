@@ -22,6 +22,7 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var borderView: UIView!
     
+    // Constraints for descriptionField
     @IBOutlet var descriptionTopConstraint: NSLayoutConstraint!
     @IBOutlet var descriptionBottomConstraint: NSLayoutConstraint!
     @IBOutlet var descriptionLeadingConstraint: NSLayoutConstraint!
@@ -29,8 +30,10 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBOutlet var buttonBottomConstraint: NSLayoutConstraint!
     
+    // Store original frame for
     var originalFrame: CGRect?
-    var originalY: CGFloat?
+    var descriptionTopConstraintOriginal: CGFloat = 8
+    var buttonBottomConstraintOriginal: CGFloat = 30
     
     var topConstraint: NSLayoutConstraint?
     
@@ -40,6 +43,8 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Setup notifications for keyboard show and hide
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardVisible(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardHidden(_:)), name: UIKeyboardDidHideNotification, object: nil)
         
@@ -193,24 +198,29 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         if let userInfo = notif.userInfo {
             if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
-                self.originalFrame = descriptionField.frame
-                self.originalY = self.submitButton.frame.origin.y
+//                self.originalFrame = descriptionField.frame
+//                self.originalY = self.submitButton.frame.origin.y
+//                self.descriptionTopConstraint.active = false
+//                self.descriptionLeadingConstraint.active = false
+//                self.descriptionTrailingConstraint.active = false
+//                self.descriptionBottomConstraint.active = false
                 UIView.animateWithDuration(0.3, animations: {
                     self.firstLabel.alpha = 0
                     self.supportPicker.alpha = 0
                     self.secondLabel.alpha = 0
                     self.borderView.alpha = 0
                     self.headerView.alpha = 0
-                    self.descriptionField.center.y = self.descriptionField.center.y - 70
-                    self.descriptionField.frame = CGRectMake(50, 40, self.descriptionField.frame.width, self.view.frame.height - keyboardHeight - 125)
-                    self.submitButton.frame.origin.y -= keyboardHeight
+//                    self.descriptionField.frame = CGRectMake(50, 40, self.descriptionField.frame.width, self.view.frame.height - keyboardHeight - 125)
+                    self.descriptionTopConstraint.constant = 20 - (self.secondLabel.frame.height + self.secondLabel.frame.origin.y)
+                    self.buttonBottomConstraint.constant = keyboardHeight + self.buttonBottomConstraintOriginal
+                    self.submitButton.layoutIfNeeded()
+                    self.descriptionField.layoutIfNeeded()
                 }, completion: {(true) in
                     self.firstLabel.hidden = true
                     self.supportPicker.hidden = true
                     self.secondLabel.hidden = true
                     self.borderView.hidden = true
                     self.headerView.hidden = true
-
                 })
             }
         }
@@ -246,8 +256,12 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.secondLabel.alpha = 1
             self.borderView.alpha = 1
             self.headerView.alpha = 1
-            self.descriptionField.frame = self.originalFrame!
-            self.submitButton.frame.origin.y = self.originalY!
+            self.descriptionTopConstraint.constant = self.descriptionTopConstraintOriginal
+            self.buttonBottomConstraint.constant = self.buttonBottomConstraintOriginal
+            self.submitButton.layoutIfNeeded()
+            self.descriptionField.layoutIfNeeded()
+//            self.descriptionField.frame = self.originalFrame!
+//            self.submitButton.frame.origin.y = self.originalY!
             })
         
     }

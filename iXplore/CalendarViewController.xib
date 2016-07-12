@@ -44,7 +44,7 @@
         </view>
     </objects>
     <resources>
-        <image name="hamburger.png" width="512" height="512"/>
+        <image name="hamburger.png" width="800" height="800"/>
         <image name="iXlogo.png" width="294" height="294"/>
     </resources>
 </document>
