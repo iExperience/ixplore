@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import SlideMenuControllerSwift
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,7 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Optional: configure GAI options.
         let gai = GAI.sharedInstance()
         gai.trackUncaughtExceptions = true  // report uncaught exceptions
-        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+//        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
+        
+        // Google Maps
+        GMSServices.provideAPIKey("AIzaSyC4BRmFQal3Qou4JOyCQUEPhbCnXi2TdAM")
         
         // Push notifications
         self.registerForPushNotifications(application)

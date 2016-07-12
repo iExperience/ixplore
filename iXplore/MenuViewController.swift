@@ -48,16 +48,17 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "menuOption")
         switch indexPath.row {
         case 0: cell.textLabel?.text = "Calendar"
-        case 1: cell.textLabel?.text = "iXDaily"
-        case 2: cell.textLabel?.text = "Support"
-        case 3: cell.textLabel?.text = "Logout"
+        case 1: cell.textLabel?.text = "iXplore"
+        case 2: cell.textLabel?.text = "iXDaily"
+        case 3: cell.textLabel?.text = "Support"
+        case 4: cell.textLabel?.text = "Logout"
         default: break
         }
         cell.accessoryType = .DisclosureIndicator
@@ -76,9 +77,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let smc = self.slideMenuController() {
             switch indexPath.row {
             case 0: smc.changeMainViewController(appDelegate.mainNavigationController!, close: true)
-            case 1: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
-            case 2: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
-            case 3:FBSDKLoginManager().logOut()
+            case 1: smc.changeMainViewController(RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil), close: true)
+            case 2: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
+            case 3: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
+            case 4:FBSDKLoginManager().logOut()
             appDelegate.navigateToLogin()
             default: break
             }
@@ -86,3 +88,21 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
