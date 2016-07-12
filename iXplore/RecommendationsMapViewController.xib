@@ -8,7 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendationsMapViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
+                <outlet property="listButton" destination="YxH-T3-Sp3" id="0j0-wU-0BH"/>
                 <outlet property="menuButton" destination="2R8-EO-aUr" id="qHW-l4-KCg"/>
+                <outlet property="searchField" destination="5p3-Kp-oQu" id="3TA-nb-bft"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,10 +30,29 @@
                         <action selector="menuButtonTapped:" destination="-1" eventType="touchUpInside" id="Jg0-bO-jQV"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-T3-Sp3">
+                    <rect key="frame" x="540" y="25" width="50" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="VFW-Rl-8i7"/>
+                    </constraints>
+                    <state key="normal" title="List">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5p3-Kp-oQu">
+                    <rect key="frame" x="66" y="25" width="466" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="5p3-Kp-oQu" firstAttribute="leading" secondItem="2R8-EO-aUr" secondAttribute="trailing" constant="8" id="4IH-0U-QDS"/>
+                <constraint firstAttribute="trailing" secondItem="YxH-T3-Sp3" secondAttribute="trailing" constant="10" id="b4g-cd-s2a"/>
                 <constraint firstItem="2R8-EO-aUr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="gna-ja-MRZ"/>
+                <constraint firstItem="YxH-T3-Sp3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="ohv-fW-4OS"/>
+                <constraint firstItem="YxH-T3-Sp3" firstAttribute="leading" secondItem="5p3-Kp-oQu" secondAttribute="trailing" constant="8" id="rN7-uK-PYI"/>
                 <constraint firstItem="2R8-EO-aUr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="us9-ca-diT"/>
             </constraints>
         </view>

@@ -12,8 +12,11 @@ import CoreLocation
 
 class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate {
     
-    // menu button layout outlets
+    // button layout outlets
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var listButton: UIButton!
+    
     
     // to get user location
     let locationManager = CLLocationManager()
@@ -54,6 +57,10 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.view.addSubview(mapView!)
         
         self.view.bringSubviewToFront(menuButton)
+        self.view.bringSubviewToFront(searchField)
+        
+        listButton.layer.cornerRadius = 5
+        self.view.bringSubviewToFront(listButton)
         
     }
     
