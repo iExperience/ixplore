@@ -238,7 +238,6 @@
 		D1E954B91D2A85B1007A4120 /* iXplore */ = {
 			isa = PBXGroup;
 			children = (
-				D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */,
 				D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */,
 				D1ADD4D31D2CF4780064D387 /* Fonts */,
 				D148DDB01D2BBDAB00234996 /* Images */,
@@ -250,6 +249,7 @@
 				D1E954C11D2A85B1007A4120 /* Assets.xcassets */,
 				D1E954C31D2A85B1007A4120 /* LaunchScreen.storyboard */,
 				D1E954C61D2A85B1007A4120 /* Info.plist */,
+				D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */,
 			);
 			path = iXplore;
 			sourceTree = "<group>";
