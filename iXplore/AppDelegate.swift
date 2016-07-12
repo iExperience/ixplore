@@ -121,6 +121,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         print(deviceToken)
         print("Device Token:", tokenString)
+        
+        let builder = GAIDictionaryBuilder.createEventWithCategory("Device Token", action: "App Load", label: tokenString, value: nil)
+        GAI.sharedInstance().defaultTracker.send(builder.build() as [NSObject: AnyObject])
     }
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
