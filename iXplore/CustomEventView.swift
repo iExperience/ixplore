@@ -40,7 +40,6 @@ class CustomEventView: UIView {
     }
     
     func tapped() {
-        print(event.title)
         self.delegate!.eventViewTapped(self)
     }
     

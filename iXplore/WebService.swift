@@ -26,19 +26,18 @@ class WebService {
 //    } 
     
     // TODO: fix function names
-    func createMutableRequest(url:NSURL!,method:String!,parameters:Dictionary<String, AnyObject>?) -> Request  {
-        
-        let plainString = "bqh1aucy:5050793785d4f992806ba9adb8c88bde497eb65b" as NSString
-        let plainData = plainString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64String = plainData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions([]))
-        let headers = ["Authorization": "Basic \(base64String)", "Accept": "application/json", "Content-Type": "application/json"]
-        let request = Alamofire.request(Method(rawValue:method)!,url, parameters: parameters, encoding: .JSON, headers: headers)
-        return request
-//        Alamofire.Manager.sharedInstance.defaultHeaders["Authorization"] = "Basic " + base64String!
-        
-    }
+//    func createMutableRequest(url:NSURL!,method:String!,parameters:Dictionary<String, AnyObject>?) -> Request  {
+//        
+//        let plainString = "bqh1aucy:5050793785d4f992806ba9adb8c88bde497eb65b" as NSString
+//        let plainData = plainString.dataUsingEncoding(NSUTF8StringEncoding)!
+//        let base64String = plainData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions([]))
+//        let headers = ["Authorization": "Basic \(base64String)", "Accept": "application/json", "Content-Type": "application/json"]
+//        let request = Alamofire.request(Method(rawValue:method)!,url, parameters: parameters, encoding: .JSON, headers: headers)
+//        return request
+//        
+//    }
 
-    func createMutableAnonRequest(url:NSURL!,method:String!,parameters:Dictionary<String, String>?, headers: Dictionary<String, String>?) -> Request  {
+    func createMutableRequest(url:NSURL!,method:String!,parameters:Dictionary<String, AnyObject>?, headers: Dictionary<String, String>?) -> Request  {
         
         // Build request
         let request = Alamofire.request(Method(rawValue:method)!, url, parameters: parameters, encoding: .JSON, headers: headers)

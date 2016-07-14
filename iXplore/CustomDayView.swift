@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class CustomDayView : UIScrollView {
+class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
+    
+    var dayViewDelegate: CustomDayViewDelegate?
     
     // the date being shown
     var date: NSDate!
@@ -37,6 +39,12 @@ class CustomDayView : UIScrollView {
         var titleY = titleHeight! / 2
         var lineY = titleHeight!
         
+        panGestureRecognizer.delegate = self
+        
+        let newPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.beingDragged(_:)))
+        newPanGestureRecognizer.delegate = self
+        self.addGestureRecognizer(newPanGestureRecognizer)
+        
         for i in 0...24 {
             let line = UIView(frame: CGRectMake(lineLeadingWhiteSpace + titleLeadingWhiteSpace + titleWidth, lineY, self.frame.width - titleLeadingWhiteSpace - titleWidth - lineLeadingWhiteSpace - lineTrailingWhiteSpace, 1))
             line.backgroundColor = UIColor.lightGrayColor()
@@ -58,9 +66,9 @@ class CustomDayView : UIScrollView {
 //        
 //        let dateComponents = calendar?.components([.Month, .Day, .Year, .Hour, .Minute, .Weekday], fromDate: date)
         
-        UIView.animateWithDuration(0.6, animations: {
-            self.contentOffset = CGPointMake(0, 9 * self.blockHeight)
-        })
+        //UIView.animateWithDuration(0.6, animations: {
+        self.contentOffset = CGPointMake(0, 9 * self.blockHeight)
+        //})
         
 //        self.loadEvents()
         
@@ -177,5 +185,31 @@ class CustomDayView : UIScrollView {
             return self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace)
         }
     }
+    
+    func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        
+        if gestureRecognizer.state == .Began {
+            if abs(gestureRecognizer.velocityInView(self).x) > abs(gestureRecognizer.velocityInView(self).y) {
+                self.scrollEnabled = false
+            }
+        }
+        if !self.scrollEnabled {
+            dayViewDelegate?.beingDragged(gestureRecognizer)
+        }
+        if gestureRecognizer.state == .Ended {
+            self.scrollEnabled = true
+        }
+
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+}
+
+protocol CustomDayViewDelegate {
+    
+    func beingDragged(gestureRecognizer: UIPanGestureRecognizer)
     
 }

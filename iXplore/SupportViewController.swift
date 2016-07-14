@@ -74,7 +74,14 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     @IBAction func submitButtonTapped(sender: UIButton) {
-        let id: String = "571a025295d0428a9700001d"
+        var intercomID: String!
+        for ids in info {
+            if ids[0] == UserController.sharedInstance.user?.id {
+                intercomID = ids[1]
+            }
+        }
+        
+//        let id: String = "571a025295d0428a9700001d"
         
         let description = descriptionField.text
         
@@ -82,13 +89,18 @@ class SupportViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let body: String = "Description: \(description).\n\nCategory: \(category).\n\nSubmitted by: student."
         
-        let user: Dictionary<String, String> = ["type": "user", "id": id]
+        let user: Dictionary<String, String> = ["type": "user", "id": intercomID]
         
         let params: Dictionary<String, AnyObject> = ["from": user, "body": body]
         
+        let plainString = "rgja1l16:7e4193deb6bc73d870543b6563be76e94b17695b" as NSString
+        let plainData = plainString.dataUsingEncoding(NSUTF8StringEncoding)!
+        let base64String = plainData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions([]))
+        let headers = ["Authorization": "Basic \(base64String)", "Accept": "application/json", "Content-Type": "application/json"]
+        
         let server = WebService()
         //        let request = server.createMutableRequest(NSURL(string:  "https://api.intercom.io/users/\(id)"), method: "GET", parameters: nil)
-        let request = server.createMutableRequest(NSURL(string: "https://api.intercom.io/messages"), method: "POST", parameters: params)
+        let request = server.createMutableRequest(NSURL(string: "https://api.intercom.io/messages"), method: "POST", parameters: params, headers: headers)
         
         server.executeRequest(request, presentingViewController:self, requestCompletionFunction: {(responseCode, json) in
             

@@ -37,6 +37,7 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
     
     override func loadView() {
         super.loadView()
+        self.addLoadingOverlay()
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.webView = WKWebView()
         self.webView?.navigationDelegate = self
@@ -49,11 +50,8 @@ class NewsViewController: UIViewController, WKNavigationDelegate, UIGestureRecog
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         self.view.addSubview(self.webView!)
-        //print(webView.scrollView.contentSize)
-//        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        print(webView.scrollView.contentSize)
-//        let zoomedScreen = CGRectMake(60,60,webView.scrollView.frame.width * 1.8, webView.scrollView.frame.height)
-//        self.webView!.scrollView.zoomToRect(zoomedScreen, animated: true)
+        self.removeLoadingOverlay()
+        
     }
 
     @IBAction func menuButtonTapped(sender: UIButton) {

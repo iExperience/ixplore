@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, CustomEventViewDelegate {
+class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, CustomEventViewDelegate, CustomDayViewDelegate {
 
     var currentDate : NSDate!
     var dateLabel: UILabel!
@@ -34,6 +34,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     let lineLeadingWhiteSpace: CGFloat = 10
     let lineTrailingWhiteSpace: CGFloat = 5
     var dayView: CustomDayView?
+    var previousDayView: CustomDayView?
+    var nextDayView: CustomDayView?
+    var xDistance: CGFloat?
     
     // other layout helpers
     let headerHeight: CGFloat = 70
@@ -83,6 +86,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         //        }
         
         self.setupDayView(currentDate)
+        self.setupNeighborDays()
         
         dateLabel = UILabel(frame: CGRectMake(0, headerHeight + buttonSize + ((weekViewBottomBufferHeight - dateLabelHeight) / 2), appDelegate.window!.frame.width, dateLabelHeight))
         dateLabel.textAlignment = .Center
@@ -118,6 +122,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     func dateSelected(selectedDate: NSDate) {
         self.selectedDate = selectedDate
         self.setupDayView(self.selectedDate)
+        self.setupNeighborDays()
     }
     
     func eventViewTapped(eventView: CustomEventView) {
@@ -205,7 +210,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
     }
     
-    func loadPreviousWeek() {
+    func loadPreviousWeek(dayViewSetup: Bool) {
         
         self.view.userInteractionEnabled = false
         UIView.animateWithDuration(0.2, animations: {
@@ -219,7 +224,10 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
                 self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
-                self.setupDayView(self.selectedDate)
+                if !dayViewSetup {
+                    self.setupDayView(self.selectedDate)
+                    self.setupNeighborDays()
+                }
                 UIView.animateWithDuration(0.2, animations: {
                     self.weekView.alpha = 1
                     }, completion: {(true) in
@@ -229,7 +237,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
     }
     
-    func loadNextWeek() {
+    func loadNextWeek(dayViewSetup: Bool) {
         
         self.view.userInteractionEnabled = false
         UIView.animateWithDuration(0.2, animations: {
@@ -243,7 +251,10 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.weekView.alpha = 0
                 self.view.addSubview(self.weekView)
                 self.selectedDate = self.weekView.dates[self.getDayOfWeek(self.selectedDate)].1
-                self.setupDayView(self.selectedDate)
+                if !dayViewSetup {
+                    self.setupDayView(self.selectedDate)
+                    self.setupNeighborDays()
+                }
                 UIView.animateWithDuration(0.2, animations: {
                     self.weekView.alpha = 1
                     }, completion: {(true) in
@@ -277,7 +288,6 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     }
     
     func setupDayView(date: NSDate) {
-        
         if let _ = dayView {
             self.view.userInteractionEnabled = false
             UIView.animateWithDuration(0.2, animations: {
@@ -304,9 +314,33 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
     }
     
+    func setupNeighborDays() {
+        
+        let nextDayComponent = NSDateComponents()
+        nextDayComponent.day = 1
+        let previousDayComponent = NSDateComponents()
+        previousDayComponent.day = -1
+        let nextDay = calendar.dateByAddingComponents(nextDayComponent, toDate: self.selectedDate, options: .MatchStrictly)
+        let previousDay = calendar.dateByAddingComponents(previousDayComponent, toDate: self.selectedDate, options: .SearchBackwards)
+        
+        if let _ = nextDayView {
+            self.nextDayView?.removeFromSuperview()
+        }
+        self.setupNextDayViewHelp(nextDay!)
+        self.view.addSubview(nextDayView!)
+        
+        if let _ = previousDayView {
+            self.previousDayView?.removeFromSuperview()
+        }
+        self.setupPreviousDayViewHelp(previousDay!)
+        self.view.addSubview(previousDayView!)
+        
+    }
+    
     func setupDayViewHelp(date: NSDate) {
         
         self.dayView = CustomDayView(frame: CGRectMake(0, self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize, self.appDelegate.window!.frame.width, self.appDelegate.window!.frame.height - (self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize + self.footerHeight)))
+        self.dayView?.dayViewDelegate = self
         self.dayView!.blockHeight = self.blockHeight
         self.dayView!.titleHeight = self.titleHeight
         self.dayView!.titleWidth = self.titleWidth
@@ -316,24 +350,51 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         self.dayView!.date = date
         self.dayView!.contentSize = CGSize(width: self.dayView!.frame.width, height: (24 * self.blockHeight) + (2 * self.titleHeight))
         self.dayView!.loadView()
-        self.loadEvents()
+        self.loadEvents(dayView!)
     }
     
-    func loadEvents() {
+    func setupNextDayViewHelp(date: NSDate) {
         
-//        let event1 = Event(title: "hey", startDateString: "2016-07-08T09:30:00+00:00", endDateString: "2016-07-08T10:30:00+00:00")
-//                let event2 = Event(title: "hey", startDateString: "2016-07-08T09:50:00+00:00", endDateString: "2016-07-08T10:50:00+00:00")
-//                let event3 = Event(title: "hey", startDateString: "2016-07-08T10:05:00+00:00", endDateString: "2016-07-08T10:55:00+00:00")
-//                self.eventListComplete([event1, event2, event3])
+        self.nextDayView = CustomDayView(frame: CGRectMake((self.appDelegate.window?.frame.width)!, self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize, self.appDelegate.window!.frame.width, self.appDelegate.window!.frame.height - (self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize + self.footerHeight)))
+        self.nextDayView?.dayViewDelegate = self
+        self.nextDayView!.blockHeight = self.blockHeight
+        self.nextDayView!.titleHeight = self.titleHeight
+        self.nextDayView!.titleWidth = self.titleWidth
+        self.nextDayView!.titleLeadingWhiteSpace = self.titleLeadingWhiteSpace
+        self.nextDayView!.lineLeadingWhiteSpace = self.lineLeadingWhiteSpace
+        self.nextDayView!.lineTrailingWhiteSpace = self.lineTrailingWhiteSpace
+        self.nextDayView!.date = date
+        self.nextDayView!.contentSize = CGSize(width: self.nextDayView!.frame.width, height: (24 * self.blockHeight) + (2 * self.titleHeight))
+        self.nextDayView!.loadView()
+        self.loadEvents(nextDayView!)
+    }
+    
+    func setupPreviousDayViewHelp(date: NSDate) {
+        
+        self.previousDayView = CustomDayView(frame: CGRectMake(-(self.appDelegate.window?.frame.width)!, self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize, self.appDelegate.window!.frame.width, self.appDelegate.window!.frame.height - (self.headerHeight + self.weekViewBottomBufferHeight + self.buttonSize + self.footerHeight)))
+        self.previousDayView?.dayViewDelegate = self
+        self.previousDayView!.blockHeight = self.blockHeight
+        self.previousDayView!.titleHeight = self.titleHeight
+        self.previousDayView!.titleWidth = self.titleWidth
+        self.previousDayView!.titleLeadingWhiteSpace = self.titleLeadingWhiteSpace
+        self.previousDayView!.lineLeadingWhiteSpace = self.lineLeadingWhiteSpace
+        self.previousDayView!.lineTrailingWhiteSpace = self.lineTrailingWhiteSpace
+        self.previousDayView!.date = date
+        self.previousDayView!.contentSize = CGSize(width: self.previousDayView!.frame.width, height: (24 * self.blockHeight) + (2 * self.titleHeight))
+        self.previousDayView!.loadView()
+        self.loadEvents(previousDayView!)
+    }
+    
+    func loadEvents(customDayView: CustomDayView) {
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "UTC")
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.stringFromDate(self.dayView!.date)
+        let dateString = dateFormatter.stringFromDate(customDayView.date)
         
         let webService = WebService()
         
-        let request = webService.createMutableAnonRequest(NSURL(string: "https://api.teamup.com/ks1b61e773b115d98d/events?tz=UTC&startDate=\(dateString)&endDate=\(dateString)"), method: "GET", parameters: nil, headers: ["Teamup-Token": "cda8c60dd507aa16f22f19e900799b732356ef63d825c0bee56fd98abee67f97"])
+        let request = webService.createMutableRequest(NSURL(string: "https://teamup.com/ks690496cd8edecfdf/events?tz=UTC&startDate=\(dateString)&endDate=\(dateString)"), method: "GET", parameters: nil, headers: ["Teamup-Token": "cda8c60dd507aa16f22f19e900799b732356ef63d825c0bee56fd98abee67f97"])
         
         webService.executeRequest(request, presentingViewController: nil, requestCompletionFunction: {(responseCode, json) in
             
@@ -355,7 +416,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                     }
                 }
                 
-                self.eventListComplete(events, loadedAllDayEvents: allDayEvents)
+                self.eventListComplete(customDayView, loadedEvents: events, loadedAllDayEvents: allDayEvents)
             }
             else {
                 print("Didn't Work")
@@ -365,13 +426,13 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
     }
     
-    func eventListComplete(loadedEvents: [Event], loadedAllDayEvents: [(String, [String])]) {
+    func eventListComplete(customDayView: CustomDayView, loadedEvents: [Event], loadedAllDayEvents: [(String, [String])]) {
         for newEvent in loadedEvents {
             let newEventView = CustomEventView()
             newEventView.delegate = self
             newEventView.event = newEvent
-            newEventView.indent = dayView!.indentAmount
-            for eventView in dayView!.eventViews {
+            newEventView.indent = customDayView.indentAmount
+            for eventView in customDayView.eventViews {
                 if eventView.event.endDate.compare(newEvent.startDate) == .OrderedDescending {
                     if withinHalfHour(eventView.event.startDate, compareDate: newEvent.startDate) {
                         if eventView.positionInConflicts == newEventView.positionInConflicts {
@@ -382,14 +443,14 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                         newEventView.indent = eventView.indent
                     }
                     else {
-                        newEventView.indent = eventView.indent + dayView!.indentAmount
+                        newEventView.indent = eventView.indent + customDayView.indentAmount
                     }
                 }
             }
-            dayView!.eventViews.append(newEventView)
+            customDayView.eventViews.append(newEventView)
         }
-        dayView!.allDayEvents = loadedAllDayEvents
-        dayView!.displayEvents()
+        customDayView.allDayEvents = loadedAllDayEvents
+        customDayView.displayEvents()
     }
     
     func withinHalfHour(fromDate: NSDate, compareDate: NSDate) -> Bool {
@@ -400,6 +461,97 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
             return true
         }
         return false
+    }
+    
+    func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        
+        xDistance = gestureRecognizer.translationInView(self.dayView).x
+        self.nextDayView?.contentOffset = (self.dayView?.contentOffset)!
+        self.previousDayView?.contentOffset = (self.dayView?.contentOffset)!
+        
+        switch gestureRecognizer.state {
+//        case UIGestureRecognizerState.Began:
+        case UIGestureRecognizerState.Changed:
+            self.dayView?.frame.origin.x = xDistance!
+            self.nextDayView?.frame.origin.x = self.appDelegate.window!.frame.width + xDistance!
+            self.previousDayView?.frame.origin.x = xDistance! - self.appDelegate.window!.frame.width
+        case UIGestureRecognizerState.Ended:
+            self.afterPanAction()
+        default:
+            break
+        }
+    }
+    
+    func afterPanAction() {
+        if xDistance > 120 {
+            self.selectedDate = previousDayView?.date
+            let dateComponents = NSDateComponents()
+            dateComponents.day = -1
+            let newPreviousDay = calendar.dateByAddingComponents(dateComponents, toDate: (previousDayView?.date)!, options: .SearchBackwards)
+            if weekView.selectedDateTag == 0 {
+                self.loadPreviousWeek(true)
+            }
+            else {
+                self.weekView.selectedDateTag! -= 1
+                for (button, date) in self.weekView.dates {
+                    self.weekView.setButtonColor(button, date: date)
+                }
+                self.weekView.setSelectedButtonColor(self.weekView.dates[self.weekView.selectedDateTag].0, date: self.weekView.dates[self.weekView.selectedDateTag].1)
+            }
+            UIView.animateWithDuration(0.2, animations: {
+                self.dayView?.frame.origin.x = self.appDelegate.window!.frame.width
+                self.previousDayView?.frame.origin.x = 0
+                self.nextDayView?.removeFromSuperview()
+                self.nextDayView = self.dayView
+                self.dayView = self.previousDayView
+                self.setupPreviousDayViewHelp(newPreviousDay!)
+                self.view.addSubview(self.previousDayView!)
+                self.dateLabel.alpha = 0
+                }, completion: {(true) in
+                    self.setupDateLabel()
+                    UIView.animateWithDuration(0.2, animations: {
+                        self.dateLabel.alpha = 1
+                    })
+            })
+        }
+        else if xDistance < -120 {
+            self.selectedDate = nextDayView?.date
+            let dateComponents = NSDateComponents()
+            dateComponents.day = 1
+            let newNextDay = calendar.dateByAddingComponents(dateComponents, toDate: (nextDayView?.date)!, options: .MatchStrictly)
+            if weekView.selectedDateTag == 6 {
+                self.loadNextWeek(true)
+            }
+            else {
+                self.weekView.selectedDateTag! += 1
+                for (button, date) in self.weekView.dates {
+                    self.weekView.setButtonColor(button, date: date)
+                }
+                self.weekView.setSelectedButtonColor(self.weekView.dates[self.weekView.selectedDateTag].0, date: self.weekView.dates[self.weekView.selectedDateTag].1)
+            }
+            UIView.animateWithDuration(0.2, animations: {
+                self.dayView?.frame.origin.x = -self.appDelegate.window!.frame.width
+                self.nextDayView?.frame.origin.x = 0
+                self.previousDayView?.removeFromSuperview()
+                self.previousDayView = self.dayView
+                self.dayView = self.nextDayView
+                self.setupNextDayViewHelp(newNextDay!)
+                self.view.addSubview(self.nextDayView!)
+                self.dateLabel.alpha = 0
+                }, completion: {(true) in
+                    self.setupDateLabel()
+                    UIView.animateWithDuration(0.2, animations: {
+                        self.dateLabel.alpha = 1
+                    })
+            })
+        }
+        else {
+            UIView.animateWithDuration(0.2, animations: {
+                self.dayView?.frame.origin.x = 0
+                self.nextDayView?.frame.origin.x = (self.appDelegate.window?.frame.width)!
+                self.previousDayView?.frame.origin.x = -(self.appDelegate.window?.frame.width)!
+            })
+        }
     }
 
 }

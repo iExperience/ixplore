@@ -51,18 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        // checks if user has logged-on on this device previously
+        // Checks if user has logged-on on this device previously
         if FBSDKAccessToken.currentAccessToken() != nil {
             
             self.loginUser()
             
         }
         else {
-        
+            
             let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
             self.window?.rootViewController = lvc
-            self.window?.makeKeyAndVisible()
         }
+        
+        self.window?.makeKeyAndVisible()
         
         return true
     }
@@ -137,17 +138,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func loginUser() {
         
         let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        
+        
         let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+        
+        // Navigation controller
         self.mainNavigationController = UINavigationController(rootViewController: ccvc)
         self.mainNavigationController?.navigationBarHidden = true
+        
+        // Set up slide menu
         SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 2 / 3
         SlideMenuOptions.contentViewScale = 1
         SlideMenuOptions.hideStatusBar = false
+        
+        // Create slide menu controller with previous options
         let smc = SlideMenuController(mainViewController: self.mainNavigationController!, leftMenuViewController: mvc)
+        smc.view.removeGestureRecognizer(smc.leftPanGesture!)
         
         self.window?.rootViewController = smc
-        self.window?.makeKeyAndVisible()
+        
         self.loadFacebookInfo(mvc)
+        
         
     }
     
@@ -195,14 +206,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-

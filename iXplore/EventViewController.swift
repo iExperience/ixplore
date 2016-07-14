@@ -22,6 +22,9 @@ class EventViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.goBack(_:)))
+        swipeGesture.direction = .Right
+        self.view.addGestureRecognizer(swipeGesture)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -37,7 +40,6 @@ class EventViewController: UIViewController, UITextViewDelegate {
         titleLabel.sizeToFit()
         descriptionTextView.attributedText = event!.description
         descriptionTextView.font = UIFont(name: "Lato-Regular", size: 16)
-        descriptionTextView.sizeToFit()
         descriptionTextView.delegate = self
         
         
@@ -61,6 +63,10 @@ class EventViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func backButtonTapped(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func goBack(gestureRecognizer: UISwipeGestureRecognizer) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
