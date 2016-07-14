@@ -31,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cv-Te-fa0">
-                    <rect key="frame" x="230" y="25" width="139.5" height="29"/>
+                    <rect key="frame" x="230" y="25" width="140" height="29"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     <color key="textColor" red="0.1803921568627451" green="0.19215686274509802" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -72,18 +72,23 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-Wo-4ht">
-                    <rect key="frame" x="20" y="259" width="560" height="35.5"/>
+                    <rect key="frame" x="20" y="259" width="560" height="36"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFb-qi-d2o" userLabel="Description Scroll View">
+                    <rect key="frame" x="20" y="373" width="240" height="128"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="HD0-Nr-DLQ" firstAttribute="top" secondItem="6g6-WR-zTE" secondAttribute="bottom" constant="20" id="0np-ey-pKc"/>
                 <constraint firstItem="6g6-WR-zTE" firstAttribute="trailing" secondItem="f3k-EY-KGH" secondAttribute="trailing" id="2YY-7s-k74"/>
+                <constraint firstItem="uFb-qi-d2o" firstAttribute="top" secondItem="58E-pR-Kc0" secondAttribute="bottom" constant="20" id="3im-cI-HDk"/>
                 <constraint firstItem="6Cv-Te-fa0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6qd-KN-5WA"/>
                 <constraint firstItem="JiP-Wo-4ht" firstAttribute="top" secondItem="58E-pR-Kc0" secondAttribute="bottom" constant="20" id="8F2-P1-g1M"/>
+                <constraint firstItem="uFb-qi-d2o" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9mN-8L-WH7"/>
                 <constraint firstItem="JiP-Wo-4ht" firstAttribute="leading" secondItem="58E-pR-Kc0" secondAttribute="leading" id="Bol-DX-92R"/>
                 <constraint firstItem="f3k-EY-KGH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="FKb-yv-Xwz"/>
                 <constraint firstItem="6Cv-Te-fa0" firstAttribute="centerY" secondItem="qCS-wY-jEA" secondAttribute="centerY" id="Lra-nr-Bdh"/>
