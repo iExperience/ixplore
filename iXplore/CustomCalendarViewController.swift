@@ -82,9 +82,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         dateLabel.textAlignment = .Center
         self.view.addSubview(dateLabel)
         
-        self.setupDayView(selectedDate)
-        self.setupNeighborDays()
-        self.setupDateLabel()
+//        self.setupDayView(selectedDate)
+//        self.setupNeighborDays()
+//        self.setupDateLabel()
 
 
     }
@@ -103,14 +103,14 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
         
-//        currentDate = NSDate()
+        currentDate = NSDate()
 //        self.selectedDate = currentDate
         
 //        self.weekStartDate = self.getWeekStartDate(currentDate)
 //        self.previousWeekStartDate = self.getPreviousWeekStartDate()
 //        self.nextWeekStartDate = self.getNextWeekStartDate()
         
-//        self.setupWeekViewWithoutFrame()
+        self.setupWeekViewWithoutFrame()
         
         //        self.setupNextWeekView()
         //        self.setupPreviousWeekView()
@@ -122,9 +122,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         //            }
         //        }
         
-//        self.setupDayView(selectedDate)
-//        self.setupNeighborDays()
-//        self.setupDateLabel()
+        self.setupDayView(selectedDate)
+        self.setupNeighborDays()
+        self.setupDateLabel()
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {
@@ -137,6 +137,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         self.selectedDate = currentDate
         self.loadCurrentWeek()
     }
+    
     func dateSelected(selectedDate: NSDate) {
         self.selectedDate = selectedDate
         self.setupDayView(self.selectedDate)

@@ -40,6 +40,9 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         self.mapView.myLocationEnabled = true
         self.mapView.settings.myLocationButton = true
+        self.mapView.settings.compassButton = true
+        
+        print(mapView.myLocation?.coordinate)
         
         // Test marker
         let marker = GMSMarker()
@@ -52,6 +55,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         listButton.layer.cornerRadius = 5
         
         self.view.addSubview(mapView)
+        
         self.view.sendSubviewToBack(mapView)
     }
     
@@ -71,4 +75,22 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             locationManager.stopUpdatingLocation()
         }
     }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
