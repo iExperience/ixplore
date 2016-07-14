@@ -5,11 +5,6 @@
 //  Created by Brian Ge on 6/23/16.
 //  Copyright © 2016 Brian Ge. All rights reserved.
 
-// thisIsCamelCase
-// this_is_snake_case
-// this-is-kebab-case
-// THIS_IS_SCREAMING_SNAKE_CASE
-
 import Foundation
 import UIKit
 
@@ -54,8 +49,7 @@ extension UIViewController  {
     }
     
     func makeViewDropKeyboard()   {
-        //print("makeViewDropTapped")
-        self.view.endEditing(true);
+        self.view.endEditing(true)
         self.resignFirstResponder()
     }
     
@@ -98,6 +92,69 @@ extension UIImageView {
 }
 
 
+extension CustomDayView  {
+    
+    // MARK: Loading screen actions
+    func addLoadingOverlay()   {
+        
+        self.makeViewDropKeyboard()
+        
+        //add an overlay screen
+        let overlayImage = UIImageView(frame: CGRectMake(0, 0, self.frame.width, self.contentSize.height))
+        overlayImage.backgroundColor = UIColor.blackColor()
+        overlayImage.alpha = 0.5
+        overlayImage.tag = LOADING_OVERLAY_VIEW_TAG
+        
+        let loadingSpinner = UIActivityIndicatorView(frame: overlayImage.frame)
+        loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        loadingSpinner.startAnimating()
+        overlayImage.addSubview(loadingSpinner)
+        
+        self.addSubview(overlayImage)
+        self.bringSubviewToFront(overlayImage)
+    }
+    
+    func removeLoadingOverlay()  {
+        
+        for view in self.subviews  {
+            if (view.tag == LOADING_OVERLAY_VIEW_TAG)   {
+                view.removeFromSuperview()
+            }
+        }
+        
+    }
+    
+    func makeViewDropKeyboard()   {
+        self.endEditing(true)
+        self.resignFirstResponder()
+    }
+    
+}
+
+extension UIViewController  {
+    
+    // MARK: Loading screen actions
+    func addLoadingOverlay(frame: CGRect)   {
+        
+        self.makeViewDropKeyboard()
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //add an overlay screen
+        let overlayImage = UIImageView(frame: frame)
+        overlayImage.backgroundColor = UIColor.blackColor()
+        overlayImage.alpha = 0.5
+        overlayImage.tag = LOADING_OVERLAY_VIEW_TAG
+        
+        let loadingSpinner = UIActivityIndicatorView(frame: overlayImage.frame)
+        loadingSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        loadingSpinner.startAnimating()
+        overlayImage.addSubview(loadingSpinner)
+        
+        
+        return appDelegate.window!.addSubview(overlayImage)
+    }
+    
+}
 
 
 

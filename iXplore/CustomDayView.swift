@@ -12,6 +12,7 @@ import UIKit
 class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
     
     var dayViewDelegate: CustomDayViewDelegate?
+    var eventsLoaded: Bool = false
     
     // the date being shown
     var date: NSDate!

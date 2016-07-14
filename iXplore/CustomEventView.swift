@@ -22,8 +22,8 @@ class CustomEventView: UIView {
     func loadView() {
         
         self.clipsToBounds = true
-        backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.1)
-        layer.cornerRadius = 8
+        self.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.1)
+        self.layer.cornerRadius = 8
         titleLabel = UILabel(frame: CGRectMake(5, 5, self.frame.width, 20))
         titleLabel.text = event.title
         titleLabel.font = UIFont(name: "Lato-Regular", size: 15)

@@ -75,22 +75,11 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         self.nextWeekStartDate = self.getNextWeekStartDate()
         
         self.setupWeekView()
-        //        self.setupNextWeekView()
-        //        self.setupPreviousWeekView()
-        
-        //        for (button,date) in self.weekView.dates {
-        //            if date == currentDate {
-        //                button.backgroundColor = UIColor.redColor()
-        //                button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        //            }
-        //        }
-        
-        self.setupDayView(currentDate)
-        self.setupNeighborDays()
+//        weekView = CustomWeekView(frame: CGRectMake((whiteSpace * 2) + buttonSize, headerHeight, (whiteSpace * 6) + (buttonSize * 7), buttonSize))
+
         
         dateLabel = UILabel(frame: CGRectMake(0, headerHeight + buttonSize + ((weekViewBottomBufferHeight - dateLabelHeight) / 2), appDelegate.window!.frame.width, dateLabelHeight))
         dateLabel.textAlignment = .Center
-        self.setupDateLabel()
         self.view.addSubview(dateLabel)
 
     }
@@ -102,11 +91,35 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        // Google Analytics data
         let tracker = GAI.sharedInstance().defaultTracker
         tracker.set(kGAIScreenName, value: "Calendar")
         
         let builder = GAIDictionaryBuilder.createScreenView()
         tracker.send(builder.build() as [NSObject : AnyObject])
+        
+        currentDate = NSDate()
+        self.selectedDate = currentDate
+        
+        self.weekStartDate = self.getWeekStartDate(currentDate)
+        self.previousWeekStartDate = self.getPreviousWeekStartDate()
+        self.nextWeekStartDate = self.getNextWeekStartDate()
+        
+        self.setupWeekViewWithoutFrame()
+        
+        //        self.setupNextWeekView()
+        //        self.setupPreviousWeekView()
+        
+        //        for (button,date) in self.weekView.dates {
+        //            if date == currentDate {
+        //                button.backgroundColor = UIColor.redColor()
+        //                button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        //            }
+        //        }
+        
+        self.setupDayView(selectedDate)
+        self.setupNeighborDays()
+        self.setupDateLabel()
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {
@@ -171,6 +184,20 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
         return (calendar?.dateByAddingComponents(componentAdd, toDate: weekStartDate, options: .MatchStrictly)!)!
         
+    }
+    
+    func setupWeekViewWithoutFrame() {
+        weekView.removeFromSuperview()
+        weekView = CustomWeekView(frame: CGRectMake((whiteSpace * 2) + buttonSize, headerHeight, (whiteSpace * 6) + (buttonSize * 7), buttonSize))
+        weekView.delegate = self
+        weekView.startDate = weekStartDate
+        weekView.currentDate = currentDate
+        weekView.buttonSize = buttonSize
+        weekView.whiteSpace = whiteSpace
+        weekView.selectedDateTag = getDayOfWeek(selectedDate)
+        weekView.populateDates()
+        
+        self.view.addSubview(weekView)
     }
     
     func setupWeekView() {
@@ -394,7 +421,11 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
         let webService = WebService()
         
+        customDayView.addLoadingOverlay()
+        
         let request = webService.createMutableRequest(NSURL(string: "https://teamup.com/ks690496cd8edecfdf/events?tz=UTC&startDate=\(dateString)&endDate=\(dateString)"), method: "GET", parameters: nil, headers: ["Teamup-Token": "cda8c60dd507aa16f22f19e900799b732356ef63d825c0bee56fd98abee67f97"])
+        
+        
         
         webService.executeRequest(request, presentingViewController: nil, requestCompletionFunction: {(responseCode, json) in
             
@@ -451,6 +482,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         }
         customDayView.allDayEvents = loadedAllDayEvents
         customDayView.displayEvents()
+//        self.removeLoadingOverlay()
+//        customDayView.eventsLoaded = true
+        customDayView.removeLoadingOverlay()
     }
     
     func withinHalfHour(fromDate: NSDate, compareDate: NSDate) -> Bool {
@@ -508,6 +542,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.view.addSubview(self.previousDayView!)
                 self.dateLabel.alpha = 0
                 }, completion: {(true) in
+//                    if !(self.dayView?.eventsLoaded)! {
+//                        self.addLoadingOverlay((self.dayView?.frame)!)
+//                    }
                     self.setupDateLabel()
                     UIView.animateWithDuration(0.2, animations: {
                         self.dateLabel.alpha = 1
@@ -539,6 +576,9 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
                 self.view.addSubview(self.nextDayView!)
                 self.dateLabel.alpha = 0
                 }, completion: {(true) in
+//                    if !(self.dayView?.eventsLoaded)! {
+//                        self.addLoadingOverlay((self.dayView?.frame)!)
+//                    }
                     self.setupDateLabel()
                     UIView.animateWithDuration(0.2, animations: {
                         self.dateLabel.alpha = 1

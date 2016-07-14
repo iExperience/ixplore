@@ -32,6 +32,8 @@ class CustomWeekView : UIView {
             let button = UIButton(frame: CGRectMake(xCor, 0, self.buttonSize!, self.buttonSize!))
             
             button.layer.cornerRadius = button.frame.width / 2
+            button.layer.masksToBounds = true
+            button.clipsToBounds = true
             
             button.tag = i
             button.addTarget(self, action: #selector(dateButtonTapped(_:)), forControlEvents: .TouchUpInside)
@@ -73,7 +75,7 @@ class CustomWeekView : UIView {
     func setButtonColor(button: UIButton, date: NSDate) {
         if date == currentDate {
             button.backgroundColor = UIColor.whiteColor()
-            button.setTitleColor(UIColor.redColor(), forState: .Normal)
+            button.setTitleColor(UIColor(netHex: 0xDB306D), forState: .Normal)
         }
         else {
             button.backgroundColor = UIColor.whiteColor()
@@ -83,7 +85,7 @@ class CustomWeekView : UIView {
     
     func setSelectedButtonColor(button: UIButton, date: NSDate) {
         if date == currentDate {
-            button.backgroundColor = UIColor.redColor()
+            button.backgroundColor = UIColor(netHex: 0xDB306D)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
         else {
