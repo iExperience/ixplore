@@ -75,7 +75,7 @@ class CustomWeekView : UIView {
     func setButtonColor(button: UIButton, date: NSDate) {
         if date == currentDate {
             button.backgroundColor = UIColor.whiteColor()
-            button.setTitleColor(UIColor(netHex: 0xDB306D), forState: .Normal)
+            button.setTitleColor(UIColor(netHex: 0xE32181), forState: .Normal)
         }
         else {
             button.backgroundColor = UIColor.whiteColor()
@@ -85,7 +85,7 @@ class CustomWeekView : UIView {
     
     func setSelectedButtonColor(button: UIButton, date: NSDate) {
         if date == currentDate {
-            button.backgroundColor = UIColor(netHex: 0xDB306D)
+            button.backgroundColor = UIColor(netHex: 0xE32181)
             button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         }
         else {
