@@ -17,10 +17,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var listButton: UIButton!
     
-<<<<<<< HEAD
     // to get user location
-=======
->>>>>>> master
     let locationManager = CLLocationManager()
     
     var mapView = GMSMapView()
@@ -75,18 +72,3 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

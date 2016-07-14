@@ -429,7 +429,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
     func eventListComplete(customDayView: CustomDayView, loadedEvents: [Event], loadedAllDayEvents: [(String, [String])]) {
         for newEvent in loadedEvents {
             let newEventView = CustomEventView()
-            newEventView.eventDelegate = self
+            newEventView.delegate = self
             newEventView.event = newEvent
             newEventView.indent = customDayView.indentAmount
             for eventView in customDayView.eventViews {
