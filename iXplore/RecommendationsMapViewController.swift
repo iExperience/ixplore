@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreLocation
 
-class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate {
+class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     // IBOutlets for button layout
     @IBOutlet weak var menuButton: UIButton!
@@ -41,6 +41,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.mapView.myLocationEnabled = true
         self.mapView.settings.myLocationButton = true
         self.mapView.settings.compassButton = true
+
+        mapView.delegate = self
         
         print(mapView.myLocation?.coordinate)
         
@@ -76,7 +78,17 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         }
     }
     
+    func mapView(mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        
+        let customMarker = marker as? CustomGMSMarker
+        let infoView = CustomInfoView(title: customMarker!.name, rating: customMarker!.rating, price: customMarker!.price, width: 125)
+        return infoView
+        
+    }
     
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        
+    }
     
 }
 

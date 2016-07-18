@@ -10,6 +10,10 @@
 		C193D9761D2E4ED800CCB96C /* CustomCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C193D9741D2E4ED800CCB96C /* CustomCalendarViewController.swift */; };
 		C193D9771D2E4ED800CCB96C /* CustomCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C193D9751D2E4ED800CCB96C /* CustomCalendarViewController.xib */; };
 		C193D9791D2E544800CCB96C /* CustomWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C193D9781D2E544800CCB96C /* CustomWeekView.swift */; };
+		C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */; };
+		C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */; };
+		C1A4526D1D3CE24F00C0724C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526C1D3CE24F00C0724C /* star.png */; };
+		C1A4526F1D3CE25800C0724C /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526E1D3CE25800C0724C /* dollar.png */; };
 		C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D501E31D2E83F400EA33BC /* CustomDayView.swift */; };
 		C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */; };
 		C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */; };
@@ -70,6 +74,10 @@
 		C193D9741D2E4ED800CCB96C /* CustomCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendarViewController.swift; sourceTree = "<group>"; };
 		C193D9751D2E4ED800CCB96C /* CustomCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalendarViewController.xib; sourceTree = "<group>"; };
 		C193D9781D2E544800CCB96C /* CustomWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeekView.swift; sourceTree = "<group>"; };
+		C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGMSMarker.swift; sourceTree = "<group>"; };
+		C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
+		C1A4526C1D3CE24F00C0724C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		C1A4526E1D3CE25800C0724C /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
 		C1D501E31D2E83F400EA33BC /* CustomDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDayView.swift; sourceTree = "<group>"; };
 		C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsMapViewController.swift; sourceTree = "<group>"; };
 		C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsMapViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +163,8 @@
 			children = (
 				C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */,
 				C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */,
+				C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */,
+				C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 				D15C4A841D2C189000C641F3 /* home.jpg */,
 				D15C4A861D2C24AC00C641F3 /* iXlogo.png */,
 				D1E954DA1D2A99CC007A4120 /* hamburger.png */,
+				C1A4526C1D3CE24F00C0724C /* star.png */,
+				C1A4526E1D3CE25800C0724C /* dollar.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -370,12 +382,14 @@
 				D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */,
 				D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */,
 				D1ADD4F51D2CF4870064D387 /* Lato-SemiboldItalic.ttf in Resources */,
+				C1A4526F1D3CE25800C0724C /* dollar.png in Resources */,
 				D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */,
 				D1ADD4EF1D2CF4870064D387 /* Lato-Light.ttf in Resources */,
 				D1ADD4EC1D2CF4870064D387 /* Lato-Heavy.ttf in Resources */,
 				D1ADD4F61D2CF4870064D387 /* Lato-Thin.ttf in Resources */,
 				D1ADD4EA1D2CF4870064D387 /* Lato-Hairline.ttf in Resources */,
 				D1E954C21D2A85B1007A4120 /* Assets.xcassets in Resources */,
+				C1A4526D1D3CE24F00C0724C /* star.png in Resources */,
 				D1ADD4E81D2CF4870064D387 /* Lato-Bold.ttf in Resources */,
 				D1ADD4F11D2CF4870064D387 /* Lato-Medium.ttf in Resources */,
 				D1ADD4F01D2CF4870064D387 /* Lato-LightItalic.ttf in Resources */,
@@ -464,8 +478,10 @@
 				D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */,
 				D1BAB7DD1D30669200ECD7F4 /* EventViewController.swift in Sources */,
 				D17F80A51D2FB7930088DE96 /* CustomEventView.swift in Sources */,
+				C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */,
 				D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */,
 				D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */,
+				C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */,
 				D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */,
 				D1E954E21D2AA605007A4120 /* NewsViewController.swift in Sources */,
 				D1E954E61D2AB2E9007A4120 /* TestViewController.swift in Sources */,

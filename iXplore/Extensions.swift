@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import GoogleMaps
 
 public let LOADING_OVERLAY_VIEW_TAG = 987432
 
