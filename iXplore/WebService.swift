@@ -58,6 +58,56 @@ class WebService {
         return nil
     }
     
+    func executeDataRequest (urlRequest:Request, presentingViewController:UIViewController? = nil, requestCompletionFunction:(Int,NSData) -> ())  {
+        
+        // Add a loading overlay over the presenting view controller, as we are about to wait for a web request
+        presentingViewController?.addLoadingOverlay()
+        
+        urlRequest.responseData/*(completionHandler: <#T##Response<NSData, NSError> -> Void#>)*/ { returnedData -> Void in  //execute the request and give us JSON response data
+            
+            // The web service is now done. Remove the loading overlay
+            presentingViewController?.removeLoadingOverlay()
+            //            print(returnedData.result.value)
+            
+            // Handle the response from the web service
+            let success = returnedData.result.isSuccess
+            if (success) {
+                
+                var data = NSData(data: returnedData.result.value!)
+                let serverResponseCode = returnedData.response!.statusCode //since the web service was a success, we know there is a .response value, so we can request the value, gets unwrapped with .response!
+                
+                let headerData = returnedData.response?.allHeaderFields
+                //print ("token data \(headerData)")
+                
+//                if let validToken = returnedData.response!.allHeaderFields["Access-Token"] {
+//                    let tokenJson: JSON = JSON(validToken)
+//                    json["data"]["token"] = tokenJson
+//                }
+//                if let validClient = returnedData.response!.allHeaderFields["Client"] as? String {
+//                    let clientJson:JSON = JSON(validClient)
+//                    json["data"]["client"] = clientJson
+//                }
+                // Handle common server responses (403, etc)
+                if (self.handleCommonResponses(serverResponseCode, presentingViewController: presentingViewController)) {
+                    //print to the console that we experienced a common erroneos response
+                    //print("A common bad server response was found, error has been displayed")
+                }
+                
+                // Execute the completion function specified by the class that called this executeRequest function
+                requestCompletionFunction(serverResponseCode,data)
+                
+            }
+            else {
+                // Response code is nil - The web service couldn't connect to the internet. Show a "Connection Error" alert, assuming the presentingViewController was given (a UIViewController provided as the presentingViewController parameter provides the ability to show an alert)
+                let alert = self.connectionErrorAlert()
+                presentingViewController?.presentViewController(alert, animated: true, completion: nil)
+                
+                // Execute the completion function specified by the class that called this executeRequest function
+                requestCompletionFunction(0,NSData())
+            }
+        }
+    }
+    
     func executeRequest (urlRequest:Request, presentingViewController:UIViewController? = nil, requestCompletionFunction:(Int,JSON) -> ())  {
         
         // Add a loading overlay over the presenting view controller, as we are about to wait for a web request
