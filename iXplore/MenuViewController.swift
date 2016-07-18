@@ -77,7 +77,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let smc = self.slideMenuController() {
             switch indexPath.row {
             case 0: smc.changeMainViewController(appDelegate.mainNavigationController!, close: true)
-            case 1: smc.changeMainViewController(RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil), close: true)
+            case 1: smc.changeMainViewController(appDelegate.recommendationsNavigationController!, close: true)
             case 2: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
             case 3: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
             case 4:FBSDKLoginManager().logOut()
