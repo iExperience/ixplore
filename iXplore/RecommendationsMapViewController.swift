@@ -58,10 +58,11 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         print(mapView.myLocation?.coordinate)
         
         // Test marker
-//        let marker = GMSMarker()
+//        let marker = CustomGMSMarker(Name: "Sydney", Rating: 5, Price: 5, Info: "Sydney", MustTry: nil)
 //        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
+////        marker.title = "Sydney"
+////        marker.snippet = "Australia"
+//        marker.infoWindowAnchor = CGPointMake(0, 0)
 //        marker.map = mapView
         
         // Views setup
@@ -110,8 +111,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
     }
     
-    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
-        
+//    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
 //    func loadRecommendations(urlPath: String) -> [Recommendation] {
 //        
 //        var recommendations: [Recommendation] = []
@@ -229,10 +229,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.restaurants = self.loadRecommendations(data)
             for restaurant in self.restaurants {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: restaurant.name, rating: restaurant.rating, price: restaurant.price, info: restaurant.info, mustTry: restaurant.mustTry)
                 marker.position = restaurant.coordinates
-                marker.title = restaurant.title
-                marker.snippet = restaurant.description
                 marker.map = self.mapView
             }
 
@@ -244,10 +242,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.cafes = self.loadRecommendations(data)
             for cafe in self.cafes {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: cafe.name, rating: cafe.rating, price: cafe.price, info: cafe.info, mustTry: cafe.mustTry)
                 marker.position = cafe.coordinates
-                marker.title = cafe.title
-                marker.snippet = cafe.description
                 marker.map = self.mapView
             }
 
@@ -259,10 +255,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.bars = self.loadRecommendations(data)
             for bar in self.bars {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: bar.name, rating: bar.rating, price: bar.price, info: bar.info, mustTry: bar.mustTry)
                 marker.position = bar.coordinates
-                marker.title = bar.title
-                marker.snippet = bar.description
                 marker.map = self.mapView
             }
 
@@ -274,10 +268,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.clubs = self.loadRecommendations(data)
             for club in self.clubs {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: club.name, rating: club.rating, price: club.price, info: club.info, mustTry: club.mustTry)
                 marker.position = club.coordinates
-                marker.title = club.title
-                marker.snippet = club.description
                 marker.map = self.mapView
             }
 
@@ -289,10 +281,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.hotspots = self.loadRecommendations(data)
             for hotspot in self.hotspots {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: hotspot.name, rating: hotspot.rating, price: hotspot.price, info: hotspot.info, mustTry: hotspot.mustTry)
                 marker.position = hotspot.coordinates
-                marker.title = hotspot.title
-                marker.snippet = hotspot.description
                 marker.map = self.mapView
             }
             
@@ -304,10 +294,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.sights = self.loadRecommendations(data)
             for sight in self.sights {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: sight.name, rating: sight.rating, price: sight.price, info: sight.info, mustTry: sight.mustTry)
                 marker.position = sight.coordinates
-                marker.title = sight.title
-                marker.snippet = sight.description
                 marker.map = self.mapView
             }
             
@@ -319,10 +307,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             print(responseCode)
             self.markets = self.loadRecommendations(data)
             for market in self.markets {
-                let marker = GMSMarker()
+                let marker = CustomGMSMarker(name: market.name, rating: market.rating, price: market.price, info: market.info, mustTry: market.mustTry)
                 marker.position = market.coordinates
-                marker.title = market.title
-                marker.snippet = market.description
                 marker.map = self.mapView
             }
             
@@ -358,7 +344,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
             
             index = string.characters.indexOf(":")?.advancedBy(2)
             let endIndex = string.characters.indexOf("<")
-            let description = string.substringWithRange(index!..<endIndex!)
+            let info = string.substringWithRange(index!..<endIndex!)
             index = string.characters.indexOf(">")?.advancedBy(1)
             
             string = string.substringFromIndex(index!)
@@ -368,7 +354,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
                 mustTry = string.substringFromIndex(index!.advancedBy(1))
             }
             
-            recommendations.append(Recommendation(coordinates: (point as! MKAnnotation).coordinate, title: (point as! MKAnnotation).title!!, description: description, rating: rating!, price: price!, must: mustTry))
+            recommendations.append(Recommendation(coordinates: (point as! MKAnnotation).coordinate, name: (point as! MKAnnotation).title!!, info: info, rating: rating!, price: price!, mustTry: mustTry))
         }
         
         return recommendations
@@ -434,4 +420,5 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
 //        }
 //    }
 //    
+    
 }

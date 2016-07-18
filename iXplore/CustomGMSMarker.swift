@@ -12,19 +12,20 @@ import UIKit
 
 class CustomGMSMarker: GMSMarker {
     
-    var name: String
-    var rating: Int
-    var price: Int
-    var info: String
+    var name: String!
+    var rating: Int!
+    var price: Int!
+    var info: String!
     var mustTry: String?
     
-    init(Rating: Int, Price: Int, Info: String, MustTry: String?) {
+    init(name: String, rating: Int, price: Int, info: String, mustTry: String?) {
         
         super.init()
-        self.rating = Rating
-        self.price = Price
-        self.info = Info
-        self.mustTry = MustTry
+        self.name = name
+        self.rating = rating
+        self.price = price
+        self.info = info
+        self.mustTry = mustTry
         
     }
     

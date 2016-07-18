@@ -11,9 +11,9 @@ import UIKit
 
 struct Recommendation {
     var coordinates: CLLocationCoordinate2D
-    var title: String
-    var description: String
+    var name: String
+    var info: String
     var rating: Int
     var price: Int
-    var must: String?
+    var mustTry: String?
 }
