@@ -10,7 +10,6 @@
                 <outlet property="filterScrollView" destination="8Ie-3w-JY9" id="Va9-sq-BtR"/>
                 <outlet property="listButton" destination="YxH-T3-Sp3" id="0j0-wU-0BH"/>
                 <outlet property="menuButton" destination="2R8-EO-aUr" id="qHW-l4-KCg"/>
-                <outlet property="searchField" destination="5p3-Kp-oQu" id="3TA-nb-bft"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,7 +38,13 @@
                     <state key="normal" title="List">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="listButtonTapped:" destination="-1" eventType="touchUpInside" id="jVK-kV-mCu"/>
+                    </connections>
                 </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5p3-Kp-oQu">
                     <rect key="frame" x="66" y="0.0" width="466" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
