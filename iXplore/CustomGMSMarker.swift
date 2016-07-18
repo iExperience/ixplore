@@ -18,9 +18,10 @@ class CustomGMSMarker: GMSMarker {
     var info: String!
     var mustTry: String?
     
-    init(name: String, rating: Int, price: Int, info: String, mustTry: String?) {
+    init(position: CLLocationCoordinate2D, name: String, rating: Int, price: Int, info: String, mustTry: String?) {
         
         super.init()
+        self.position = position
         self.name = name
         self.rating = rating
         self.price = price

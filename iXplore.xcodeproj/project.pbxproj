@@ -53,6 +53,12 @@
 		D1ADD4F51D2CF4870064D387 /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4E31D2CF4870064D387 /* Lato-SemiboldItalic.ttf */; };
 		D1ADD4F61D2CF4870064D387 /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4E41D2CF4870064D387 /* Lato-Thin.ttf */; };
 		D1ADD4F71D2CF4870064D387 /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4E51D2CF4870064D387 /* Lato-ThinItalic.ttf */; };
+		D1B8E9691D3D55F70060B0F2 /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9631D3D55F70060B0F2 /* bar.png */; };
+		D1B8E96A1D3D55F70060B0F2 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9641D3D55F70060B0F2 /* club.png */; };
+		D1B8E96B1D3D55F70060B0F2 /* cafe.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9651D3D55F70060B0F2 /* cafe.png */; };
+		D1B8E96C1D3D55F70060B0F2 /* market.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9661D3D55F70060B0F2 /* market.png */; };
+		D1B8E96D1D3D55F70060B0F2 /* sight.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9671D3D55F70060B0F2 /* sight.png */; };
+		D1B8E96E1D3D55F70060B0F2 /* hotspot.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9681D3D55F70060B0F2 /* hotspot.png */; };
 		D1BAB7DD1D30669200ECD7F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAB7DB1D30669200ECD7F4 /* EventViewController.swift */; };
 		D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BAB7DC1D30669200ECD7F4 /* EventViewController.xib */; };
 		D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */; };
@@ -72,6 +78,7 @@
 		D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954EB1D2AB368007A4120 /* WebService.swift */; };
 		D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */; };
 		D1E954F01D2ABF9E007A4120 /* SupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */; };
+		D1EC01FA1D3D29B600C2E422 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = D1EC01F91D3D29B600C2E422 /* restaurant.png */; };
 		DDDD1ACF7F1CFD5F270C3917 /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E886F920CF8E0348BC000F /* Pods_iXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +133,12 @@
 		D1ADD4E31D2CF4870064D387 /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		D1ADD4E41D2CF4870064D387 /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		D1ADD4E51D2CF4870064D387 /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		D1B8E9631D3D55F70060B0F2 /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
+		D1B8E9641D3D55F70060B0F2 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
+		D1B8E9651D3D55F70060B0F2 /* cafe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cafe.png; sourceTree = "<group>"; };
+		D1B8E9661D3D55F70060B0F2 /* market.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = market.png; sourceTree = "<group>"; };
+		D1B8E9671D3D55F70060B0F2 /* sight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sight.png; sourceTree = "<group>"; };
+		D1B8E9681D3D55F70060B0F2 /* hotspot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotspot.png; sourceTree = "<group>"; };
 		D1BAB7DB1D30669200ECD7F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		D1BAB7DC1D30669200ECD7F4 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
 		D1E954B71D2A85B1007A4120 /* iXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +160,7 @@
 		D1E954EB1D2AB368007A4120 /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
+		D1EC01F91D3D29B600C2E422 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +244,7 @@
 		D148DDB01D2BBDAB00234996 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D1EC01F91D3D29B600C2E422 /* restaurant.png */,
 				D17F80A01D2FA0690088DE96 /* backarrow.png */,
 				D17F80A21D2FA0750088DE96 /* nextarrow.png */,
 				D15C4A841D2C189000C641F3 /* home.jpg */,
@@ -237,6 +252,12 @@
 				D1E954DA1D2A99CC007A4120 /* hamburger.png */,
 				C1A4526C1D3CE24F00C0724C /* star.png */,
 				C1A4526E1D3CE25800C0724C /* dollar.png */,
+				D1B8E9631D3D55F70060B0F2 /* bar.png */,
+				D1B8E9641D3D55F70060B0F2 /* club.png */,
+				D1B8E9651D3D55F70060B0F2 /* cafe.png */,
+				D1B8E9661D3D55F70060B0F2 /* market.png */,
+				D1B8E9671D3D55F70060B0F2 /* sight.png */,
+				D1B8E9681D3D55F70060B0F2 /* hotspot.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -411,19 +432,24 @@
 			files = (
 				D1E954F01D2ABF9E007A4120 /* SupportViewController.xib in Resources */,
 				D1E954D91D2A8FD2007A4120 /* CalendarViewController.xib in Resources */,
+				D1B8E96B1D3D55F70060B0F2 /* cafe.png in Resources */,
 				D1E954DF1D2AA522007A4120 /* MenuViewController.xib in Resources */,
 				D1E954C51D2A85B1007A4120 /* LaunchScreen.storyboard in Resources */,
 				D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */,
 				D18B4AC91D3CEABD0000BE26 /* GameHomeViewController.xib in Resources */,
 				D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */,
 				D1ADD4F51D2CF4870064D387 /* Lato-SemiboldItalic.ttf in Resources */,
+				D1EC01FA1D3D29B600C2E422 /* restaurant.png in Resources */,
 				C1A4526F1D3CE25800C0724C /* dollar.png in Resources */,
 				D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */,
 				D1ADD4EF1D2CF4870064D387 /* Lato-Light.ttf in Resources */,
+				D1B8E96D1D3D55F70060B0F2 /* sight.png in Resources */,
 				D1ADD4EC1D2CF4870064D387 /* Lato-Heavy.ttf in Resources */,
+				D1B8E96E1D3D55F70060B0F2 /* hotspot.png in Resources */,
 				D1ADD4F61D2CF4870064D387 /* Lato-Thin.ttf in Resources */,
 				D1ADD4EA1D2CF4870064D387 /* Lato-Hairline.ttf in Resources */,
 				D1E954C21D2A85B1007A4120 /* Assets.xcassets in Resources */,
+				D1B8E96A1D3D55F70060B0F2 /* club.png in Resources */,
 				C1A4526D1D3CE24F00C0724C /* star.png in Resources */,
 				D1ADD4E81D2CF4870064D387 /* Lato-Bold.ttf in Resources */,
 				D1ADD4F11D2CF4870064D387 /* Lato-Medium.ttf in Resources */,
@@ -442,11 +468,13 @@
 				D17F80A31D2FA0750088DE96 /* nextarrow.png in Resources */,
 				D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */,
 				D15C4A871D2C24AC00C641F3 /* iXlogo.png in Resources */,
+				D1B8E96C1D3D55F70060B0F2 /* market.png in Resources */,
 				D1ADD4F41D2CF4870064D387 /* Lato-Semibold.ttf in Resources */,
 				C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */,
 				D19D28EB1D342DD700C7D06C /* GoogleService-Info.plist in Resources */,
 				D1E954E71D2AB2E9007A4120 /* TestViewController.xib in Resources */,
 				D1ADD4F21D2CF4870064D387 /* Lato-MediumItalic.ttf in Resources */,
+				D1B8E9691D3D55F70060B0F2 /* bar.png in Resources */,
 				D1ADD4EB1D2CF4870064D387 /* Lato-HairlineItalic.ttf in Resources */,
 				D1E954E31D2AA605007A4120 /* NewsViewController.xib in Resources */,
 			);
