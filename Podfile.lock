@@ -1,20 +1,20 @@
 PODS:
   - Alamofire (3.4.1)
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
+  - Bolts/Tasks (1.8.4)
   - Devise (1.1.1):
     - ngrvalidator (~> 1.2.0)
     - UICKeyChainStore (~> 1.1)
     - XLForm (~> 3.0)
-  - FBSDKCoreKit (4.13.1):
+  - FBSDKCoreKit (4.14.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.13.1):
+  - FBSDKLoginKit (4.14.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.13.1):
+  - FBSDKShareKit (4.14.0):
     - FBSDKCoreKit
   - FirebaseAnalytics (3.2.1):
     - FirebaseInstanceID (~> 1.0)
@@ -36,7 +36,8 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - Intercom (2.3.21)
   - ngrvalidator (1.2.1)
-  - SlideMenuControllerSwift (2.2.0)
+  - SlideMenuControllerSwift (2.2.2)
+  - SSZipArchive (1.4)
   - SwiftyJSON (2.3.2)
   - UICKeyChainStore (1.1.1)
   - XLForm (3.2.0)
@@ -51,6 +52,7 @@ DEPENDENCIES:
   - GoogleMaps
   - Intercom
   - SlideMenuControllerSwift
+  - SSZipArchive
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -69,11 +71,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Devise: bb2305e111d8f475a74a71669d0123a6bbd54bff
-  FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
-  FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
-  FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
+  FBSDKCoreKit: 6e020b5db0b5bd1e01f5fb0902131befd129a502
+  FBSDKLoginKit: da563567a108050ef83739c8c8c001ee9e25fa13
+  FBSDKShareKit: e8e5d4ccef69b41132fe33acda26db1e33143e33
   FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
   FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
@@ -84,11 +86,12 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Intercom: c05a2e008be2e5064d9045e0e7b919ca267da303
   ngrvalidator: ce34f275e1a9cddc78415f8b61abdb85134082bb
-  SlideMenuControllerSwift: 16dac00b1aaad153e64fffb5d6969ab31ad88372
+  SlideMenuControllerSwift: e257221100c39d49edccaaeb0238b55a0c67953a
+  SSZipArchive: bab21000ee11b7ba68d5880bcd87d80e4eb93e65
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UICKeyChainStore: 891bcd2fe687c92db8e648cba035c4e662ffa43e
   XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: 1a833351a312f9b249fc3756e017775475904069
+PODFILE CHECKSUM: aed35dda38e3ed4437c14797ef49bd89a917fe5e
 
 COCOAPODS: 1.0.1

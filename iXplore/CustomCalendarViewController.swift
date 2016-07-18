@@ -75,8 +75,6 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         self.nextWeekStartDate = self.getNextWeekStartDate()
         
         self.setupWeekView()
-//        weekView = CustomWeekView(frame: CGRectMake((whiteSpace * 2) + buttonSize, headerHeight, (whiteSpace * 6) + (buttonSize * 7), buttonSize))
-
         
         dateLabel = UILabel(frame: CGRectMake(0, headerHeight + buttonSize + ((weekViewBottomBufferHeight - dateLabelHeight) / 2), appDelegate.window!.frame.width, dateLabelHeight))
         dateLabel.textAlignment = .Center

@@ -7,6 +7,7 @@
 //
 
 #import <Google/Analytics.h>
+#import "KMLParser.h"
 
 #ifndef iXplore_Bridging_Header_h
 #define iXplore_Bridging_Header_h
