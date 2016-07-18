@@ -162,7 +162,7 @@ class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
     func getXCorOfEventView(eventView: CustomEventView, width: CGFloat) -> CGFloat {
         var leadingSpace: CGFloat = titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent
         if eventView.numberOfConflicts != 0 {
-            leadingSpace += CGFloat(eventView.positionInConflicts) * width
+            leadingSpace += CGFloat(eventView.positionInConflicts) * (width + eventLeadingWhiteSpace)
         }
         return leadingSpace
     }
@@ -180,7 +180,8 @@ class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
     
     func getWidthOfEventView(eventView: CustomEventView) -> CGFloat {
         if eventView.numberOfConflicts != 0 {
-            return (self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace)) / CGFloat(eventView.numberOfConflicts + 1)
+            return (self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace + eventLeadingWhiteSpace)) / CGFloat(eventView.numberOfConflicts + 1)
+//            return (self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace)) / CGFloat(eventView.numberOfConflicts + 1)
         }
         else {
             return self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace)
