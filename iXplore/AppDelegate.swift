@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainNavigationController: UINavigationController?
+    var recommendationsNavigationController: UINavigationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -141,10 +142,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+        let rmvc = RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil)
         
         // Navigation controller
         self.mainNavigationController = UINavigationController(rootViewController: ccvc)
         self.mainNavigationController?.navigationBarHidden = true
+        self.recommendationsNavigationController = UINavigationController(rootViewController: rmvc)
+        self.recommendationsNavigationController?.navigationBarHidden = true
         
         // Set up slide menu
         SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 2 / 3

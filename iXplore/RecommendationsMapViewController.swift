@@ -111,6 +111,13 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
     }
     
+    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
+        let customMarker = marker as? CustomGMSMarker
+        let rvc = RecommendationViewController(nibName: "RecommendationViewController", bundle: nil)
+        rvc.recommendation = customMarker
+        self.navigationController?.pushViewController(rvc, animated: true)
+    }
+    
 //    func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
 //    func loadRecommendations(urlPath: String) -> [Recommendation] {
 //        
@@ -225,7 +232,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let restaurantRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=fUPOKKFhqcQ&lid=fUPOKKFhqcQ&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(restaurantRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(restaurantRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.restaurants = self.loadRecommendations(data)
             for restaurant in self.restaurants {
@@ -238,7 +245,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let cafeRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=6FGPhFJrpjM&lid=6FGPhFJrpjM&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(cafeRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(cafeRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.cafes = self.loadRecommendations(data)
             for cafe in self.cafes {
@@ -251,7 +258,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let barRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=ZEelh6BGeVc&lid=ZEelh6BGeVc&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(barRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(barRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.bars = self.loadRecommendations(data)
             for bar in self.bars {
@@ -264,7 +271,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let clubRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=2AejuegPDEA&lid=2AejuegPDEA&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(clubRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(clubRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.clubs = self.loadRecommendations(data)
             for club in self.clubs {
@@ -277,7 +284,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let hotspotRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Q1M-z31Kq7c&lid=Q1M-z31Kq7c&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(hotspotRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(hotspotRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.hotspots = self.loadRecommendations(data)
             for hotspot in self.hotspots {
@@ -290,7 +297,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let sightRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Hi_kojJKCDU&lid=Hi_kojJKCDU&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(sightRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(sightRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.sights = self.loadRecommendations(data)
             for sight in self.sights {
@@ -303,7 +310,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         let marketRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=OTmhq2fpBho&lid=OTmhq2fpBho&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
         
-        webService.executeDataRequest(marketRequest, presentingViewController: self, requestCompletionFunction: {(responseCode, data) in
+        webService.executeDataRequest(marketRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
             print(responseCode)
             self.markets = self.loadRecommendations(data)
             for market in self.markets {

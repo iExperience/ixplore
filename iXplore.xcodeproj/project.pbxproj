@@ -14,6 +14,8 @@
 		C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */; };
 		C1A4526D1D3CE24F00C0724C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526C1D3CE24F00C0724C /* star.png */; };
 		C1A4526F1D3CE25800C0724C /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526E1D3CE25800C0724C /* dollar.png */; };
+		C1D0C6B01D3D0F98004E8738 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */; };
+		C1D0C6B11D3D0F98004E8738 /* RecommendationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */; };
 		C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D501E31D2E83F400EA33BC /* CustomDayView.swift */; };
 		C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */; };
 		C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */; };
@@ -80,6 +82,8 @@
 		C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
 		C1A4526C1D3CE24F00C0724C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		C1A4526E1D3CE25800C0724C /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
+		C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationViewController.xib; sourceTree = "<group>"; };
 		C1D501E31D2E83F400EA33BC /* CustomDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDayView.swift; sourceTree = "<group>"; };
 		C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsMapViewController.swift; sourceTree = "<group>"; };
 		C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsMapViewController.xib; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			children = (
 				C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */,
 				C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */,
+				C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */,
+				C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */,
 				C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */,
 				C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */,
 			);
@@ -407,6 +413,7 @@
 				D1ADD4F71D2CF4870064D387 /* Lato-ThinItalic.ttf in Resources */,
 				D1ADD4E91D2CF4870064D387 /* Lato-BoldItalic.ttf in Resources */,
 				D15C4A851D2C189000C641F3 /* home.jpg in Resources */,
+				C1D0C6B11D3D0F98004E8738 /* RecommendationViewController.xib in Resources */,
 				D1ADD4F31D2CF4870064D387 /* Lato-Regular.ttf in Resources */,
 				D1ADD4ED1D2CF4870064D387 /* Lato-HeavyItalic.ttf in Resources */,
 				D1E954DB1D2A99CC007A4120 /* hamburger.png in Resources */,
@@ -488,6 +495,7 @@
 				D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */,
 				D1BAB7DD1D30669200ECD7F4 /* EventViewController.swift in Sources */,
 				D17F80A51D2FB7930088DE96 /* CustomEventView.swift in Sources */,
+				C1D0C6B01D3D0F98004E8738 /* RecommendationViewController.swift in Sources */,
 				C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */,
 				D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */,
 				D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */,

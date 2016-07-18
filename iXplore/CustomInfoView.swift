@@ -14,12 +14,25 @@ class CustomInfoView: UIView {
     let ratingView = UIView()
     let priceView = UIView()
     
-    let whiteSpace: CGFloat = 5
+    var blockHeight: CGFloat!
+    var picDim: CGFloat!
+    
+    let lineWhiteSpace: CGFloat = 5
+    let leadingWhiteSpace: CGFloat = 5
     
     init(title: String, rating: Int, price: Int, width: CGFloat) {
         
-        super.init(frame: CGRectMake(0, 0, width, ((width / 5) * 3) + (2 * whiteSpace)))
+        super.init(frame: CGRectMake(0, 0, width, ((width / 5) * 3) + (3 * lineWhiteSpace)))
+        
+        blockHeight = ((self.frame.height - (2 * lineWhiteSpace)) / 3)
+        picDim = (self.frame.width - (2 * leadingWhiteSpace)) / 5
+        
         self.backgroundColor = UIColor.whiteColor()
+        
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.grayColor().CGColor
+        self.layer.borderWidth = 2
+        
         setupTitle(title)
         setupRatingView(rating)
         setupPriceView(price)
@@ -32,21 +45,22 @@ class CustomInfoView: UIView {
     
     func setupTitle(title: String) {
         
-        self.title.frame = CGRectMake(0, 0, self.frame.width, ((self.frame.height - (2 * whiteSpace)) / 3))
+        self.title.frame = CGRectMake(leadingWhiteSpace, 0, self.frame.width - 2 * leadingWhiteSpace, blockHeight)
         self.title.text = title
         self.title.textColor = UIColor.blackColor()
         self.title.textAlignment = NSTextAlignment.Left
+        self.title.font = UIFont(name: "Lato-Regular", size: 18)
         self.addSubview(self.title)
         
     }
     
     func setupRatingView(rating: Int) {
         
-        self.ratingView.frame = CGRectMake(0, ((self.frame.height - (2 * whiteSpace)) / 3) + whiteSpace, self.frame.width, ((self.frame.height - (2 * whiteSpace)) / 3))
+        self.ratingView.frame = CGRectMake(0, blockHeight + lineWhiteSpace, self.frame.width, blockHeight)
         for i in 0...4 {
             let star = UIImageView()
             let e: CGFloat = CGFloat(i)
-            star.frame = CGRectMake(e * (self.ratingView.frame.width / 5), 0, self.ratingView.frame.width / 5, self.ratingView.frame.width / 5)
+            star.frame = CGRectMake(e * picDim + leadingWhiteSpace, 0, picDim, picDim)
             if i < rating {
                 star.image = UIImage(named: "star.png")
             }
@@ -58,11 +72,11 @@ class CustomInfoView: UIView {
     
     func setupPriceView(price: Int) {
         
-        self.priceView.frame = CGRectMake(0, ((self.frame.height - (2 * whiteSpace)) / 3) * 2 + (2 * whiteSpace), self.frame.width, ((self.frame.height - (2 * whiteSpace)) / 3))
+        self.priceView.frame = CGRectMake(0, blockHeight * 2 + lineWhiteSpace * 2, self.frame.width, blockHeight)
         for i in 0...4 {
             let dollar = UIImageView()
             let e: CGFloat = CGFloat(i)
-            dollar.frame = CGRectMake(e * (self.ratingView.frame.width / 5), 0, self.ratingView.frame.width / 5, self.ratingView.frame.width / 5)
+            dollar.frame = CGRectMake(e * picDim + leadingWhiteSpace, 0, picDim, picDim)
             if i < price {
                 dollar.image = UIImage(named: "dollar.png")
             }
