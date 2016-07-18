@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameHomeViewController" customModule="iXplore" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOO-Ks-GFZ">
+                    <rect key="frame" x="8" y="15" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="GOO-Ks-GFZ" secondAttribute="height" multiplier="1:1" id="hSm-l5-6ni"/>
+                        <constraint firstAttribute="width" constant="50" id="qa6-ec-Beb"/>
+                    </constraints>
+                    <state key="normal" image="hamburger.png"/>
+                    <connections>
+                        <action selector="menuButtonTapped:" destination="-1" eventType="touchUpInside" id="Qf4-pj-tS2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70B-LO-fgk">
+                    <rect key="frame" x="279" y="285" width="42" height="30"/>
+                    <state key="normal" title="iXpert"/>
+                    <connections>
+                        <action selector="triviaButtonTapped:" destination="-1" eventType="touchUpInside" id="Oob-Gf-99u"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-O0-XGV">
+                    <rect key="frame" x="273" y="335" width="54" height="30"/>
+                    <state key="normal" title="iXtreme"/>
+                    <connections>
+                        <action selector="challengeButtonTapped:" destination="-1" eventType="touchUpInside" id="8t3-Uj-fOA"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GOO-Ks-GFZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="1q6-RU-2x2"/>
+                <constraint firstItem="B7V-O0-XGV" firstAttribute="top" secondItem="70B-LO-fgk" secondAttribute="bottom" constant="20" id="Crf-YM-vpu"/>
+                <constraint firstItem="GOO-Ks-GFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dt5-ew-gPt"/>
+                <constraint firstItem="70B-LO-fgk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fxj-aK-eRw"/>
+                <constraint firstItem="B7V-O0-XGV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hMo-J4-dBa"/>
+                <constraint firstItem="70B-LO-fgk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uXX-is-enQ"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="hamburger.png" width="800" height="800"/>
+    </resources>
+</document>
