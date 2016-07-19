@@ -6,6 +6,7 @@
 //  Copyright © 2016 iXperience. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import GoogleMaps
 import CoreLocation
@@ -153,6 +154,7 @@ class RecommendationController {
         })
         
     }
+
     
     func loadRecommendations(data: NSData) -> [CustomGMSMarker] {
         
@@ -162,7 +164,6 @@ class RecommendationController {
         parser.parseKML()
         
         for point in parser.points {
-            
             print((point as! MKAnnotation).coordinate)
             print("Name: " + (point as! MKAnnotation).title!!)
             
@@ -196,10 +197,10 @@ class RecommendationController {
             let marker = CustomGMSMarker(position: (point as! MKAnnotation).coordinate, name: (point as! MKAnnotation).title!!, rating: rating!, price: price!, info: info, mustTry: mustTry)
             //            marker.map = self.mapView
             recommendations.append(marker)
+
         }
         
         return recommendations
-        
     }
     
 }
