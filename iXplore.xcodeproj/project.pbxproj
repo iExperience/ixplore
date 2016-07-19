@@ -21,6 +21,11 @@
 		C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */; };
 		C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */; };
 		C1FB54121D2EB1B6004D52E5 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB54111D2EB1B6004D52E5 /* EventController.swift */; };
+		D111609E1D3E51F6009104B0 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = D111609D1D3E51F6009104B0 /* question.png */; };
+		D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */; };
+		D11160A41D3E6449009104B0 /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A31D3E6449009104B0 /* QuestionController.swift */; };
+		D11160A61D3E7FBD009104B0 /* FlipAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */; };
+		D11160A81D3E80EF009104B0 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A71D3E80EF009104B0 /* AnimationHelper.swift */; };
 		D12A305B1D391EB50038C1B6 /* RecommendationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A305A1D391EB50038C1B6 /* RecommendationController.swift */; };
 		D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D12A305C1D3922060038C1B6 /* KMLParser.m */; };
 		D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148DDB11D2BDE1500234996 /* Extensions.swift */; };
@@ -103,6 +108,11 @@
 		C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsMapViewController.swift; sourceTree = "<group>"; };
 		C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsMapViewController.xib; sourceTree = "<group>"; };
 		C1FB54111D2EB1B6004D52E5 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		D111609D1D3E51F6009104B0 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnswerView.swift; sourceTree = "<group>"; };
+		D11160A31D3E6449009104B0 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
+		D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipAnimationController.swift; sourceTree = "<group>"; };
+		D11160A71D3E80EF009104B0 /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		D12A305A1D391EB50038C1B6 /* RecommendationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationController.swift; sourceTree = "<group>"; };
 		D12A305C1D3922060038C1B6 /* KMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLParser.m; sourceTree = "<group>"; };
 		D12A305E1D3922180038C1B6 /* KMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLParser.h; sourceTree = "<group>"; };
@@ -235,6 +245,9 @@
 				D15C4A821D2C0BD700C641F3 /* UserController.swift */,
 				C1FB54111D2EB1B6004D52E5 /* EventController.swift */,
 				D12A305A1D391EB50038C1B6 /* RecommendationController.swift */,
+				D11160A31D3E6449009104B0 /* QuestionController.swift */,
+				D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */,
+				D11160A71D3E80EF009104B0 /* AnimationHelper.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -251,6 +264,7 @@
 		D148DDB01D2BBDAB00234996 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D111609D1D3E51F6009104B0 /* question.png */,
 				D1EC01F91D3D29B600C2E422 /* restaurant.png */,
 				D17F80A01D2FA0690088DE96 /* backarrow.png */,
 				D17F80A21D2FA0750088DE96 /* nextarrow.png */,
@@ -284,6 +298,7 @@
 				D18B4AC71D3CEABD0000BE26 /* GameHomeViewController.xib */,
 				D18B4ACA1D3CEBF80000BE26 /* QuestionViewController.swift */,
 				D18B4ACB1D3CEBF80000BE26 /* QuestionViewController.xib */,
+				D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -443,6 +458,7 @@
 				D1E954D91D2A8FD2007A4120 /* CalendarViewController.xib in Resources */,
 				D1B8E96B1D3D55F70060B0F2 /* cafe.png in Resources */,
 				D1E954DF1D2AA522007A4120 /* MenuViewController.xib in Resources */,
+				D111609E1D3E51F6009104B0 /* question.png in Resources */,
 				D1E954C51D2A85B1007A4120 /* LaunchScreen.storyboard in Resources */,
 				D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */,
 				D18B4AC91D3CEABD0000BE26 /* GameHomeViewController.xib in Resources */,
@@ -551,6 +567,8 @@
 				C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */,
 				D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */,
 				D18B4AC81D3CEABD0000BE26 /* GameHomeViewController.swift in Sources */,
+				D11160A61D3E7FBD009104B0 /* FlipAnimationController.swift in Sources */,
+				D11160A81D3E80EF009104B0 /* AnimationHelper.swift in Sources */,
 				D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */,
 				D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */,
 				D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */,
@@ -564,9 +582,11 @@
 				D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */,
 				C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */,
 				D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */,
+				D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */,
 				D1E954E21D2AA605007A4120 /* NewsViewController.swift in Sources */,
 				D1E954E61D2AB2E9007A4120 /* TestViewController.swift in Sources */,
 				C193D9791D2E544800CCB96C /* CustomWeekView.swift in Sources */,
+				D11160A41D3E6449009104B0 /* QuestionController.swift in Sources */,
 				C193D9761D2E4ED800CCB96C /* CustomCalendarViewController.swift in Sources */,
 				D1E4AB321D3DA179002E58E8 /* RecommendationsListViewController.swift in Sources */,
 				C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */,
