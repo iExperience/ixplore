@@ -204,3 +204,10 @@ class RecommendationController {
     }
     
 }
+        }
+        
+        return recommendations
+        
+    }
+    
+}

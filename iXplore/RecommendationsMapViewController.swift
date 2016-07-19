@@ -26,14 +26,6 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     
     var mapView = GMSMapView()
     
-    var restaurants: [CustomGMSMarker] = []
-    var cafes: [CustomGMSMarker] = []
-    var bars: [CustomGMSMarker] = []
-    var clubs: [CustomGMSMarker] = []
-    var hotspots: [CustomGMSMarker] = []
-    var sights: [CustomGMSMarker] = []
-    var markets: [CustomGMSMarker] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -157,7 +149,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleRestaurants(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -167,19 +159,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
         else if sender.selected {
-            for restaurant in restaurants {
+            for restaurant in RecommendationController.sharedInstance.restaurants {
                 restaurant.map = mapView
             }
         }
         else {
-            for restaurant in restaurants {
+            for restaurant in RecommendationController.sharedInstance.restaurants {
                 restaurant.map = nil
             }
         }
@@ -188,7 +180,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleCafes(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -198,19 +190,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for cafe in cafes {
+        else if sender.selected {
+            for cafe in RecommendationController.sharedInstance.cafes {
                 cafe.map = mapView
             }
         }
         else {
-            for cafe in cafes {
+            for cafe in RecommendationController.sharedInstance.cafes {
                 cafe.map = nil
             }
         }
@@ -219,7 +211,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleBars(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -229,19 +221,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for bar in bars {
+        else if sender.selected {
+            for bar in RecommendationController.sharedInstance.bars {
                 bar.map = mapView
             }
         }
         else {
-            for bar in bars {
+            for bar in RecommendationController.sharedInstance.bars {
                 bar.map = nil
             }
         }
@@ -250,7 +242,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleClubs(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -260,19 +252,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for club in clubs {
+        else if sender.selected {
+            for club in RecommendationController.sharedInstance.clubs {
                 club.map = mapView
             }
         }
         else {
-            for club in clubs {
+            for club in RecommendationController.sharedInstance.clubs {
                 club.map = nil
             }
         }
@@ -281,7 +273,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleHotspots(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -291,19 +283,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for hotspot in hotspots {
+        else if sender.selected {
+            for hotspot in RecommendationController.sharedInstance.hotspots {
                 hotspot.map = mapView
             }
         }
         else {
-            for hotspot in hotspots {
+            for hotspot in RecommendationController.sharedInstance.hotspots {
                 hotspot.map = nil
             }
         }
@@ -312,7 +304,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleSights(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -322,19 +314,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for sight in sights {
+        else if sender.selected {
+            for sight in RecommendationController.sharedInstance.sights {
                 sight.map = mapView
             }
         }
         else {
-            for sight in sights {
+            for sight in RecommendationController.sharedInstance.sights {
                 sight.map = nil
             }
         }
@@ -343,7 +335,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func toggleMarkets(sender: UIButton) {
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = nil
                 }
@@ -353,19 +345,19 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.buttonTapped(sender)
         
         if self.shouldShowAll() {
-            for markers in [restaurants, cafes, bars, clubs, hotspots, sights, markets] {
+            for markers in [RecommendationController.sharedInstance.restaurants, RecommendationController.sharedInstance.cafes, RecommendationController.sharedInstance.bars, RecommendationController.sharedInstance.clubs, RecommendationController.sharedInstance.hotspots, RecommendationController.sharedInstance.sights, RecommendationController.sharedInstance.markets] {
                 for marker in markers {
                     marker.map = mapView
                 }
             }
         }
-        else if sender.selected || self.shouldShowAll() {
-            for market in markets {
+        else if sender.selected {
+            for market in RecommendationController.sharedInstance.markets {
                 market.map = mapView
             }
         }
         else {
-            for market in markets {
+            for market in RecommendationController.sharedInstance.markets {
                 market.map = nil
             }
         }
@@ -544,5 +536,10 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
 //        
 //        return recommendations
 //    }
+    func populateRecommendations(recommendations: [CustomGMSMarker]) {
+        for recommendation in recommendations {
+            recommendation.map = self.mapView
+        }
+    }
     
 }
