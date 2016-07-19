@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rmvc: RecommendationsMapViewController!
     var rlvc: RecommendationsListViewController!
-
-    var rmvc: RecommendationsMapViewController?
-    var rlvc: RecommendationsListViewController?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -157,8 +155,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // getting all recommendations from online
         RecommendationController.sharedInstance.getRecommendations(mapCompletion: rmvc.populateRecommendations, listCompletion: rlvc.populateRecommendations)
-
-        RecommendationController.sharedInstance.getRecommendations(mapCompletion: rmvc!.populateRecommendations, listCompletion: rlvc!.populateRecommendations)
         
         // Navigation controller
         self.mainNavigationController = UINavigationController(rootViewController: ccvc)

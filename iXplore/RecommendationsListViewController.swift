@@ -21,11 +21,6 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate{/
     @IBAction func menuButtonTapped(sender: UIButton) {
         
         self.slideMenuController()?.openLeft()
-    @IBAction func mapButtonTapped(sender: UIButton) {
-        
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.recommendationsNavigationController?.setViewControllers([appDelegate.rmvc!], animated: true)
-        
     }
     
     override func viewDidLoad() {
@@ -71,14 +66,3 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate{/
 
 
 
-
-
-
-
-
-
-
-
-
-    
-}
