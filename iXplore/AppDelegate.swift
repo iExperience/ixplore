@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var mainNavigationController: UINavigationController?
     var recommendationsNavigationController: UINavigationController?
     
-    let rmvc = RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil)
-    let rlvc = RecommendationsListViewController(nibName: "RecommendationsListViewController", bundle: nil)
+    var rmvc: RecommendationsMapViewController!
+    var rlvc: RecommendationsListViewController!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -46,6 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Google Maps
         GMSServices.provideAPIKey("AIzaSyC4BRmFQal3Qou4JOyCQUEPhbCnXi2TdAM")
+        
+        rmvc = RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil)
+        rlvc = RecommendationsListViewController(nibName: "RecommendationsListViewController", bundle: nil)
         
         // Push notifications
         self.registerForPushNotifications(application)
@@ -143,8 +146,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mvc = MenuViewController(nibName: "MenuViewController", bundle: nil)
         
-        
         let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
+        
+        // getting all recommendations from online
+        RecommendationController.sharedInstance.getRecommendations(mapCompletion: rmvc.populateRecommendations, listCompletion: rlvc.populateRecommendations)
+
         
         // Navigation controller
         self.mainNavigationController = UINavigationController(rootViewController: ccvc)

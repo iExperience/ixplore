@@ -10,11 +10,17 @@ import UIKit
 
 class RecommendationsListViewController: UIViewController, UITableViewDelegate{//, UITableViewDataSource {
     
+    @IBOutlet weak var recommendationsTableView: UITableView!
+    
     @IBAction func mapButtonTapped(sender: UIButton) {
         
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.recommendationsNavigationController?.setViewControllers([appDelegate.rmvc], animated: true)
+    }
+    
+    @IBAction func menuButtonTapped(sender: UIButton) {
         
+        self.slideMenuController()?.openLeft()
     }
     
     override func viewDidLoad() {

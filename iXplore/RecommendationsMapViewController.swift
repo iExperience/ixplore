@@ -16,7 +16,6 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     
     // IBOutlets for button layout
     @IBOutlet weak var menuButton: UIButton!
-    @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var listButton: UIButton!
     @IBOutlet weak var filterScrollView: UIScrollView!
     
@@ -66,7 +65,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         self.view.addSubview(mapView)
         self.view.sendSubviewToBack(mapView)
-        self.populateRecommendations()
+//        self.populateRecommendations()
         self.setupScrollView()
         
     }
@@ -77,6 +76,14 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
 
         self.slideMenuController()?.openLeft()
     }
+    
+    @IBAction func listButtonTapped(sender: UIButton) {
+    
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.recommendationsNavigationController?.setViewControllers([appDelegate.rlvc], animated: true)
+    
+    }
+    
     
     func setupScrollView() {
         let restaurantButton = UIButton(frame: CGRectMake(0, 0, scrollViewHeight, scrollViewHeight))
@@ -389,143 +396,153 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         self.navigationController?.pushViewController(rvc, animated: true)
     }
     
-    func tempZipPath() -> String {
-        var path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
-        path += "/\(NSUUID().UUIDString).kml"
-        return path
+    func populateRecommendations(recommendations: [CustomGMSMarker]) {
+    
+        for recommendation in recommendations {
+            recommendation.map = self.mapView
+        }
+    
     }
     
-    func tempUnzipPath() -> String? {
-        var path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
-        path += "/\(NSUUID().UUIDString)"
-        let url = NSURL(fileURLWithPath: path)
-        
-        do {
-            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
-        } catch {
-            return nil
-        }
-        
-        if let path = url.path {
-            return path
-        }
-        
-        return nil
-    }
     
-    func populateRecommendations() {
-        
-        let webService = WebService()
-        
-        let restaurantRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=fUPOKKFhqcQ&lid=fUPOKKFhqcQ&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(restaurantRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.restaurants = self.loadRecommendations(data)
-            
-        })
-        
-        let cafeRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=6FGPhFJrpjM&lid=6FGPhFJrpjM&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(cafeRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.cafes = self.loadRecommendations(data)
-            
-        })
-        
-        let barRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=ZEelh6BGeVc&lid=ZEelh6BGeVc&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(barRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.bars = self.loadRecommendations(data)
-            
-        })
-        
-        let clubRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=2AejuegPDEA&lid=2AejuegPDEA&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(clubRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.clubs = self.loadRecommendations(data)
-            
-        })
-        
-        let hotspotRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Q1M-z31Kq7c&lid=Q1M-z31Kq7c&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(hotspotRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.hotspots = self.loadRecommendations(data)
-            
-        })
-        
-        let sightRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Hi_kojJKCDU&lid=Hi_kojJKCDU&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(sightRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.sights = self.loadRecommendations(data)
-            
-        })
-        
-        let marketRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=OTmhq2fpBho&lid=OTmhq2fpBho&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
-        
-        webService.executeDataRequest(marketRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
-            
-            print(responseCode)
-            self.markets = self.loadRecommendations(data)
-            
-        })
-        
-    }
     
-    func loadRecommendations(data: NSData) -> [CustomGMSMarker] {
-        
-        var recommendations: [CustomGMSMarker] = []
-        
-        let parser = KMLParser(data: data)
-        parser.parseKML()
-        
-        for point in parser.points {
-            print((point as! MKAnnotation).coordinate)
-            print("Name: " + (point as! MKAnnotation).title!!)
-            
-            var string = (point as! MKAnnotation).subtitle!!
-            
-            var index = string.characters.indexOf(":")
-            index = index?.advancedBy(2)
-            let rating = Int(String(string.characters[index!]))
-            index = string.characters.indexOf(">")?.advancedBy(1)
-            
-            string = string.substringFromIndex(index!)
-            
-            index = string.characters.indexOf(":")?.advancedBy(2)
-            let price = Int(String(string.characters[index!]))
-            index = string.characters.indexOf(">")?.advancedBy(1)
-            
-            string = string.substringFromIndex(index!)
-            
-            index = string.characters.indexOf(":")?.advancedBy(2)
-            let endIndex = string.characters.indexOf("<")
-            let info = string.substringWithRange(index!..<endIndex!)
-            index = string.characters.indexOf(">")?.advancedBy(1)
-            
-            string = string.substringFromIndex(index!)
-            var mustTry: String?
-            index = string.characters.indexOf(":")?.advancedBy(1)
-            if index != string.endIndex {
-                mustTry = string.substringFromIndex(index!.advancedBy(1))
-            }
-            
-            let marker = CustomGMSMarker(position: (point as! MKAnnotation).coordinate, name: (point as! MKAnnotation).title!!, rating: rating!, price: price!, info: info, mustTry: mustTry)
-            marker.map = self.mapView
-            recommendations.append(marker)
-        }
-        
-        return recommendations
-    }
+//    func tempZipPath() -> String {
+//        var path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
+//        path += "/\(NSUUID().UUIDString).kml"
+//        return path
+//    }
+//    
+//    func tempUnzipPath() -> String? {
+//        var path = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0]
+//        path += "/\(NSUUID().UUIDString)"
+//        let url = NSURL(fileURLWithPath: path)
+//        
+//        do {
+//            try NSFileManager.defaultManager().createDirectoryAtURL(url, withIntermediateDirectories: true, attributes: nil)
+//        } catch {
+//            return nil
+//        }
+//        
+//        if let path = url.path {
+//            return path
+//        }
+//        
+//        return nil
+//    }
+//    
+//    func populateRecommendations() {
+//        
+//        let webService = WebService()
+//        
+//        let restaurantRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=fUPOKKFhqcQ&lid=fUPOKKFhqcQ&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(restaurantRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.restaurants = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let cafeRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=6FGPhFJrpjM&lid=6FGPhFJrpjM&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(cafeRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.cafes = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let barRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=ZEelh6BGeVc&lid=ZEelh6BGeVc&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(barRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.bars = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let clubRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=2AejuegPDEA&lid=2AejuegPDEA&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(clubRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.clubs = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let hotspotRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Q1M-z31Kq7c&lid=Q1M-z31Kq7c&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(hotspotRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.hotspots = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let sightRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=Hi_kojJKCDU&lid=Hi_kojJKCDU&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(sightRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.sights = self.loadRecommendations(data)
+//            
+//        })
+//        
+//        let marketRequest = webService.createMutableRequest(NSURL(string: "https://www.google.com/maps/d/u/0/kml?mid=1aazZw6MA1FnVIZvT4PkRNd-WDZw&amp%3Blid=OTmhq2fpBho&lid=OTmhq2fpBho&forcekml=1&cid=mp&cv=LLS4f3GpivQ.en."), method: "GET", parameters: nil, headers: nil)
+//        
+//        webService.executeDataRequest(marketRequest, presentingViewController: nil, requestCompletionFunction: {(responseCode, data) in
+//            
+//            print(responseCode)
+//            self.markets = self.loadRecommendations(data)
+//            
+//        })
+//        
+//    }
+//    
+//    func loadRecommendations(data: NSData) -> [CustomGMSMarker] {
+//        
+//        var recommendations: [CustomGMSMarker] = []
+//        
+//        let parser = KMLParser(data: data)
+//        parser.parseKML()
+//        
+//        for point in parser.points {
+//            print((point as! MKAnnotation).coordinate)
+//            print("Name: " + (point as! MKAnnotation).title!!)
+//            
+//            var string = (point as! MKAnnotation).subtitle!!
+//            
+//            var index = string.characters.indexOf(":")
+//            index = index?.advancedBy(2)
+//            let rating = Int(String(string.characters[index!]))
+//            index = string.characters.indexOf(">")?.advancedBy(1)
+//            
+//            string = string.substringFromIndex(index!)
+//            
+//            index = string.characters.indexOf(":")?.advancedBy(2)
+//            let price = Int(String(string.characters[index!]))
+//            index = string.characters.indexOf(">")?.advancedBy(1)
+//            
+//            string = string.substringFromIndex(index!)
+//            
+//            index = string.characters.indexOf(":")?.advancedBy(2)
+//            let endIndex = string.characters.indexOf("<")
+//            let info = string.substringWithRange(index!..<endIndex!)
+//            index = string.characters.indexOf(">")?.advancedBy(1)
+//            
+//            string = string.substringFromIndex(index!)
+//            var mustTry: String?
+//            index = string.characters.indexOf(":")?.advancedBy(1)
+//            if index != string.endIndex {
+//                mustTry = string.substringFromIndex(index!.advancedBy(1))
+//            }
+//            
+//            let marker = CustomGMSMarker(position: (point as! MKAnnotation).coordinate, name: (point as! MKAnnotation).title!!, rating: rating!, price: price!, info: info, mustTry: mustTry)
+//            marker.map = self.mapView
+//            recommendations.append(marker)
+//        }
+//        
+//        return recommendations
+//    }
     
 }
