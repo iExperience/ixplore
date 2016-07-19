@@ -61,6 +61,10 @@
 		D1B8E96E1D3D55F70060B0F2 /* hotspot.png in Resources */ = {isa = PBXBuildFile; fileRef = D1B8E9681D3D55F70060B0F2 /* hotspot.png */; };
 		D1BAB7DD1D30669200ECD7F4 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BAB7DB1D30669200ECD7F4 /* EventViewController.swift */; };
 		D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BAB7DC1D30669200ECD7F4 /* EventViewController.xib */; };
+		D1E4AB2E1D3DA0EC002E58E8 /* RecommenationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4AB2C1D3DA0EC002E58E8 /* RecommenationTableViewCell.swift */; };
+		D1E4AB2F1D3DA0EC002E58E8 /* RecommenationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E4AB2D1D3DA0EC002E58E8 /* RecommenationTableViewCell.xib */; };
+		D1E4AB321D3DA179002E58E8 /* RecommendationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4AB301D3DA179002E58E8 /* RecommendationsListViewController.swift */; };
+		D1E4AB331D3DA179002E58E8 /* RecommendationsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E4AB311D3DA179002E58E8 /* RecommendationsListViewController.xib */; };
 		D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */; };
 		D1E954C21D2A85B1007A4120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1E954C11D2A85B1007A4120 /* Assets.xcassets */; };
 		D1E954C51D2A85B1007A4120 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1E954C31D2A85B1007A4120 /* LaunchScreen.storyboard */; };
@@ -141,6 +145,10 @@
 		D1B8E9681D3D55F70060B0F2 /* hotspot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotspot.png; sourceTree = "<group>"; };
 		D1BAB7DB1D30669200ECD7F4 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		D1BAB7DC1D30669200ECD7F4 /* EventViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventViewController.xib; sourceTree = "<group>"; };
+		D1E4AB2C1D3DA0EC002E58E8 /* RecommenationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommenationTableViewCell.swift; sourceTree = "<group>"; };
+		D1E4AB2D1D3DA0EC002E58E8 /* RecommenationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommenationTableViewCell.xib; sourceTree = "<group>"; };
+		D1E4AB301D3DA179002E58E8 /* RecommendationsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsListViewController.swift; sourceTree = "<group>"; };
+		D1E4AB311D3DA179002E58E8 /* RecommendationsListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsListViewController.xib; sourceTree = "<group>"; };
 		D1E954B71D2A85B1007A4120 /* iXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1E954BA1D2A85B1007A4120 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1E954C11D2A85B1007A4120 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,10 +202,14 @@
 			children = (
 				C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */,
 				C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */,
+				D1E4AB301D3DA179002E58E8 /* RecommendationsListViewController.swift */,
+				D1E4AB311D3DA179002E58E8 /* RecommendationsListViewController.xib */,
 				C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */,
 				C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */,
 				C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */,
 				C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */,
+				D1E4AB2C1D3DA0EC002E58E8 /* RecommenationTableViewCell.swift */,
+				D1E4AB2D1D3DA0EC002E58E8 /* RecommenationTableViewCell.xib */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -434,11 +446,13 @@
 				D1E954D91D2A8FD2007A4120 /* CalendarViewController.xib in Resources */,
 				D1B8E96B1D3D55F70060B0F2 /* cafe.png in Resources */,
 				D1E954DF1D2AA522007A4120 /* MenuViewController.xib in Resources */,
+				D1E4AB2F1D3DA0EC002E58E8 /* RecommenationTableViewCell.xib in Resources */,
 				D1E954C51D2A85B1007A4120 /* LaunchScreen.storyboard in Resources */,
 				D1BAB7DE1D30669200ECD7F4 /* EventViewController.xib in Resources */,
 				D18B4AC91D3CEABD0000BE26 /* GameHomeViewController.xib in Resources */,
 				D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */,
 				D1ADD4F51D2CF4870064D387 /* Lato-SemiboldItalic.ttf in Resources */,
+				D1E4AB331D3DA179002E58E8 /* RecommendationsListViewController.xib in Resources */,
 				D1EC01FA1D3D29B600C2E422 /* restaurant.png in Resources */,
 				C1A4526F1D3CE25800C0724C /* dollar.png in Resources */,
 				D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */,
@@ -540,6 +554,7 @@
 				D12A305B1D391EB50038C1B6 /* RecommendationController.swift in Sources */,
 				C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */,
 				D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */,
+				D1E4AB2E1D3DA0EC002E58E8 /* RecommenationTableViewCell.swift in Sources */,
 				D18B4AC81D3CEABD0000BE26 /* GameHomeViewController.swift in Sources */,
 				D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */,
 				D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */,
@@ -557,6 +572,7 @@
 				D1E954E61D2AB2E9007A4120 /* TestViewController.swift in Sources */,
 				C193D9791D2E544800CCB96C /* CustomWeekView.swift in Sources */,
 				C193D9761D2E4ED800CCB96C /* CustomCalendarViewController.swift in Sources */,
+				D1E4AB321D3DA179002E58E8 /* RecommendationsListViewController.swift in Sources */,
 				C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */,
 				C1FB54121D2EB1B6004D52E5 /* EventController.swift in Sources */,
 				D1E954DE1D2AA522007A4120 /* MenuViewController.swift in Sources */,
