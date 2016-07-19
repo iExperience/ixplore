@@ -10,7 +10,8 @@
 		C193D9761D2E4ED800CCB96C /* CustomCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C193D9741D2E4ED800CCB96C /* CustomCalendarViewController.swift */; };
 		C193D9771D2E4ED800CCB96C /* CustomCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C193D9751D2E4ED800CCB96C /* CustomCalendarViewController.xib */; };
 		C193D9791D2E544800CCB96C /* CustomWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C193D9781D2E544800CCB96C /* CustomWeekView.swift */; };
-		C196687B1D3E354B0081185F /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19668791D3E354B0081185F /* RecommendationsTableViewCell.swift */; };
+		C19668831D3E617E0081185F /* RecommendationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19668811D3E617E0081185F /* RecommendationsTableViewCell.swift */; };
+		C19668841D3E617E0081185F /* RecommendationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19668821D3E617E0081185F /* RecommendationsTableViewCell.xib */; };
 		C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */; };
 		C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */; };
 		C1A4526D1D3CE24F00C0724C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526C1D3CE24F00C0724C /* star.png */; };
@@ -92,7 +93,8 @@
 		C193D9741D2E4ED800CCB96C /* CustomCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalendarViewController.swift; sourceTree = "<group>"; };
 		C193D9751D2E4ED800CCB96C /* CustomCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalendarViewController.xib; sourceTree = "<group>"; };
 		C193D9781D2E544800CCB96C /* CustomWeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeekView.swift; sourceTree = "<group>"; };
-		C19668791D3E354B0081185F /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
+		C19668811D3E617E0081185F /* RecommendationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsTableViewCell.swift; sourceTree = "<group>"; };
+		C19668821D3E617E0081185F /* RecommendationsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsTableViewCell.xib; sourceTree = "<group>"; };
 		C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGMSMarker.swift; sourceTree = "<group>"; };
 		C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
 		C1A4526C1D3CE24F00C0724C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
@@ -206,7 +208,8 @@
 				C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */,
 				C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */,
 				C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */,
-				C19668791D3E354B0081185F /* RecommendationsTableViewCell.swift */,
+				C19668811D3E617E0081185F /* RecommendationsTableViewCell.swift */,
+				C19668821D3E617E0081185F /* RecommendationsTableViewCell.xib */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -218,8 +221,6 @@
 				D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */,
 				D1E954DC1D2AA522007A4120 /* MenuViewController.swift */,
 				D1E954DD1D2AA522007A4120 /* MenuViewController.xib */,
-				D1E954D61D2A8FD2007A4120 /* CalendarViewController.swift */,
-				D1E954D71D2A8FD2007A4120 /* CalendarViewController.xib */,
 				D1E954E01D2AA605007A4120 /* NewsViewController.swift */,
 				D1E954E11D2AA605007A4120 /* NewsViewController.xib */,
 				C1D501E51D2E964F00EA33BC /* Calendar */,
@@ -345,6 +346,8 @@
 				D148DDAC1D2BBD6700234996 /* Main */,
 				D1E954E41D2AB2E9007A4120 /* TestViewController.swift */,
 				D1E954E51D2AB2E9007A4120 /* TestViewController.xib */,
+				D1E954D61D2A8FD2007A4120 /* CalendarViewController.swift */,
+				D1E954D71D2A8FD2007A4120 /* CalendarViewController.xib */,
 				D1E954C11D2A85B1007A4120 /* Assets.xcassets */,
 				D1E954C31D2A85B1007A4120 /* LaunchScreen.storyboard */,
 				D1E954C61D2A85B1007A4120 /* Info.plist */,
@@ -479,6 +482,7 @@
 				D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */,
 				D15C4A871D2C24AC00C641F3 /* iXlogo.png in Resources */,
 				D1B8E96C1D3D55F70060B0F2 /* market.png in Resources */,
+				C19668841D3E617E0081185F /* RecommendationsTableViewCell.xib in Resources */,
 				D1ADD4F41D2CF4870064D387 /* Lato-Semibold.ttf in Resources */,
 				C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */,
 				D19D28EB1D342DD700C7D06C /* GoogleService-Info.plist in Resources */,
@@ -558,7 +562,7 @@
 				D18B4ACC1D3CEBF80000BE26 /* QuestionViewController.swift in Sources */,
 				D17F80A51D2FB7930088DE96 /* CustomEventView.swift in Sources */,
 				C1D0C6B01D3D0F98004E8738 /* RecommendationViewController.swift in Sources */,
-				C196687B1D3E354B0081185F /* RecommendationsTableViewCell.swift in Sources */,
+				C19668831D3E617E0081185F /* RecommendationsTableViewCell.swift in Sources */,
 				C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */,
 				D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */,
 				D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */,

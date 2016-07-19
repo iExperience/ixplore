@@ -26,13 +26,13 @@ struct Recommendation {
 
 class RecommendationController {
     
-    var restaurants: [CustomGMSMarker]!
-    var cafes: [CustomGMSMarker]!
-    var bars: [CustomGMSMarker]!
-    var clubs: [CustomGMSMarker]!
-    var hotspots: [CustomGMSMarker]!
-    var sights: [CustomGMSMarker]!
-    var markets: [CustomGMSMarker]!
+    var restaurants: [CustomGMSMarker] = []
+    var cafes: [CustomGMSMarker] = []
+    var bars: [CustomGMSMarker] = []
+    var clubs: [CustomGMSMarker] = []
+    var hotspots: [CustomGMSMarker] = []
+    var sights: [CustomGMSMarker] = []
+    var markets: [CustomGMSMarker] = []
     
     // Creates a shared instance
     class var sharedInstance: RecommendationController {
