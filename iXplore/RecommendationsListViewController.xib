@@ -47,6 +47,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iXplore" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtt-zX-JUI">
                     <rect key="frame" x="225" y="23" width="150" height="34"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="34" id="5fX-fh-rsi"/>
                         <constraint firstAttribute="width" constant="150" id="hin-ET-48Z"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="28"/>

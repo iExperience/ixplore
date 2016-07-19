@@ -34,6 +34,8 @@ class RecommendationController {
     var sights: [CustomGMSMarker] = []
     var markets: [CustomGMSMarker] = []
     
+    var fullList: [[CustomGMSMarker]] = [[],[],[],[],[],[],[]]
+    
     // Creates a shared instance
     class var sharedInstance: RecommendationController {
         
@@ -84,6 +86,7 @@ class RecommendationController {
             self.restaurants = self.loadRecommendations(data)
             firstCompletion(self.restaurants)
             secondCompletion(self.restaurants)
+            self.fullList[0] = self.restaurants
             
         })
         
@@ -95,6 +98,7 @@ class RecommendationController {
             self.cafes = self.loadRecommendations(data)
             firstCompletion(self.cafes)
             secondCompletion(self.cafes)
+            self.fullList[1] = self.cafes
             
         })
         
@@ -106,6 +110,7 @@ class RecommendationController {
             self.bars = self.loadRecommendations(data)
             firstCompletion(self.bars)
             secondCompletion(self.bars)
+            self.fullList[2] = self.bars
             
         })
         
@@ -117,6 +122,7 @@ class RecommendationController {
             self.clubs = self.loadRecommendations(data)
             firstCompletion(self.clubs)
             secondCompletion(self.clubs)
+            self.fullList[3] = self.clubs
             
         })
         
@@ -128,6 +134,7 @@ class RecommendationController {
             self.hotspots = self.loadRecommendations(data)
             firstCompletion(self.hotspots)
             secondCompletion(self.hotspots)
+            self.fullList[4] = self.hotspots
             
         })
         
@@ -139,6 +146,7 @@ class RecommendationController {
             self.sights = self.loadRecommendations(data)
             firstCompletion(self.sights)
             secondCompletion(self.sights)
+            self.fullList[5] = self.sights
             
         })
         
@@ -150,12 +158,12 @@ class RecommendationController {
             self.markets = self.loadRecommendations(data)
             firstCompletion(self.markets)
             secondCompletion(self.markets)
+            self.fullList[6] = self.markets
             
         })
         
     }
 
-    
     func loadRecommendations(data: NSData) -> [CustomGMSMarker] {
         
         var recommendations: [CustomGMSMarker] = []

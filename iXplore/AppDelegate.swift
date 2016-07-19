@@ -114,7 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.mainNavigationController?.popViewControllerAnimated(false)
     }
     
-    // allows for psuh notifications
+    // allows for push notifications
     func registerForPushNotifications(application: UIApplication) {
         let notificationSettings = UIUserNotificationSettings(
             forTypes: [.Badge, .Sound, .Alert], categories: nil)

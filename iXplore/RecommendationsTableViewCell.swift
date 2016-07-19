@@ -10,9 +10,11 @@ import UIKit
 
 class RecommendationsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ratingView: UIView!
-    @IBOutlet weak var priceView: UIView!
+    let nameLabel = UILabel()
+    let ratingView = UIView()
+    let priceView = UIView()
+    
+    var marker: CustomGMSMarker!
     
     let picDim: CGFloat = 20
     let verticalWhiteSpace: CGFloat = 5
@@ -20,29 +22,14 @@ class RecommendationsTableViewCell: UITableViewCell {
     
     let cellWidth: CGFloat = UIApplication.sharedApplication().keyWindow!.frame.width
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        
-        self.frame = CGRectMake(0, 0, cellWidth, (picDim * 2) + (verticalWhiteSpace * 3))
-        
-    }
-    
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
-    func setupRatingView(marker: CustomGMSMarker) {
+    func setupRatingView() {
         
         self.ratingView.frame = CGRectMake(cellWidth - (5 * picDim) - horizontalWhiteSpace, verticalWhiteSpace, 5 * picDim, picDim)
         
         for i in 0...4 {
-            let star = UIImageView()
-            let e: CGFloat = CGFloat(i)
-            star.frame = CGRectMake(e * picDim, 0, picDim, picDim)
+            let star = UIImageView(frame: CGRectMake(CGFloat(i) * picDim, 0, picDim, picDim))
+//            let e: CGFloat = CGFloat(i)
+//            star.frame = CGRectMake(CGFloat(i) * picDim, 0, picDim, picDim)
             if i < marker.rating {
                 star.image = UIImage(named: "star.png")
             }
@@ -52,7 +39,7 @@ class RecommendationsTableViewCell: UITableViewCell {
         
     }
     
-    func setupPriceView(marker: CustomGMSMarker) {
+    func setupPriceView() {
         
         self.priceView.frame = CGRectMake(cellWidth - (5 * picDim) - horizontalWhiteSpace, verticalWhiteSpace * 2 + picDim, 5 * picDim, picDim)
         
@@ -69,11 +56,12 @@ class RecommendationsTableViewCell: UITableViewCell {
         
     }
     
-    func setupNameLabel(marker: CustomGMSMarker) {
+    func setupNameLabel() {
         
         self.nameLabel.frame = CGRectMake(horizontalWhiteSpace, verticalWhiteSpace, cellWidth - (5 * picDim) - (horizontalWhiteSpace * 3), picDim * 2 + verticalWhiteSpace)
         
         self.nameLabel.text = marker.name
+        self.nameLabel.font = UIFont(name: "Lato-Regular", size: 18)
         self.addSubview(self.nameLabel)
         
     }
