@@ -62,7 +62,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Checks if user has logged-on on this device previously
         if FBSDKAccessToken.currentAccessToken() != nil {
             
-            self.loginUser()
+//            self.loginUser()
+            let qvc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
+            qvc.question = Question(question: "Yes? DO you ahve a quesiton? Because I don't and I'm really tired and don't want to think of a good question.", answers: ["yes asdfkjhb aslfkha asdfjlkj lkjasdflkjaslkdjfnalkjs lakjsdlka alksjdblkjbsdlkfjansld aldkj lkjkj kj kj  falksj asdlfkj asdflkj asdfklj  fdskj asdlkj lkasjd endinghappensnow", "no i don't like shirmp very much because it's kind of gorss and I hate gorss things because they are gross like you", "yes"], correctAnswer: 2)
+            self.window?.rootViewController = qvc
             
         }
         else {
