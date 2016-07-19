@@ -10,7 +10,6 @@
                 <outlet property="filterScrollView" destination="8Ie-3w-JY9" id="Va9-sq-BtR"/>
                 <outlet property="listButton" destination="YxH-T3-Sp3" id="0j0-wU-0BH"/>
                 <outlet property="menuButton" destination="2R8-EO-aUr" id="qHW-l4-KCg"/>
-                <outlet property="searchField" destination="5p3-Kp-oQu" id="3TA-nb-bft"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,13 +39,8 @@
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5p3-Kp-oQu">
-                    <rect key="frame" x="66" y="0.0" width="466" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-3w-JY9">
-                    <rect key="frame" x="0.0" y="514.5" width="600" height="85.5"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-3w-JY9">
+                    <rect key="frame" x="0.0" y="515" width="600" height="85"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="8Ie-3w-JY9" secondAttribute="height" multiplier="7:1" id="0jc-e6-fRy"/>
                     </constraints>
@@ -54,13 +48,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="5p3-Kp-oQu" firstAttribute="leading" secondItem="2R8-EO-aUr" secondAttribute="trailing" constant="8" id="4IH-0U-QDS"/>
                 <constraint firstAttribute="bottom" secondItem="8Ie-3w-JY9" secondAttribute="bottom" id="Byr-9Z-9Lv"/>
                 <constraint firstAttribute="trailing" secondItem="YxH-T3-Sp3" secondAttribute="trailing" constant="10" id="b4g-cd-s2a"/>
                 <constraint firstItem="2R8-EO-aUr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="gna-ja-MRZ"/>
                 <constraint firstItem="8Ie-3w-JY9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jdj-uv-2dN"/>
                 <constraint firstItem="YxH-T3-Sp3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="ohv-fW-4OS"/>
-                <constraint firstItem="YxH-T3-Sp3" firstAttribute="leading" secondItem="5p3-Kp-oQu" secondAttribute="trailing" constant="8" id="rN7-uK-PYI"/>
                 <constraint firstAttribute="trailing" secondItem="8Ie-3w-JY9" secondAttribute="trailing" id="rWf-wh-dOI"/>
                 <constraint firstItem="2R8-EO-aUr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="us9-ca-diT"/>
             </constraints>

@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var mainNavigationController: UINavigationController?
     var recommendationsNavigationController: UINavigationController?
+    
+    let rmvc = RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil)
+    let rlvc = RecommendationsListViewController(nibName: "RecommendationsListViewController", bundle: nil)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -142,7 +145,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let ccvc = CustomCalendarViewController(nibName: "CustomCalendarViewController", bundle: nil)
-        let rmvc = RecommendationsMapViewController(nibName: "RecommendationsMapViewController", bundle: nil)
         
         // Navigation controller
         self.mainNavigationController = UINavigationController(rootViewController: ccvc)
