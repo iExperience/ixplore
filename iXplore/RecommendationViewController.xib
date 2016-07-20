@@ -63,7 +63,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fn2-0d-9ZZ">
-                            <rect key="frame" x="64" y="104" width="516" height="22"/>
+                            <rect key="frame" x="65" y="104" width="515" height="22"/>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -75,9 +75,9 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOg-nj-S19">
-                            <rect key="frame" x="20" y="104" width="34" height="22"/>
+                            <rect key="frame" x="20" y="104" width="40" height="22"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="34" id="mya-En-del"/>
+                                <constraint firstAttribute="width" constant="40" id="mya-En-del"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +93,7 @@
                         <constraint firstItem="eOg-nj-S19" firstAttribute="top" secondItem="enH-bR-TwA" secondAttribute="bottom" constant="20" id="Ljw-Av-CON"/>
                         <constraint firstItem="88o-fX-mXo" firstAttribute="top" secondItem="THt-9P-g3d" secondAttribute="top" constant="20" id="WJ1-Uw-LfY"/>
                         <constraint firstItem="59C-wO-bKZ" firstAttribute="leading" secondItem="THt-9P-g3d" secondAttribute="leading" constant="20" id="i10-iK-xKa"/>
-                        <constraint firstItem="fn2-0d-9ZZ" firstAttribute="leading" secondItem="eOg-nj-S19" secondAttribute="trailing" constant="10" id="j7e-kw-Ycu"/>
+                        <constraint firstItem="fn2-0d-9ZZ" firstAttribute="leading" secondItem="eOg-nj-S19" secondAttribute="trailing" constant="5" id="j7e-kw-Ycu"/>
                         <constraint firstAttribute="bottom" secondItem="eOg-nj-S19" secondAttribute="bottom" constant="402" id="l3K-Ho-t9A"/>
                         <constraint firstItem="59C-wO-bKZ" firstAttribute="top" secondItem="fn2-0d-9ZZ" secondAttribute="bottom" constant="20" id="vuI-VU-ZrI"/>
                         <constraint firstItem="fn2-0d-9ZZ" firstAttribute="top" secondItem="enH-bR-TwA" secondAttribute="bottom" constant="20" id="wS9-3i-9nn"/>

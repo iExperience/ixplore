@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
 class RecommendationsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    @IBOutlet weak var recommendationsTableView: UITableView!
     
     var recTableView = UITableView()
     
@@ -52,49 +51,74 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate, 
         
     }
     
+    // MARK: UITableView functions
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        print(RecommendationController.sharedInstance.fullList.count)
+        return RecommendationController.sharedInstance.fullList.count
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return RecommendationController.sharedInstance.fullList[section].count
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("RecCell") as! RecommendationsTableViewCell
-
+        
         cell.marker = RecommendationController.sharedInstance.fullList[indexPath.section][indexPath.row]
         cell.setupRatingView()
         cell.setupPriceView()
         cell.setupNameLabel()
         
-        print("hi")
-        
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("hi there")
-        return RecommendationController.sharedInstance.fullList[section].count
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        let float: CGFloat = 35
+        return float
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = UIView(frame: CGRectMake(0, 0, tableView.frame.width, 35))
+        // - 2 * whiteSpace from cell
+        let title = UILabel(frame: CGRectMake(5, 5, (tableView.frame.width - 10), (35 - 10)))
+        
+        title.font = UIFont(name: "Lato-Bold", size: 18)
+        
         
         switch section {
         case 0:
-            return "Restaurants"
+            title.text = "Restaurants"
         case 1:
-            return "Cafes"
+            title.text = "Cafes"
         case 2:
-            return "Bars"
+            title.text = "Bars"
         case 3:
-            return "Clubs"
+            title.text = "Clubs"
         case 4:
-            return "Cultural Hotspots"
+            title.text = "Cultural Hotspots"
         case 5:
-            return "Sights"
+            title.text = "Sights"
         case 6:
-            return "Markets"
+            title.text = "Markets"
         default:
-            return "Extras"
+            title.text = "Extras"
         }
+        
+        header.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+        header.addSubview(title)
+        
+        return header
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         let float: CGFloat = 55
         return float
         //(picDim * 2) + (verticalWhiteSpace * 3)
@@ -108,10 +132,6 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate, 
         rvc.recommendation = RecommendationController.sharedInstance.fullList[indexPath.section][indexPath.row]
         self.navigationController?.pushViewController(rvc, animated: true)
         
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return RecommendationController.sharedInstance.fullList.count
     }
     
 }

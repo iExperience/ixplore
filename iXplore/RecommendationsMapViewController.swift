@@ -371,3 +371,17 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
