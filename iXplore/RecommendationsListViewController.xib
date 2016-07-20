@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RecommendationsListViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
-                <outlet property="recommendationsTableView" destination="BsN-Dw-MIP" id="5LW-UV-UDw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -54,23 +53,15 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BsN-Dw-MIP">
-                    <rect key="frame" x="0.0" y="72" width="600" height="528"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Wtt-zX-JUI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="BPu-Hr-RMh"/>
                 <constraint firstItem="B3q-ZO-B6x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="Flw-IT-wNX"/>
                 <constraint firstItem="2sT-1n-giG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Lfg-bo-dj0"/>
-                <constraint firstItem="BsN-Dw-MIP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mke-kw-E0Q"/>
-                <constraint firstItem="BsN-Dw-MIP" firstAttribute="top" secondItem="Wtt-zX-JUI" secondAttribute="bottom" constant="15" id="S4I-Vg-eLP"/>
                 <constraint firstItem="2sT-1n-giG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="VYP-5c-O9e"/>
                 <constraint firstAttribute="trailing" secondItem="B3q-ZO-B6x" secondAttribute="trailing" constant="10" id="Yx4-lc-2dg"/>
-                <constraint firstAttribute="bottom" secondItem="BsN-Dw-MIP" secondAttribute="bottom" id="e27-80-HyW"/>
                 <constraint firstItem="2sT-1n-giG" firstAttribute="width" secondItem="2sT-1n-giG" secondAttribute="height" multiplier="1:1" id="jJl-Dt-SUP"/>
-                <constraint firstAttribute="trailing" secondItem="BsN-Dw-MIP" secondAttribute="trailing" id="k0V-jn-amV"/>
                 <constraint firstItem="Wtt-zX-JUI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="23" id="xq4-uI-2ZB"/>
             </constraints>
             <point key="canvasLocation" x="335" y="217"/>

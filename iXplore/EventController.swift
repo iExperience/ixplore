@@ -14,19 +14,21 @@ class Event {
     var title: String!
     var who: String!
     var location: String!
+    var description: NSAttributedString!
+    var subCalendarId: String!
     var subCalendarIds: [String]!
     
 //    let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
     var startDate: NSDate!
     var endDate: NSDate!
-    var description: NSAttributedString!
     
-    init(title: String, description: String, who: String, location: String, startDateString: String, endDateString: String, subIds: [String]) {
+    init(title: String, description: String, who: String, location: String, startDateString: String, endDateString: String, subIds: [String], subId: String) {
         
         self.title = title
         self.who = who
         self.location = location
         self.subCalendarIds = subIds
+        self.subCalendarId = subId
         
         // formats the date
         let dateFormatter = NSDateFormatter()

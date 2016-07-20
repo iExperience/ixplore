@@ -23,16 +23,32 @@ class CustomEventView: UIView {
         
         self.clipsToBounds = true
 //        self.backgroundColor = UIColor.blueColor().colorWithAlphaComponent(0.1)
-        self.backgroundColor = UIColor(netHex: 0xe32181).colorWithAlphaComponent(0.2)
         self.layer.cornerRadius = 8
         titleLabel = UILabel(frame: CGRectMake(5, 5, self.frame.width, 20))
         titleLabel.text = event.title
         titleLabel.font = UIFont(name: "Lato-Regular", size: 15)
-        titleLabel.textColor = UIColor(netHex: 0xe32181)
-        self.addSubview(titleLabel)
-        
         let borderView = UIView(frame: CGRectMake(0, 0, 1, self.frame.height))
-        borderView.backgroundColor = UIColor(netHex: 0xe32181)
+        
+        switch event.subCalendarIds[0] {
+        case String(1836371):
+            self.backgroundColor = UIColor(netHex: 0xe32181).colorWithAlphaComponent(0.2)
+            titleLabel.textColor = UIColor(netHex: 0xe32181)
+            borderView.backgroundColor = UIColor(netHex: 0xe32181)
+        case String(1826962):
+            self.backgroundColor = UIColor(netHex: 0x5086C5).colorWithAlphaComponent(0.2)
+            titleLabel.textColor = UIColor(netHex: 0x5086C5)
+            borderView.backgroundColor = UIColor(netHex: 0xe5086C5)
+        default:
+            self.backgroundColor = UIColor.grayColor()
+            titleLabel.textColor = UIColor.blackColor()
+            borderView.backgroundColor = UIColor.blackColor()
+        }
+//        self.backgroundColor = UIColor(netHex: 0xe32181).colorWithAlphaComponent(0.2)
+//        titleLabel.textColor = UIColor(netHex: 0xe32181)
+        
+//        borderView.backgroundColor = UIColor(netHex: 0xe32181)
+        
+        self.addSubview(titleLabel)
         self.addSubview(borderView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))

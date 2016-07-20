@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning{
+class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
