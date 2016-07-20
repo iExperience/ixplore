@@ -37,8 +37,9 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate, 
         
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.recommendationsNavigationController?.setViewControllers([appDelegate.rmvc], animated: true)
+//        appDelegate.recommendationsNavigationController?.popViewControllerAnimated(true)
         
-        print(appDelegate.recommendationsNavigationController?.viewControllers)
+//        print(appDelegate.recommendationsNavigationController?.viewControllers)
     }
     
     @IBAction func menuButtonTapped(sender: UIButton) {

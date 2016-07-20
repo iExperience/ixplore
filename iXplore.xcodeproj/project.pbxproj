@@ -24,7 +24,7 @@
 		D111609E1D3E51F6009104B0 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = D111609D1D3E51F6009104B0 /* question.png */; };
 		D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */; };
 		D11160A41D3E6449009104B0 /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A31D3E6449009104B0 /* QuestionController.swift */; };
-		D11160A61D3E7FBD009104B0 /* FlipAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */; };
+		D11160A61D3E7FBD009104B0 /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A51D3E7FBD009104B0 /* FlipPresentAnimationController.swift */; };
 		D11160A81D3E80EF009104B0 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11160A71D3E80EF009104B0 /* AnimationHelper.swift */; };
 		D12A305B1D391EB50038C1B6 /* RecommendationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12A305A1D391EB50038C1B6 /* RecommendationController.swift */; };
 		D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D12A305C1D3922060038C1B6 /* KMLParser.m */; };
@@ -40,6 +40,7 @@
 		D18B4AC91D3CEABD0000BE26 /* GameHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18B4AC71D3CEABD0000BE26 /* GameHomeViewController.xib */; };
 		D18B4ACC1D3CEBF80000BE26 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18B4ACA1D3CEBF80000BE26 /* QuestionViewController.swift */; };
 		D18B4ACD1D3CEBF80000BE26 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18B4ACB1D3CEBF80000BE26 /* QuestionViewController.xib */; };
+		D19AF7241D3E8F1000205977 /* FlipDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19AF7231D3E8F1000205977 /* FlipDismissAnimationController.swift */; };
 		D19D28EB1D342DD700C7D06C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */; };
 		D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4D41D2CF4870064D387 /* Lato-Black.ttf */; };
 		D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1ADD4D51D2CF4870064D387 /* Lato-BlackItalic.ttf */; };
@@ -111,7 +112,7 @@
 		D111609D1D3E51F6009104B0 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnswerView.swift; sourceTree = "<group>"; };
 		D11160A31D3E6449009104B0 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
-		D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipAnimationController.swift; sourceTree = "<group>"; };
+		D11160A51D3E7FBD009104B0 /* FlipPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipPresentAnimationController.swift; sourceTree = "<group>"; };
 		D11160A71D3E80EF009104B0 /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		D12A305A1D391EB50038C1B6 /* RecommendationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationController.swift; sourceTree = "<group>"; };
 		D12A305C1D3922060038C1B6 /* KMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMLParser.m; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		D18B4AC71D3CEABD0000BE26 /* GameHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameHomeViewController.xib; sourceTree = "<group>"; };
 		D18B4ACA1D3CEBF80000BE26 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		D18B4ACB1D3CEBF80000BE26 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		D19AF7231D3E8F1000205977 /* FlipDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipDismissAnimationController.swift; sourceTree = "<group>"; };
 		D19D28EA1D342DD700C7D06C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1ADD4D41D2CF4870064D387 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		D1ADD4D51D2CF4870064D387 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -246,7 +248,8 @@
 				C1FB54111D2EB1B6004D52E5 /* EventController.swift */,
 				D12A305A1D391EB50038C1B6 /* RecommendationController.swift */,
 				D11160A31D3E6449009104B0 /* QuestionController.swift */,
-				D11160A51D3E7FBD009104B0 /* FlipAnimationController.swift */,
+				D11160A51D3E7FBD009104B0 /* FlipPresentAnimationController.swift */,
+				D19AF7231D3E8F1000205977 /* FlipDismissAnimationController.swift */,
 				D11160A71D3E80EF009104B0 /* AnimationHelper.swift */,
 			);
 			name = Models;
@@ -567,10 +570,11 @@
 				C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */,
 				D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */,
 				D18B4AC81D3CEABD0000BE26 /* GameHomeViewController.swift in Sources */,
-				D11160A61D3E7FBD009104B0 /* FlipAnimationController.swift in Sources */,
+				D11160A61D3E7FBD009104B0 /* FlipPresentAnimationController.swift in Sources */,
 				D11160A81D3E80EF009104B0 /* AnimationHelper.swift in Sources */,
 				D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */,
 				D1E954EC1D2AB368007A4120 /* WebService.swift in Sources */,
+				D19AF7241D3E8F1000205977 /* FlipDismissAnimationController.swift in Sources */,
 				D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */,
 				D1BAB7DD1D30669200ECD7F4 /* EventViewController.swift in Sources */,
 				D18B4ACC1D3CEBF80000BE26 /* QuestionViewController.swift in Sources */,

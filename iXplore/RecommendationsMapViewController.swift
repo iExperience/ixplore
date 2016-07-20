@@ -12,7 +12,10 @@ import CoreLocation
 import SSZipArchive
 import Alamofire
 
-class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, UIScrollViewDelegate {
+class RecommendationsMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, UIScrollViewDelegate, UINavigationControllerDelegate {
+    
+    var flipPresentAnimationController = FlipPresentAnimationController()
+    var flipDismissAnimationController = FlipDismissAnimationController()
     
     // IBOutlets for button layout
     @IBOutlet weak var menuButton: UIButton!
@@ -62,6 +65,28 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
     }
     
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return flipPresentAnimationController
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return flipDismissAnimationController
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == UINavigationControllerOperation.Push {
+            if fromVC == self {
+                return flipPresentAnimationController
+            }
+            else {
+                return flipDismissAnimationController
+            }
+        }
+        return nil
+    }
+    
     // MARK: IBActions
     
     @IBAction func menuButtonTapped(sender: UIButton) {
@@ -73,6 +98,7 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     
         let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.recommendationsNavigationController?.setViewControllers([appDelegate.rlvc], animated: true)
+//        appDelegate.recommendationsNavigationController?.pushViewController(appDelegate.rlvc, animated: true)
     
     }
     
