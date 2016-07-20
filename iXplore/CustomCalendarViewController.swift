@@ -437,18 +437,18 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
             if responseCode / 100 == 2 {
                 
                 var events: [Event] = []
-                var allDayEvents: [(String, [String])] = []
+                var allDayEvents: [Event] = []
                 
                 for (_,event) in json["events"] {
                     var ids: [String] = []
                     for (_,id) in event["subcalendar_ids"] {
                         ids.append(id.stringValue)
                     }
-                    if event["all_day"] {
-                        allDayEvents.append((event["title"].stringValue, ids))
+                    if event["all_day"].boolValue {
+                        allDayEvents.append(Event(title: event["title"].stringValue, description: event["notes"].stringValue, who: event["who"].stringValue, location: event["location"].stringValue, startDateString: event["start_dt"].stringValue, endDateString: event["end_dt"].stringValue, subIds: ids, subId: event["subcalendar_id"].stringValue))
                     }
                     else {
-                        events.append(Event(title: event["title"].stringValue, description: event["notes"].stringValue, who: event["who"].stringValue, location: event["location"].stringValue, startDateString: event["start_dt"].stringValue, endDateString: event["end_dt"].stringValue, subIds: ids))
+                        events.append(Event(title: event["title"].stringValue, description: event["notes"].stringValue, who: event["who"].stringValue, location: event["location"].stringValue, startDateString: event["start_dt"].stringValue, endDateString: event["end_dt"].stringValue, subIds: ids, subId: event["subcalendar_id"].stringValue))
                     }
                 }
                 
@@ -462,7 +462,7 @@ class CustomCalendarViewController: UIViewController, CustomWeekViewDelegate, Cu
         
     }
     
-    func eventListComplete(customDayView: CustomDayView, loadedEvents: [Event], loadedAllDayEvents: [(String, [String])]) {
+    func eventListComplete(customDayView: CustomDayView, loadedEvents: [Event], loadedAllDayEvents: [Event]) {
         for newEvent in loadedEvents {
             let newEventView = CustomEventView()
             newEventView.delegate = self

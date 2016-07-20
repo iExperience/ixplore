@@ -18,6 +18,7 @@ class RecommendationViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var mustTryLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,10 +31,19 @@ class RecommendationViewController: UIViewController {
             self.scrollView.addSubview(star)
         }
         
-        for i in 0..<recommendation.price {
-            let dollar = UIImageView(image: UIImage(named: "dollar.png"))
-            dollar.frame = CGRectMake(priceLabel.frame.origin.x + priceLabel.frame.width + 10 + (CGFloat(i) * priceLabel.frame.height), priceLabel.frame.origin.y, priceLabel.frame.height, priceLabel.frame.height)
-            self.scrollView.addSubview(dollar)
+        if recommendation.price == 0 {
+            let free = UILabel(frame: CGRectMake(priceLabel.frame.origin.x + priceLabel.frame.width + 10, priceLabel.frame.origin.y, priceLabel.frame.width, priceLabel.frame.height))
+            free.font = priceLabel.font
+            free.textColor = priceLabel.textColor
+            free.text = "Free"
+            self.scrollView.addSubview(free)
+        }
+        else {
+            for i in 0..<recommendation.price {
+                let dollar = UIImageView(image: UIImage(named: "dollar.png"))
+                dollar.frame = CGRectMake(priceLabel.frame.origin.x + priceLabel.frame.width + 10 + (CGFloat(i) * priceLabel.frame.height), priceLabel.frame.origin.y, priceLabel.frame.height, priceLabel.frame.height)
+                self.scrollView.addSubview(dollar)
+            }
         }
         
         infoLabel.text = recommendation.info

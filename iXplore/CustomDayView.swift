@@ -17,7 +17,7 @@ class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
     // the date being shown
     var date: NSDate!
     var eventViews: [CustomEventView] = []
-    var allDayEvents: [(String, [String])] = []
+    var allDayEvents: [Event] = []
     var indentAmount: CGFloat = 5
     let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
     
@@ -168,14 +168,32 @@ class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
     }
     
     func durationOfEvent(event: Event) -> Int {
+        
         let startDateComponents = calendar?.components([.Hour, .Minute], fromDate: event.startDate)
         let endDateComponents = calendar?.components([.Hour, .Minute], fromDate: event.endDate)
-        return (((endDateComponents?.hour)! - (startDateComponents?.hour)!) * 60) + ((endDateComponents?.minute)! - (startDateComponents?.minute)!)
+        
+        if startsPreviousDay(event) && endsNextDay(event) {
+            return 24 * 60
+        }
+        else if startsPreviousDay(event) && !endsNextDay(event) {
+            return (((endDateComponents?.hour)! * 60) + (endDateComponents?.minute)! )
+        }
+        else if !startsPreviousDay(event) && endsNextDay(event) {
+            return (((24 - (startDateComponents?.hour)!) * 60) - (startDateComponents?.minute)! )
+        }
+        else {
+            return (((endDateComponents?.hour)! - (startDateComponents?.hour)!) * 60) + ((endDateComponents?.minute)! - (startDateComponents?.minute)!)
+        }
     }
     
     func getStartOfEvent(event: Event) -> Int {
         let dateComponents = calendar?.components([.Hour, .Minute], fromDate: event.startDate)
-        return ((dateComponents?.hour)! * 60) + (dateComponents?.minute)!
+        if startsPreviousDay(event) {
+            return 0
+        }
+        else {
+            return ((dateComponents?.hour)! * 60) + (dateComponents?.minute)!
+        }
     }
     
     func getWidthOfEventView(eventView: CustomEventView) -> CGFloat {
@@ -186,6 +204,46 @@ class CustomDayView : UIScrollView, UIGestureRecognizerDelegate {
         else {
             return self.frame.width - (titleLeadingWhiteSpace + titleWidth + lineLeadingWhiteSpace + eventView.indent + lineTrailingWhiteSpace)
         }
+    }
+    
+    func startsPreviousDay(event: Event) -> Bool {
+        
+        let startDateComponents = (calendar?.components([.Month, .Day, .Year], fromDate: event.startDate))!
+        let selectedDateComponents = (calendar?.components([.Month, .Day, .Year], fromDate: self.date))!
+        
+        if startDateComponents.year < selectedDateComponents.year {
+            return true
+        }
+        else if startDateComponents.month < selectedDateComponents.month {
+            return true
+        }
+        else if startDateComponents.day < selectedDateComponents.day {
+            return true
+        }
+        else {
+            return false
+        }
+        
+    }
+    
+    func endsNextDay(event: Event) -> Bool {
+        
+        let endDateComponents = (calendar?.components([.Month, .Day, .Year], fromDate: event.endDate))!
+        let selectedDateComponents = (calendar?.components([.Month, .Day, .Year], fromDate: self.date))!
+        
+        if endDateComponents.year > selectedDateComponents.year {
+            return true
+        }
+        else if endDateComponents.month > selectedDateComponents.month {
+            return true
+        }
+        else if endDateComponents.day > selectedDateComponents.day {
+            return true
+        }
+        else {
+            return false
+        }
+        
     }
     
     func beingDragged(gestureRecognizer: UIPanGestureRecognizer) {
