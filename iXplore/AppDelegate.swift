@@ -165,6 +165,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.recommendationsNavigationController = UINavigationController(rootViewController: rmvc!)
         self.recommendationsNavigationController?.navigationBarHidden = true
         
+//        self.recommendationsNavigationController?.transitioningDelegate = self.rmvc
+        self.recommendationsNavigationController?.delegate = self.rmvc
+        
         // Set up slide menu
         SlideMenuOptions.leftViewWidth = (self.window?.frame.width)! * 2 / 3
         SlideMenuOptions.contentViewScale = 1

@@ -1,5 +1,5 @@
 //
-//  FlipAnimationController.swift
+//  FlipPresentAnimationController.swift
 //  iXplore
 //
 //  Created by Brian Ge on 7/19/16.
@@ -8,40 +8,36 @@
 
 import UIKit
 
-class FlipAnimationController: NSObject, UIViewControllerAnimatedTransitioning{
-
-    var originFrame: CGRect!
+class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning{
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 2.0
+        return 0.5
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        // 1
         guard let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
             let containerView = transitionContext.containerView(),
             let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) else {
                 return
         }
         
-        // 2
-        let initialFrame = originFrame
-        let finalFrame = transitionContext.finalFrameForViewController(toVC)
+        let backgroundView = UIView(frame: containerView.frame)
+        backgroundView.backgroundColor = UIColor.whiteColor()
+        let overlayView = UIView(frame: containerView.frame)
+        overlayView.backgroundColor = UIColor(netHex: 0x4bbe9c).colorWithAlphaComponent(0.2)
+        backgroundView.addSubview(overlayView)
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.addSubview(backgroundView)
+        appDelegate.window?.sendSubviewToBack(backgroundView)
         
-        // 3
-        let snapshot = toVC.view.snapshotViewAfterScreenUpdates(true)
-        snapshot.frame = initialFrame
-        snapshot.layer.masksToBounds = true
+        toVC.view.frame = UIScreen.mainScreen().bounds
         
         containerView.addSubview(toVC.view)
-        containerView.addSubview(snapshot)
-        toVC.view.hidden = true
         
         AnimationHelper.perspectiveTransformForContainerView(containerView)
-        snapshot.layer.transform = AnimationHelper.yRotation(M_PI_2)
+        toVC.view.layer.transform = AnimationHelper.yRotation(M_PI_2)
         
-        // 1
         let duration = transitionDuration(transitionContext)
         
         UIView.animateKeyframesWithDuration(
@@ -49,26 +45,18 @@ class FlipAnimationController: NSObject, UIViewControllerAnimatedTransitioning{
             delay: 0,
             options: .CalculationModeCubic,
             animations: {
-                // 2
+                
                 UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1/3, animations: {
                     fromVC.view.layer.transform = AnimationHelper.yRotation(-M_PI_2)
                 })
                 
-                // 3
-                UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 1/3, animations: {
-                    snapshot.layer.transform = AnimationHelper.yRotation(0.0)
+                UIView.addKeyframeWithRelativeStartTime(1/3, relativeDuration: 2/3, animations: {
+                    toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
                 })
                 
-                // 4
-                UIView.addKeyframeWithRelativeStartTime(2/3, relativeDuration: 1/3, animations: {
-                    snapshot.frame = finalFrame
-                })
             },
             completion: { _ in
-                // 5
-                toVC.view.hidden = false
                 fromVC.view.layer.transform = AnimationHelper.yRotation(0.0)
-                snapshot.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
         })
         
