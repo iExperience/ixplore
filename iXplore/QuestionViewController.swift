@@ -8,12 +8,14 @@
 
 import UIKit
 
-class QuestionViewController: UIViewController, CustomAnswerViewDelegate {
+class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionImageView: UIImageView!
     
     var question: Question!
+    var answerViews: [CustomAnswerView] = []
     
     let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -23,6 +25,8 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate {
     let answerTop: CGFloat = 20
     let minimumAnswerHeight: CGFloat = 70
     
+    var timeCount = 10
+    var timer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,42 +39,25 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate {
         
         for i in 0..<question.answers.count {
             
-            let answerLabel = CustomAnswerView(frame: CGRectMake(answerLeading, answerY, appDelegate.window!.frame.width - (answerLeading * 2), minimumAnswerHeight))
-            answerLabel.answer = question.answers[i]
-            answerLabel.loadView()
-            answerLabel.delegate = self
-            answerLabel.correct = (i == question.correctAnswer)
-            self.scrollView.addSubview(answerLabel)
-            answerY += answerLabel.frame.height + answerTop
+            let answerView = CustomAnswerView(frame: CGRectMake(answerLeading, answerY, appDelegate.window!.frame.width - (answerLeading * 2), minimumAnswerHeight))
+            answerView.answer = question.answers[i]
+            answerView.loadView()
+            answerView.delegate = self
+            answerView.correct = (i == question.correctAnswer)
+            self.scrollView.addSubview(answerView)
+            answerY += answerView.frame.height + answerTop
+            
+            answerViews.append(answerView)
             
             if i == question.answers.count - 1 {
-                scrollView.contentSize.height = answerLabel.frame.origin.y + answerLabel.frame.height + 20
+                scrollView.contentSize.height = answerView.frame.origin.y + answerView.frame.height + 20
             }
             
         }
         
-//        answerY = max(questionLabel.frame.height, questionImageHeight) + answerTop
-//        let firstAnswerLabel = CustomAnswerLabel(frame: CGRectMake(answerLeading, answerY, UIApplication.sharedApplication().keyWindow!.frame.width - (answerLeading * 2), minimumAnswerHeight))
-//        firstAnswerLabel.loadView()
-//        firstAnswerLabel.delegate = self
-//        self.scrollView.addSubview(firstAnswerLabel)
-//        
-//        answerY = firstAnswerLabel.frame.origin.y + firstAnswerLabel.frame.height + answerTop
-//        let secondAnswerLabel = CustomAnswerLabel(frame: CGRectMake(answerLeading, answerY, UIApplication.sharedApplication().keyWindow!.frame.width - (answerLeading * 2), minimumAnswerHeight))
-//        secondAnswerLabel.loadView()
-//        secondAnswerLabel.delegate = self
-//        self.scrollView.addSubview(secondAnswerLabel)
-//        
-//        answerY = secondAnswerLabel.frame.origin.y + firstAnswerLabel.frame.height + answerTop
-//        let thirdAnswerLabel = CustomAnswerLabel(frame: CGRectMake(answerLeading, answerY, UIApplication.sharedApplication().keyWindow!.frame.width - (answerLeading * 2), minimumAnswerHeight))
-//        thirdAnswerLabel.loadView()
-//        thirdAnswerLabel.delegate = self
-//        self.scrollView.addSubview(thirdAnswerLabel)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         
-    }
-    
-    override func viewDidLayoutSubviews() {
-        print(questionLabel.frame.height)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,11 +65,141 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func answerTapped(correct: Bool) {
+    func showCorrectAnswer(correct: Bool, timeUp: Bool, answerView: CustomAnswerView?) {
         
-        print(correct)
-        print(questionLabel.frame.height)
+        questionLabel.removeFromSuperview()
+        questionImageView.removeFromSuperview()
+        
+        let resultLabel = UILabel()
+        resultLabel.font = UIFont(name: "Lato-Bold", size: 36)
+        if timeUp {
+            resultLabel.text = "Time's Up!"
+            resultLabel.textColor = UIColor(netHex: 0xf16577)
+        }
+        else if correct {
+            resultLabel.text = "You got it!"
+            resultLabel.textColor = UIColor(netHex: 0x4bbe9c)
+        }
+        else {
+            resultLabel.text = "Nice try!"
+            resultLabel.textColor = UIColor(netHex: 0xf16577)
+        }
+        resultLabel.sizeToFit()
+        resultLabel.frame.origin.y = 30
+        resultLabel.center.x = self.view.center.x
+        resultLabel.alpha = 0
+        self.scrollView.addSubview(resultLabel)
+        
+        let correctLabel = UILabel()
+        correctLabel.font = UIFont(name: "Lato-Heavy", size: 24)
+        correctLabel.text = "Correct Answer:"
+        correctLabel.textColor = UIColor(netHex: 0x4bbe9c)
+        correctLabel.sizeToFit()
+        correctLabel.frame.origin.y = resultLabel.frame.origin.y + resultLabel.frame.height + 30
+        correctLabel.center.x = self.view.center.x
+        correctLabel.alpha = 0
+        self.scrollView.addSubview(correctLabel)
+        
+        let explanationLabel = UILabel()
+        explanationLabel.numberOfLines = 0
+        explanationLabel.font = UIFont(name: "Lato-Regular", size: 18)
+        explanationLabel.text = question.explanation
+        explanationLabel.frame.size.width = appDelegate.window!.frame.width - (answerLeading * 2)
+        explanationLabel.sizeToFit()
+        explanationLabel.frame.size.width = (appDelegate.window?.frame.width)! - (answerLeading * 2)
+        explanationLabel.center.x = self.view.center.x
+        explanationLabel.alpha = 0
+        self.scrollView.addSubview(explanationLabel)
+        
+        let nextQuestionButton = UIButton()
+        nextQuestionButton.setTitle("Next Question", forState: .Normal)
+        nextQuestionButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
+        nextQuestionButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        nextQuestionButton.backgroundColor = UIColor(netHex: 0xe32181)
+        nextQuestionButton.layer.cornerRadius = 10
+        nextQuestionButton.sizeToFit()
+        nextQuestionButton.frame.size.width += 20
+        nextQuestionButton.frame.size.height += 15
+        nextQuestionButton.titleLabel?.textAlignment = .Center
+        nextQuestionButton.center.x = self.view.center.x
+        nextQuestionButton.alpha = 0
+        nextQuestionButton.addTarget(self, action: #selector(self.nextQuestion), forControlEvents: .TouchUpInside)
+        self.scrollView.addSubview(nextQuestionButton)
+        
+        timer.invalidate()
+        
+        for subview in scrollView.subviews {
+            if let answer = subview as? CustomAnswerView {
+                answer.userInteractionEnabled = false
+            }
+        }
+        
+        for answer in self.answerViews {
+            
+            var answerWrong: Bool = false
+            if let answerView = answerView {
+                answerWrong = !answerView.correct
+            }
+            
+            if answer.correct! {
+                UIView.animateWithDuration(0.5, animations: {
+                    answer.backgroundColor = UIColor(netHex: 0x4bbe9c).colorWithAlphaComponent(0.2)
+                    //                        answer.layer.borderColor = UIColor(netHex: 0x4bbe9c).CGColor
+                    if answerWrong {
+                        answerView?.backgroundColor = UIColor(netHex: 0xf16577).colorWithAlphaComponent(0.2)
+                        //                            answerView?.layer.borderColor = UIColor(netHex: 0xf16577).CGColor
+                    }
+                    }, completion: {(true) in
+                        if answerWrong {
+                            UIView.animateWithDuration(0.2, animations: {
+                                answerView?.alpha = 0
+                                }, completion: {(true) in
+                                    answerView?.removeFromSuperview()
+                            })
+                        }
+                        UIView.animateWithDuration(0.5, animations: {
+                            resultLabel.alpha = 1
+                            correctLabel.alpha = 1
+                            answer.frame.origin.y = correctLabel.frame.origin.y + correctLabel.frame.height + 10
+                            }, completion: {(true) in
+                                explanationLabel.frame.origin.y = answer.frame.origin.y + answer.frame.height + 20
+                                nextQuestionButton.frame.origin.y = explanationLabel.frame.origin.y + explanationLabel.frame.height + 20
+                                self.scrollView.contentSize.height = nextQuestionButton.frame.origin.y + nextQuestionButton.frame.height + 20
+                                UIView.animateWithDuration(0.2, animations: {
+                                    explanationLabel.alpha = 1
+                                    nextQuestionButton.alpha = 1
+                                })
+                        })
+                })
+            }
+            else if answer != answerView {
+                answer.removeFromSuperview()
+            }
+            
+        }
         
     }
+    
+    func answerTapped(sender: CustomAnswerView, correct: Bool) {
+        
+        showCorrectAnswer(correct, timeUp: false, answerView: sender)
+        
+    }
+    
+    func update() {
+        
+        if timeCount > 0 {
+            print(timeCount)
+            timeCount -= 1
+        }
+        else {
+            print("hey")
+            showCorrectAnswer(false, timeUp: true, answerView: nil)
+        }
+    }
 
+    func nextQuestion() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }

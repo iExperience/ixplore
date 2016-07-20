@@ -47,13 +47,13 @@ class CustomAnswerView: UIView {
     
     func tapped(gestureRecognizer: UITapGestureRecognizer) {
         print("Tapped")
-        self.delegate!.answerTapped(self.correct)
+        self.delegate!.answerTapped(self, correct: self.correct)
     }
 
 }
 
 protocol CustomAnswerViewDelegate {
     
-    func answerTapped(correct: Bool)
+    func answerTapped(sender: CustomAnswerView, correct: Bool)
     
 }
