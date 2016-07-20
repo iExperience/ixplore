@@ -67,10 +67,10 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == UINavigationControllerOperation.Push {
-            if fromVC == self {
+            if toVC.isKindOfClass(RecommendationsListViewController) {
                 return flipPresentAnimationController
             }
-            else {
+            else if toVC.isKindOfClass(RecommendationsMapViewController) {
                 return flipDismissAnimationController
             }
         }
