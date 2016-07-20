@@ -20,6 +20,8 @@
 		C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D501E31D2E83F400EA33BC /* CustomDayView.swift */; };
 		C1D9F48B1D34F8DD0022234C /* RecommendationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */; };
 		C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */; };
+		C1FA17361D3FBF6900543CDC /* DirectoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FA17341D3FBF6900543CDC /* DirectoryViewController.swift */; };
+		C1FA17371D3FBF6900543CDC /* DirectoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1FA17351D3FBF6900543CDC /* DirectoryViewController.xib */; };
 		C1FB54121D2EB1B6004D52E5 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB54111D2EB1B6004D52E5 /* EventController.swift */; };
 		D111609E1D3E51F6009104B0 /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = D111609D1D3E51F6009104B0 /* question.png */; };
 		D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */; };
@@ -108,6 +110,8 @@
 		C1D501E31D2E83F400EA33BC /* CustomDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDayView.swift; sourceTree = "<group>"; };
 		C1D9F4891D34F8DD0022234C /* RecommendationsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsMapViewController.swift; sourceTree = "<group>"; };
 		C1D9F48A1D34F8DD0022234C /* RecommendationsMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationsMapViewController.xib; sourceTree = "<group>"; };
+		C1FA17341D3FBF6900543CDC /* DirectoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryViewController.swift; sourceTree = "<group>"; };
+		C1FA17351D3FBF6900543CDC /* DirectoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectoryViewController.xib; sourceTree = "<group>"; };
 		C1FB54111D2EB1B6004D52E5 /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		D111609D1D3E51F6009104B0 /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
 		D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnswerView.swift; sourceTree = "<group>"; };
@@ -223,6 +227,15 @@
 			name = Recommendations;
 			sourceTree = "<group>";
 		};
+		C1FA17331D3FBDF600543CDC /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				C1FA17341D3FBF6900543CDC /* DirectoryViewController.swift */,
+				C1FA17351D3FBF6900543CDC /* DirectoryViewController.xib */,
+			);
+			name = Directory;
+			sourceTree = "<group>";
+		};
 		D148DDAC1D2BBD6700234996 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +248,7 @@
 				C1D501E51D2E964F00EA33BC /* Calendar */,
 				C1D9F48D1D34F8E50022234C /* Recommendations */,
 				D18B4AC51D3CEAA60000BE26 /* Game */,
+				C1FA17331D3FBDF600543CDC /* Directory */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -497,6 +511,7 @@
 				D17F80A31D2FA0750088DE96 /* nextarrow.png in Resources */,
 				D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */,
 				D15C4A871D2C24AC00C641F3 /* iXlogo.png in Resources */,
+				C1FA17371D3FBF6900543CDC /* DirectoryViewController.xib in Resources */,
 				D1B8E96C1D3D55F70060B0F2 /* market.png in Resources */,
 				D1ADD4F41D2CF4870064D387 /* Lato-Semibold.ttf in Resources */,
 				C1D9F48C1D34F8DD0022234C /* RecommendationsMapViewController.xib in Resources */,
@@ -587,6 +602,7 @@
 				C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */,
 				D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */,
 				D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */,
+				C1FA17361D3FBF6900543CDC /* DirectoryViewController.swift in Sources */,
 				D1E954E21D2AA605007A4120 /* NewsViewController.swift in Sources */,
 				D1E954E61D2AB2E9007A4120 /* TestViewController.swift in Sources */,
 				C193D9791D2E544800CCB96C /* CustomWeekView.swift in Sources */,
