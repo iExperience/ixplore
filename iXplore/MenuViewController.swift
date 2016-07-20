@@ -48,7 +48,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -56,9 +56,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         switch indexPath.row {
         case 0: cell.textLabel?.text = "Calendar"
         case 1: cell.textLabel?.text = "iXplore"
-        case 2: cell.textLabel?.text = "iXDaily"
-        case 3: cell.textLabel?.text = "Support"
-        case 4: cell.textLabel?.text = "Logout"
+        case 2: cell.textLabel?.text = "iX Play"
+        case 3: cell.textLabel?.text = "iXDaily"
+        case 4: cell.textLabel?.text = "Support"
+        case 5: cell.textLabel?.text = "Logout"
         default: break
         }
         cell.accessoryType = .DisclosureIndicator
@@ -78,9 +79,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
             switch indexPath.row {
             case 0: smc.changeMainViewController(appDelegate.mainNavigationController!, close: true)
             case 1: smc.changeMainViewController(appDelegate.recommendationsNavigationController!, close: true)
-            case 2: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
-            case 3: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
-            case 4:FBSDKLoginManager().logOut()
+            case 2: let ghvc = GameHomeViewController(nibName: "GameHomeViewController", bundle: nil)
+                let gameNav = UINavigationController(rootViewController: ghvc)
+            gameNav.navigationBarHidden = true
+                smc.changeMainViewController(gameNav, close: true)
+            case 3: smc.changeMainViewController(NewsViewController(nibName: "NewsViewController", bundle: nil), close: true)
+            case 4: smc.changeMainViewController(SupportViewController(nibName: "SupportViewController", bundle: nil), close: true)
+            case 5:FBSDKLoginManager().logOut()
             appDelegate.navigateToLogin()
             default: break
             }

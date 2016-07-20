@@ -13,6 +13,7 @@ struct Question {
     var question: String
     var answers: [String]
     var correctAnswer: Int
+    var explanation: String
     
 }
 
@@ -34,7 +35,7 @@ class QuestionController {
     }
     
     func loadQuestions() {
-        let question = Question(question: "Is it raining?", answers: ["No", "Yes", "Maybe"], correctAnswer: 2)
+        let question = Question(question: "Is it raining?", answers: ["No", "Yes", "Maybe"], correctAnswer: 2, explanation: "It's raining outside")
         questions.append(question)
     }
     
