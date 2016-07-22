@@ -42,6 +42,7 @@ class WeeklyChallengeViewController: UIViewController, UIImagePickerControllerDe
         
         uploadPhotoButton = UIButton()
         uploadPhotoButton.frame.origin.y = challengeLabel.frame.origin.y + challengeLabel.frame.height + uploadTop
+        uploadPhotoButton.layer.cornerRadius = 5
         uploadPhotoButton.titleLabel!.font = UIFont(name: "Lato-Regular", size: 18)
         uploadPhotoButton.titleLabel?.textAlignment = .Center
         uploadPhotoButton.setTitle("Upload Photo", forState: .Normal)
@@ -58,9 +59,10 @@ class WeeklyChallengeViewController: UIViewController, UIImagePickerControllerDe
         self.scrollView.addSubview(imageView)
         
         submitButton = UIButton()
+        submitButton.layer.cornerRadius = 5
         submitButton.titleLabel!.font = UIFont(name: "Lato-Regular", size: 18)
         submitButton.titleLabel?.textAlignment = .Center
-        submitButton.setTitle("submit Photo", forState: .Normal)
+        submitButton.setTitle("Submit Photo", forState: .Normal)
         submitButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         submitButton.backgroundColor = UIColor(netHex: 0xe32181)
         submitButton.sizeToFit()
@@ -92,7 +94,13 @@ class WeeklyChallengeViewController: UIViewController, UIImagePickerControllerDe
     
     func submitPhoto() {
         print("submitted")
-        self.navigationController?.popViewControllerAnimated(true)
+        let alert = UIAlertController(title: "Success!", message: "Your photo has been submitted!", preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Done", style: .Default, handler: {(alert) in
+            self.navigationController?.popViewControllerAnimated(true)
+            
+        })
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {

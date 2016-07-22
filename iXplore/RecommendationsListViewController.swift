@@ -11,6 +11,8 @@ import Foundation
 
 class RecommendationsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var mapButton: UIButton!
+    
     var recTableView = UITableView()
     
     override func viewDidLoad() {
@@ -19,6 +21,10 @@ class RecommendationsListViewController: UIViewController, UITableViewDelegate, 
         recTableView.frame = CGRectMake(0, 72, UIApplication.sharedApplication().keyWindow!.frame.width, UIApplication.sharedApplication().keyWindow!.frame.height - 72)
         
         self.view.addSubview(recTableView)
+        
+        mapButton.layer.cornerRadius = 5
+        mapButton.layer.borderWidth = 1
+        mapButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         // Do any additional setup after loading the view.
         recTableView.delegate = self

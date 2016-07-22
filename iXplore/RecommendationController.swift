@@ -203,7 +203,9 @@ class RecommendationController {
             }
             
             let marker = CustomGMSMarker(position: (point as! MKAnnotation).coordinate, name: (point as! MKAnnotation).title!!, rating: rating!, price: price!, info: info, mustTry: mustTry)
-            //            marker.map = self.mapView
+//            marker.iconView = UIImageView(image: UIImage(named: "marker.png"))
+//            marker.iconView.frame.size.height = 41
+//            marker.iconView.frame.size.width = 30
             recommendations.append(marker)
 
         }

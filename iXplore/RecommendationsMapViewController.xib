@@ -42,7 +42,7 @@
                         <action selector="listButtonTapped:" destination="-1" eventType="touchUpInside" id="PHy-Ow-Ipr"/>
                     </connections>
                 </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-3w-JY9">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-3w-JY9">
                     <rect key="frame" x="0.0" y="515" width="600" height="85"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="8Ie-3w-JY9" secondAttribute="height" multiplier="7:1" id="0jc-e6-fRy"/>

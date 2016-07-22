@@ -37,8 +37,7 @@ class CustomAnswerView: UIView {
         self.addSubview(self.label!)
         self.layer.cornerRadius = 4
         self.layer.borderColor = UIColor.lightGrayColor().CGColor
-        self.layer.borderWidth = 2
-        self.layer.shadowRadius = 3
+        self.layer.borderWidth = 1
         self.userInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
         self.addGestureRecognizer(tapGestureRecognizer)

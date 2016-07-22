@@ -14,7 +14,7 @@
 		C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */; };
 		C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */; };
 		C1A4526D1D3CE24F00C0724C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526C1D3CE24F00C0724C /* star.png */; };
-		C1A4526F1D3CE25800C0724C /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526E1D3CE25800C0724C /* dollar.png */; };
+		C1A4526F1D3CE25800C0724C /* dollar1.png in Resources */ = {isa = PBXBuildFile; fileRef = C1A4526E1D3CE25800C0724C /* dollar1.png */; };
 		C1D0C6B01D3D0F98004E8738 /* RecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */; };
 		C1D0C6B11D3D0F98004E8738 /* RecommendationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */; };
 		C1D501E41D2E83F400EA33BC /* CustomDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D501E31D2E83F400EA33BC /* CustomDayView.swift */; };
@@ -30,6 +30,8 @@
 		D12A305D1D3922060038C1B6 /* KMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D12A305C1D3922060038C1B6 /* KMLParser.m */; };
 		D12F14B41D3FAE270034CBE2 /* WeeklyChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F14B21D3FAE270034CBE2 /* WeeklyChallengeViewController.swift */; };
 		D12F14B51D3FAE270034CBE2 /* WeeklyChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D12F14B31D3FAE270034CBE2 /* WeeklyChallengeViewController.xib */; };
+		D131B2A81D4222CD007A93B9 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D131B2A61D4222CD007A93B9 /* ThanksViewController.swift */; };
+		D131B2A91D4222CD007A93B9 /* ThanksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D131B2A71D4222CD007A93B9 /* ThanksViewController.xib */; };
 		D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148DDB11D2BDE1500234996 /* Extensions.swift */; };
 		D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15A7D691D36397D00E72C33 /* StudentInfo.swift */; };
 		D15C4A831D2C0BD700C641F3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15C4A821D2C0BD700C641F3 /* UserController.swift */; };
@@ -90,6 +92,10 @@
 		D1E954EF1D2ABF9E007A4120 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */; };
 		D1E954F01D2ABF9E007A4120 /* SupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */; };
 		D1EC01FA1D3D29B600C2E422 /* restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = D1EC01F91D3D29B600C2E422 /* restaurant.png */; };
+		D1FF089D1D40D33E005561B9 /* dollar2.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FF089C1D40D33E005561B9 /* dollar2.png */; };
+		D1FF089F1D40D57D005561B9 /* dollar3.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FF089E1D40D57D005561B9 /* dollar3.png */; };
+		D1FF08A11D40D611005561B9 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FF08A01D40D611005561B9 /* dollar.png */; };
+		D1FF08A51D40D799005561B9 /* marker.png in Resources */ = {isa = PBXBuildFile; fileRef = D1FF08A41D40D799005561B9 /* marker.png */; };
 		DDDD1ACF7F1CFD5F270C3917 /* Pods_iXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E886F920CF8E0348BC000F /* Pods_iXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +110,7 @@
 		C1A452681D3CD34300C0724C /* CustomGMSMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGMSMarker.swift; sourceTree = "<group>"; };
 		C1A4526A1D3CDB2F00C0724C /* CustomInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInfoView.swift; sourceTree = "<group>"; };
 		C1A4526C1D3CE24F00C0724C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
-		C1A4526E1D3CE25800C0724C /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		C1A4526E1D3CE25800C0724C /* dollar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar1.png; sourceTree = "<group>"; };
 		C1D0C6AE1D3D0F98004E8738 /* RecommendationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationViewController.swift; sourceTree = "<group>"; };
 		C1D0C6AF1D3D0F98004E8738 /* RecommendationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendationViewController.xib; sourceTree = "<group>"; };
 		C1D501E31D2E83F400EA33BC /* CustomDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDayView.swift; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 		D12A305E1D3922180038C1B6 /* KMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMLParser.h; sourceTree = "<group>"; };
 		D12F14B21D3FAE270034CBE2 /* WeeklyChallengeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyChallengeViewController.swift; sourceTree = "<group>"; };
 		D12F14B31D3FAE270034CBE2 /* WeeklyChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyChallengeViewController.xib; sourceTree = "<group>"; };
+		D131B2A61D4222CD007A93B9 /* ThanksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
+		D131B2A71D4222CD007A93B9 /* ThanksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThanksViewController.xib; sourceTree = "<group>"; };
 		D148DDB11D2BDE1500234996 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D15A7D691D36397D00E72C33 /* StudentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInfo.swift; sourceTree = "<group>"; };
 		D15C4A821D2C0BD700C641F3 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -183,6 +191,10 @@
 		D1E954ED1D2ABF9E007A4120 /* SupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		D1E954EE1D2ABF9E007A4120 /* SupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SupportViewController.xib; sourceTree = "<group>"; };
 		D1EC01F91D3D29B600C2E422 /* restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restaurant.png; sourceTree = "<group>"; };
+		D1FF089C1D40D33E005561B9 /* dollar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar2.png; sourceTree = "<group>"; };
+		D1FF089E1D40D57D005561B9 /* dollar3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar3.png; sourceTree = "<group>"; };
+		D1FF08A01D40D611005561B9 /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		D1FF08A41D40D799005561B9 /* marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +283,7 @@
 		D148DDB01D2BBDAB00234996 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D1FF08A41D40D799005561B9 /* marker.png */,
 				D111609D1D3E51F6009104B0 /* question.png */,
 				D1EC01F91D3D29B600C2E422 /* restaurant.png */,
 				D17F80A01D2FA0690088DE96 /* backarrow.png */,
@@ -279,7 +292,10 @@
 				D15C4A861D2C24AC00C641F3 /* iXlogo.png */,
 				D1E954DA1D2A99CC007A4120 /* hamburger.png */,
 				C1A4526C1D3CE24F00C0724C /* star.png */,
-				C1A4526E1D3CE25800C0724C /* dollar.png */,
+				D1FF08A01D40D611005561B9 /* dollar.png */,
+				C1A4526E1D3CE25800C0724C /* dollar1.png */,
+				D1FF089C1D40D33E005561B9 /* dollar2.png */,
+				D1FF089E1D40D57D005561B9 /* dollar3.png */,
 				D1B8E9631D3D55F70060B0F2 /* bar.png */,
 				D1B8E9641D3D55F70060B0F2 /* club.png */,
 				D1B8E9651D3D55F70060B0F2 /* cafe.png */,
@@ -307,6 +323,8 @@
 				D18B4ACB1D3CEBF80000BE26 /* QuestionViewController.xib */,
 				D12F14B21D3FAE270034CBE2 /* WeeklyChallengeViewController.swift */,
 				D12F14B31D3FAE270034CBE2 /* WeeklyChallengeViewController.xib */,
+				D131B2A61D4222CD007A93B9 /* ThanksViewController.swift */,
+				D131B2A71D4222CD007A93B9 /* ThanksViewController.xib */,
 				D111609F1D3E5FB2009104B0 /* CustomAnswerView.swift */,
 			);
 			name = Game;
@@ -473,10 +491,12 @@
 				D18B4AC91D3CEABD0000BE26 /* GameHomeViewController.xib in Resources */,
 				D1ADD4E61D2CF4870064D387 /* Lato-Black.ttf in Resources */,
 				D1ADD4F51D2CF4870064D387 /* Lato-SemiboldItalic.ttf in Resources */,
+				D1FF08A51D40D799005561B9 /* marker.png in Resources */,
 				D1E4AB331D3DA179002E58E8 /* RecommendationsListViewController.xib in Resources */,
+				D1FF089F1D40D57D005561B9 /* dollar3.png in Resources */,
 				D12F14B51D3FAE270034CBE2 /* WeeklyChallengeViewController.xib in Resources */,
 				D1EC01FA1D3D29B600C2E422 /* restaurant.png in Resources */,
-				C1A4526F1D3CE25800C0724C /* dollar.png in Resources */,
+				C1A4526F1D3CE25800C0724C /* dollar1.png in Resources */,
 				D1ADD4E71D2CF4870064D387 /* Lato-BlackItalic.ttf in Resources */,
 				D1ADD4EF1D2CF4870064D387 /* Lato-Light.ttf in Resources */,
 				D1B8E96D1D3D55F70060B0F2 /* sight.png in Resources */,
@@ -494,8 +514,10 @@
 				D18B4ACD1D3CEBF80000BE26 /* QuestionViewController.xib in Resources */,
 				C193D9771D2E4ED800CCB96C /* CustomCalendarViewController.xib in Resources */,
 				D1E954CF1D2A887E007A4120 /* LoginViewController.xib in Resources */,
+				D1FF089D1D40D33E005561B9 /* dollar2.png in Resources */,
 				D1ADD4F71D2CF4870064D387 /* Lato-ThinItalic.ttf in Resources */,
 				D1ADD4E91D2CF4870064D387 /* Lato-BoldItalic.ttf in Resources */,
+				D1FF08A11D40D611005561B9 /* dollar.png in Resources */,
 				D15C4A851D2C189000C641F3 /* home.jpg in Resources */,
 				C1D0C6B11D3D0F98004E8738 /* RecommendationViewController.xib in Resources */,
 				D1ADD4F31D2CF4870064D387 /* Lato-Regular.ttf in Resources */,
@@ -503,6 +525,7 @@
 				D1E954DB1D2A99CC007A4120 /* hamburger.png in Resources */,
 				D17F80A31D2FA0750088DE96 /* nextarrow.png in Resources */,
 				D17F80A11D2FA0690088DE96 /* backarrow.png in Resources */,
+				D131B2A91D4222CD007A93B9 /* ThanksViewController.xib in Resources */,
 				D15C4A871D2C24AC00C641F3 /* iXlogo.png in Resources */,
 				D1B8E96C1D3D55F70060B0F2 /* market.png in Resources */,
 				D1ADD4F41D2CF4870064D387 /* Lato-Semibold.ttf in Resources */,
@@ -592,6 +615,7 @@
 				C1A4526B1D3CDB2F00C0724C /* CustomInfoView.swift in Sources */,
 				D1E954BB1D2A85B1007A4120 /* AppDelegate.swift in Sources */,
 				D15A7D6A1D36397D00E72C33 /* StudentInfo.swift in Sources */,
+				D131B2A81D4222CD007A93B9 /* ThanksViewController.swift in Sources */,
 				C1A452691D3CD34300C0724C /* CustomGMSMarker.swift in Sources */,
 				D148DDB21D2BDE1500234996 /* Extensions.swift in Sources */,
 				D11160A01D3E5FB2009104B0 /* CustomAnswerView.swift in Sources */,

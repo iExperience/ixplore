@@ -30,8 +30,8 @@ class CustomInfoView: UIView {
         self.backgroundColor = UIColor.whiteColor()
         
         self.layer.cornerRadius = 5
-        self.layer.borderColor = UIColor.grayColor().CGColor
-        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.lightGrayColor().CGColor
+        self.layer.borderWidth = 0.75
         
         setupTitle(title)
         setupRatingView(rating)

@@ -57,6 +57,8 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
         
         // Views setup
         listButton.layer.cornerRadius = 5
+        listButton.layer.borderWidth = 1
+        listButton.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         self.view.addSubview(mapView)
         self.view.sendSubviewToBack(mapView)
@@ -68,9 +70,12 @@ class RecommendationsMapViewController: UIViewController, CLLocationManagerDeleg
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == UINavigationControllerOperation.Push {
             if toVC.isKindOfClass(RecommendationsListViewController) {
+                flipPresentAnimationController.backgroundColor = UIColor(netHex: 0x4bbe9c).colorWithAlphaComponent(0.2)
+
                 return flipPresentAnimationController
             }
             else if toVC.isKindOfClass(RecommendationsMapViewController) {
+                flipDismissAnimationController.backgroundColor = UIColor(netHex: 0x4bbe9c).colorWithAlphaComponent(0.2)
                 return flipDismissAnimationController
             }
         }

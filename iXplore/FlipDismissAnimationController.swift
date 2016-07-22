@@ -10,6 +10,8 @@ import UIKit
 
 class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
+    var backgroundColor: UIColor?
+    
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
@@ -22,14 +24,16 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
                 return
         }
         
-        let backgroundView = UIView(frame: containerView.frame)
-        backgroundView.backgroundColor = UIColor.whiteColor()
-        let overlayView = UIView(frame: containerView.frame)
-        overlayView.backgroundColor = UIColor(netHex: 0x4bbe9c).colorWithAlphaComponent(0.2)
-        backgroundView.addSubview(overlayView)
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window?.addSubview(backgroundView)
-        appDelegate.window?.sendSubviewToBack(backgroundView)
+        if let backgroundColor = backgroundColor {
+            let backgroundView = UIView(frame: containerView.frame)
+            backgroundView.backgroundColor = UIColor.whiteColor()
+            let overlayView = UIView(frame: containerView.frame)
+            overlayView.backgroundColor = backgroundColor
+            backgroundView.addSubview(overlayView)
+            let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.window?.addSubview(backgroundView)
+            appDelegate.window?.sendSubviewToBack(backgroundView)
+        }
         
         toVC.view.frame = UIScreen.mainScreen().bounds
         

@@ -26,29 +26,11 @@
                         <action selector="menuButtonTapped:" destination="-1" eventType="touchUpInside" id="Qf4-pj-tS2"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70B-LO-fgk">
-                    <rect key="frame" x="279" y="285" width="42" height="30"/>
-                    <state key="normal" title="iXpert"/>
-                    <connections>
-                        <action selector="triviaButtonTapped:" destination="-1" eventType="touchUpInside" id="Oob-Gf-99u"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-O0-XGV">
-                    <rect key="frame" x="273" y="335" width="54" height="30"/>
-                    <state key="normal" title="iXtreme"/>
-                    <connections>
-                        <action selector="challengeButtonTapped:" destination="-1" eventType="touchUpInside" id="8t3-Uj-fOA"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="GOO-Ks-GFZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="1q6-RU-2x2"/>
-                <constraint firstItem="B7V-O0-XGV" firstAttribute="top" secondItem="70B-LO-fgk" secondAttribute="bottom" constant="20" id="Crf-YM-vpu"/>
                 <constraint firstItem="GOO-Ks-GFZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dt5-ew-gPt"/>
-                <constraint firstItem="70B-LO-fgk" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fxj-aK-eRw"/>
-                <constraint firstItem="B7V-O0-XGV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hMo-J4-dBa"/>
-                <constraint firstItem="70B-LO-fgk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uXX-is-enQ"/>
             </constraints>
         </view>
     </objects>

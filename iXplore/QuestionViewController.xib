@@ -5,6 +5,9 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Lato-Heavy.ttf">
+            <string>Lato-Heavy</string>
+        </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </mutableArray>
@@ -15,6 +18,7 @@
                 <outlet property="questionImageView" destination="mv1-5x-shR" id="qz9-Hq-xWn"/>
                 <outlet property="questionLabel" destination="1WE-ft-ETg" id="gTb-N4-0u7"/>
                 <outlet property="scrollView" destination="EUI-Dl-rwG" id="2t5-Fr-aaw"/>
+                <outlet property="timeLabel" destination="bvX-hn-icb" id="5EM-Cf-gxi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +30,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-Dl-rwG">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question.png" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-5x-shR">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-5x-shR">
                             <rect key="frame" x="20" y="30" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="Lda-8g-aMN"/>
@@ -39,9 +43,17 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvX-hn-icb">
+                            <rect key="frame" x="27" y="35" width="86" height="89"/>
+                            <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="74"/>
+                            <color key="textColor" red="0.29411764705882354" green="0.70196078431372544" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstItem="1WE-ft-ETg" firstAttribute="leading" secondItem="mv1-5x-shR" secondAttribute="trailing" constant="20" id="0qg-Xx-GAm"/>
+                        <constraint firstItem="bvX-hn-icb" firstAttribute="centerY" secondItem="mv1-5x-shR" secondAttribute="centerY" id="4x1-xt-yJu"/>
+                        <constraint firstItem="bvX-hn-icb" firstAttribute="centerX" secondItem="mv1-5x-shR" secondAttribute="centerX" id="We6-qA-Mhk"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -58,7 +70,4 @@
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="question.png" width="200" height="200"/>
-    </resources>
 </document>

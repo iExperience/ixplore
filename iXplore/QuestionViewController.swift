@@ -13,6 +13,7 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavi
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var questionImageView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var question: Question!
     var answerViews: [CustomAnswerView] = []
@@ -30,6 +31,11 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let backgroundView = UIView(frame: appDelegate.window!.frame)
+//        backgroundView.backgroundColor = UIColor(netHex: 0x52bdbf).colorWithAlphaComponent(0.2)
+//        self.view.addSubview(backgroundView)
+//        self.view.sendSubviewToBack(backgroundView)
 
         // Do any additional setup after loading the view.
         questionLabel.text = question.question
@@ -69,6 +75,7 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavi
         
         questionLabel.removeFromSuperview()
         questionImageView.removeFromSuperview()
+        timeLabel.removeFromSuperview()
         
         let resultLabel = UILabel()
         resultLabel.font = UIFont(name: "Lato-Bold", size: 36)
@@ -116,7 +123,7 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavi
         nextQuestionButton.titleLabel?.font = UIFont(name: "Lato-Regular", size: 18)
         nextQuestionButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         nextQuestionButton.backgroundColor = UIColor(netHex: 0xe32181)
-        nextQuestionButton.layer.cornerRadius = 10
+        nextQuestionButton.layer.cornerRadius = 5
         nextQuestionButton.sizeToFit()
         nextQuestionButton.frame.size.width += 20
         nextQuestionButton.frame.size.height += 15
@@ -188,9 +195,13 @@ class QuestionViewController: UIViewController, CustomAnswerViewDelegate, UINavi
     
     func update() {
         
+        timeCount -= 1
+        
         if timeCount > 0 {
-            print(timeCount)
-            timeCount -= 1
+            timeLabel.text = String(timeCount)
+            if timeCount == 5 {
+                timeLabel.textColor = UIColor(netHex: 0xf16577)
+            }
         }
         else {
             print("hey")
