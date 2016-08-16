@@ -68,11 +68,9 @@ class GameHomeViewController: UIViewController, UINavigationControllerDelegate {
         let qvc1 = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
         qvc1.question = Question(question: "Do we really need a designer to redo all of our color schemes and fix all of the icons in this app?", answers: ["No", "Kind of", "Is that really a question...?"], correctAnswer: 2, explanation: "We actually have a wonderful piece of artwork courtesy of Alex to demonstrate the peak of our artistic talents! Aaron will love this one.")
         let qvc2 = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-        qvc2.question = Question(question: "What is Josh's favorite hobby?", answers: ["Coding", "Sports", "Curling his hair"], correctAnswer: 2, explanation: "Though one might easily mistake Josh's favorite hobby for coding, coding is actually his job. It is therefore not a hobby. If you answered sports you really don't know Josh at all. In all honesty, Josh actually doesn't have any hobbies, but we currently don't have functionality for a question not to have a correct answer. Therefore curling his hair is the closest thing Josh has to a hobby.")
-        let qvc3 = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-        qvc3.question = Question(question: "Can this app change the way iXperience communicates and engages with its students?", answers: ["Yes", "No"], correctAnswer: 0, explanation: "While simply sending out emails every day was already a huge step forward in terms of keeping everybody on the same page and engaged in the program, we believe this app can be the next step towards maximizing the study abroad experience. Not only will it facilitate and encourage open and active communication, it will also cultivate an environment of curiosity, safe exploration, and learning.")
+        qvc2.question = Question(question: "Do you spell the word 'remarkbly' with or without a 'b'?", answers: ["With", "Without"], correctAnswer: 1, explanation: "While the average person might think remarkbly is spelled with a 'b', our brilliant boss Rafi insists that it does not contain a 'b'. Therefore the correct answer is without.")
         let tvc = ThanksViewController(nibName: "ThanksViewController", bundle: nil)
-        self.navigationController?.setViewControllers([self, tvc, qvc3, qvc2, qvc1], animated: true)
+        self.navigationController?.setViewControllers([self, tvc, qvc2, qvc1], animated: true)
     }
     
     func challengeButtonTapped(sender: UIButton) {
